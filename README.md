@@ -49,7 +49,8 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 ### Changes
 
 - Analytics changed to async loading.
-- Created webp images and thumbnails. (http://image.online-convert.com/convert-to-webp)
+- Created webp images and thumbnails. (Resource: http://image.online-convert.com/convert-to-webp)
 - media="print" added to print.css loading.
-- Minified style.css. (http://cssminifier.com/)
+- Minified style.css. (Resource: http://cssminifier.com/)
 - (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
+- Took the @font-face css sections for "latin" only from "http://fonts.googleapis.com/css?family=Open+Sans:400,700" and put it in style.css. (Resource: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
