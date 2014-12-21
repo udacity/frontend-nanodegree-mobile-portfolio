@@ -49,4 +49,5 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 ### Changes
 
 - Analytics changed to async loading.
-- Created webp images and thumbnails.
+- Created webp images and thumbnails. (http://image.online-convert.com/convert-to-webp)
+- media="print" added to print.css loading.
