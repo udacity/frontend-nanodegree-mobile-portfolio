@@ -12,12 +12,14 @@ module.exports = function(grunt) {
         dest: 'js/perfmatters.min.js'
       }
     },
+    // Minify css with cssmin plugin. (https://github.com/gruntjs/grunt-contrib-cssmin)
     cssmin: {
       my_target: {
         files: [{
           expand: true,
           cwd: 'css/',
-          src: '*.css',
+          // Exclude previous "min" files in order to overwrite them.
+          src: ['*.css','!*.min.css'],
           dest: 'css/',
           ext: '.min.css'
         }]
