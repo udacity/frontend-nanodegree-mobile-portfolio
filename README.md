@@ -54,3 +54,4 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 - Minified style.css. (Resource: http://cssminifier.com/)
 - (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
 - Took the @font-face css sections for "latin" only from "http://fonts.googleapis.com/css?family=Open+Sans:400,700" and put it in style.css. (Resource: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
+- Learned about Grunt and minifying css with "https://www.youtube.com/watch?v=MK_UhwymsvU".
