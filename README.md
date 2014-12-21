@@ -1,9 +1,10 @@
 ## Website Performance Optimization portfolio project
 
-The web site is located at http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
+- Web site: http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
 
-The link to PageSpeed Insights is https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
+- PageSpeed Insights is https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
 
+- Github repo: https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/tree/gh-pages
 
 ### Changes
 
