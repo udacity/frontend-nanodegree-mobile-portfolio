@@ -303,29 +303,29 @@ function randomName() {
 };
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
+var selectRandom = function(itemType) {
+  var randIndex = Math.floor((Math.random() * pizzaIngredients[itemType].length));
+  return pizzaIngredients[itemType][randIndex];
+}
+
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
-  return randomMeat;
+  return selectRandom('meats');
 }
 
 var selectRandomNonMeat = function() {
-  var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
-  return randomNonMeat;
+  return selectRandom('nonMeats');
 }
 
 var selectRandomCheese = function() {
-  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
-  return randomCheese;
+  return selectRandom('cheeses');
 }
 
 var selectRandomSauce = function() {
-  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
-  return randomSauce;
+  return selectRandom('sauces');
 }
 
 var selectRandomCrust = function() {
-  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
-  return randomCrust;
+  return selectRandom('crusts');
 }
 
 var ingredientItemizer = function(string) {
@@ -528,7 +528,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "images/pizza.webp";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
