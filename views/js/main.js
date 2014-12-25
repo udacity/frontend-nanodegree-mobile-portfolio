@@ -483,17 +483,18 @@ console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "
 // Iterator for number of times the pizzas in the background have scrolled.
 // Used by updatePositions() to decide when to log the average time per frame
 var frame = 0;
-var frameCap = 10;
 
-// Logs the approximate fps rate while moving the sliding background pizzas on scroll.
+
+// Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
 function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
   var numberOfEntries = times.length;
   var sum = 0;
-  for (var i = numberOfEntries - 1; i > numberOfEntries - 1 - frameCap; i--) {
+  for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
     sum = sum + times[i].duration;
   }
-  console.log("Approximate frames per second: " + (1000 * frameCap / sum) + "fps");
+  console.log("Average time to generate last 10 frames: " + sum / 10 + "ms (" + (1000 * 10 / sum) + "fps)");
 }
+
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
@@ -506,8 +507,8 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   var offset = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
-      var box = items[i].getBoundingClientRect();
-      if (box.bottom < window.innerHeight + 256) {
+      // var box = items[i].getBoundingClientRect();
+      if (items[i].posY < window.innerHeight + 256) {
         var phase = Math.sin(offset + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
       } else break;
@@ -517,7 +518,7 @@ function updatePositions() {
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-  if (frame % frameCap === 0) {
+  if (frame % 10 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
@@ -537,7 +538,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    elem.posY = Math.floor(i / cols) * s;
+    elem.style.top = elem.posY + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
