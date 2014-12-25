@@ -506,11 +506,13 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   var offset = document.body.scrollTop / 1250;
+  var winHeight = window.innerHeight;
+  var winWidth = window.innerWidth;
   for (var i = 0; i < items.length; i++) {
-      // var box = items[i].getBoundingClientRect();
-      if (items[i].posY < window.innerHeight + 256) {
+      var item = items[i];
+      if (item.posY <= winHeight + 256 && item.basicLeft <= winWidth) {
         var phase = Math.sin(offset + (i % 5));
-        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+        item.style.left = item.basicLeft + 100 * phase + 'px';
       } else break;
   }
 
