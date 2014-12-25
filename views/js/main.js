@@ -507,10 +507,10 @@ function updatePositions() {
   var offset = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
       var box = items[i].getBoundingClientRect();
-      if (box.bottom < window.innerHeight + 2 * 256) {
+      if (box.bottom < window.innerHeight + 256) {
         var phase = Math.sin(offset + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-      }
+      } else break;
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
