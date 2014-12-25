@@ -508,6 +508,7 @@ function updatePositions() {
   var offset = document.body.scrollTop / 1250;
   var winHeight = window.innerHeight;
   var winWidth = window.innerWidth;
+    console.log(winWidth);
   for (var i = 0; i < items.length; i++) {
       var item = items[i];
       if (item.posY <= winHeight + 256 && item.basicLeft <= winWidth) {
