@@ -527,18 +527,19 @@ function updatePositions() {
 
 function requestTick() {
     if (!updateRunning) {
-        updateRunning = true;
-        requestAnimationFrame(updatePositions);
+        var scrollTop = document.body.scrollTop / 1250
+        if (offset != scrollTop) {
+            offset = scrollTop;
+            updateRunning = true;
+            requestAnimationFrame(updatePositions);
+        }
     }
 }
 
 var offset = 0;
 var updateRunning = false;
 function onScroll() { 
-    if (offset != document.body.scrollTop / 1250) {
-        offset = document.body.scrollTop / 1250;
-        requestTick();
-    }
+    requestTick();
 }
 
 // runs updatePositions on scroll
