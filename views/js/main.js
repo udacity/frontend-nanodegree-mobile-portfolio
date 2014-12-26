@@ -502,7 +502,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 var lastOffset = null;
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
-    updateRunning = false;
+  updateRunning = false;
   if (offset === lastOffset) return;
     
   lastOffset = offset;
@@ -529,8 +529,8 @@ function updatePositions() {
 
 function requestTick() {
     if (!updateRunning) {
-        requestAnimationFrame(updatePositions);
         updateRunning = true;
+        requestAnimationFrame(updatePositions);
     }
 }
 
