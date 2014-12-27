@@ -303,6 +303,7 @@ function randomName() {
 };
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
+// NOTE: Consolidated the below functions into a call to "selectRandom".
 var selectRandom = function(itemType) {
     var randIndex = Math.floor((Math.random() * pizzaIngredients[itemType].length));
     return pizzaIngredients[itemType][randIndex];
@@ -449,31 +450,25 @@ var resizePizzas = function(size) {
 
     // Iterates through pizza elements on the page and changes their widths
     // NOTE: Document query removed from loop
+    // NOTE: Using local pizzas array instead of a document query.
     function changePizzaSizes(size) {
-        var pizzaA = document.querySelectorAll(".randomPizzaContainer")[0]
-        var dx = determineDx(pizzaA, size);
-        var newwidth = (pizzaA.offsetWidth + dx) + "px";
+        var dx = determineDx(pizzaContainer[0], size);
+        var newwidth = (pizzaContainer[0].offsetWidth + dx) + "px";
         for (var i = 0; i < pizzas.length; i++) {
             pizzas[i].style.width = newwidth;
         }
     }
 
     changePizzaSizes(size);
-
-    // User Timing API is awesome
-    window.performance.mark("mark_end_resize");
-    window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-    var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-    console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 }
 
-window.performance.mark("mark_start_generating"); // collect timing data
 
 // NOTE: Document get element removed from loop
 var pizzasDiv = document.getElementById("randomPizzas");
-// Get the two pizzas created in pizza.html and add to array.
-var pc = document.querySelectorAll(".randomPizzaContainer");
-var pizzas = [pc[0], pc[1]];
+// NOTE: Get the two pizzas created in pizza.html and add to array.
+var pizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+// NOTE: Added an array for storing the pizza divs.
+var pizzas = [pizzaContainer[0], pizzaContainer[1]];
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
     var pizza = pizzaElementGenerator(i);
@@ -481,63 +476,30 @@ for (var i = 2; i < 100; i++) {
     pizzas.push(pizza);
 }
 
-// User Timing API again. These measurements tell you how long it took to generate the initial pizzas
-window.performance.mark("mark_end_generating");
-window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
-var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
-console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
-
-// Iterator for number of times the pizzas in the background have scrolled.
-// Used by updatePositions() to decide when to log the average time per frame
-var frame = 0;
-
-
-// Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
-function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
-    var numberOfEntries = times.length;
-    var sum = 0;
-    for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
-        sum = sum + times[i].duration;
-    }
-    console.log("Average time to generate last 10 frames: " + sum / 10 + "ms (" + (1000 * 10 / sum) + "fps)");
-}
-
-
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 // Moves the sliding background pizzas based on scroll position
+// NOTE: Removed timing logger.
+// NOTE: Removed document queries.
 function updatePositions() {
     updateRunning = false;
-
-    //  var lastOffset = offset;
-
-    frame++;
-//    window.performance.mark("mark_start_frame");
-
-    //var items = document.querySelectorAll('.mover');
+    // NOTE: Changed style repositioning to a transform.
     for (var i = 0; i < items.length; i++) {
-        //var phase = Math.sin(lastOffset + (i % 5));
-        //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
         var transform = "translateX(" + 100 * Math.sin(offset + (i % 5)) + "px)";
         items[i].style.webkitTransform = transform;
         items[i].style.MozTransform = transform;
         items[i].style.msTransform = transform;
         items[i].style.OTransform = transform;
         items[i].style.transform = transform;
-
     }
-
-    // User Timing API to the rescue again. Seriously, it's worth learning.
-    // Super easy to create custom metrics.
-//    window.performance.mark("mark_end_frame");
-//    window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-//    if (frame % 10 === 0) {
-//        var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
-//        logAverageFrame(timesToUpdatePosition);
-//    }
 }
 
-function requestTick() {
+// NOTE: Added variable to track last known scrollTop calculation.
+var offset = 0;
+// NOTE: Added boolean to limit animation frame requests.
+var updateRunning = false;
+// NOTE: Added method that queues a requestAnimationFrame on scroll
+function onScroll() { 
     if (!updateRunning) {
         offset = document.body.scrollTop / 1250;
         updateRunning = true;
@@ -545,17 +507,13 @@ function requestTick() {
     }
 }
 
-var offset = 0;
-var updateRunning = false;
-function onScroll() { 
-    requestTick();
-}
-
-// runs updatePositions on scroll
+// Runs onScroll method when scrolling is detected.
 window.addEventListener('scroll', onScroll);
 
+// NOTE: Added array for storing img elements.
 var items = [];
 // Generates the sliding pizzas when the page loads.
+// NOTE: Removed basicLeft attribute during switch to using transform.
 document.addEventListener('DOMContentLoaded', function() {
     var maxHeight = window.innerHeight + 256;
     var cols = 8;
