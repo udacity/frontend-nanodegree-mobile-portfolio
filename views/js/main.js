@@ -533,6 +533,7 @@ function updatePositions() {
 
 function requestTick() {
     if (!updateRunning) {
+        offset = document.body.scrollTop / 1250;
 //        var scrollTop = document.body.scrollTop / 1250
 //        if (offset != scrollTop) {
 //            offset = scrollTop;
