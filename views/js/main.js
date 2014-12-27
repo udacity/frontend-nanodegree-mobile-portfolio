@@ -503,16 +503,16 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   updateRunning = false;
     
-  var lastOffset = offset;
+//  var lastOffset = offset;
     
   frame++;
   window.performance.mark("mark_start_frame");
 
   //var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(lastOffset + (i % 5));
+    //var phase = Math.sin(lastOffset + (i % 5));
     //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    var transform = "translateX(" + 100 * phase + "px)";
+    var transform = "translateX(" + 100 * Math.sin(offset + (i % 5)) + "px)";
     items[i].style.webkitTransform = transform;
     items[i].style.MozTransform = transform;
     items[i].style.msTransform = transform;
@@ -533,12 +533,12 @@ function updatePositions() {
 
 function requestTick() {
     if (!updateRunning) {
-        var scrollTop = document.body.scrollTop / 1250
-        if (offset != scrollTop) {
-            offset = scrollTop;
+        offset = document.body.scrollTop / 1250
+//        if (offset != scrollTop) {
+//            offset = scrollTop;
             updateRunning = true;
             requestAnimationFrame(updatePositions);
-        }
+//        }
     }
 }
 
