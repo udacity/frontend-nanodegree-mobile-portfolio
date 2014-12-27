@@ -509,10 +509,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   //var items = document.querySelectorAll('.mover');
-  var cols = 8;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(lastOffset + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+      items[i].style.transform = "translateX(" + 100 * phase + "px)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -559,8 +559,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.webp";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
     elem.style.top = posY + 'px';
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.zIndex = -1;
     items.push(elem);
     document.querySelector("#movingPizzas1").appendChild(elem);
