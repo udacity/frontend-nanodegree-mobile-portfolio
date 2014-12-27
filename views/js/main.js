@@ -512,7 +512,13 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(lastOffset + (i % 5));
     //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-      items[i].style.webkitTransform = "translateX(" + 100 * phase + "px)";
+    var transform = "translateX(" + 100 * phase + "px)";
+    items[i].style.webkitTransform = transform;
+    items[i].style.MozTransform = transform;
+    items[i].style.msTransform = transform;
+    items[i].style.OTransform = transform;
+    items[i].style.transform = transform;
+      
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -561,7 +567,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.style.top = posY + 'px';
     elem.style.left = (i % cols) * s + 'px';
-    elem.style.zIndex = -1;
     items.push(elem);
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
