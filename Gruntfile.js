@@ -47,6 +47,15 @@ module.exports = function(grunt) {
                     ext: '.min.css'
             }]
         }
+    },
+    watch: {
+        scripts: {
+            files: ['js/*.js', 'views/js/*.js'],
+            tasks: ['uglify'],
+            options: {
+                spawn: false,
+            },
+        } 
     }
   });
 
@@ -55,8 +64,11 @@ module.exports = function(grunt) {
   
   // Load the plugin that provides the css minification task.
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+    
+  // Load the plugin that watches for changes.
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify','cssmin']);
+  grunt.registerTask('default', ['uglify','cssmin','watch']);
 
 };

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/issues"
   },
-  "homepage": "https://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/"
+  "homepage": "https://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/",
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1"
+  }
 }
