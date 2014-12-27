@@ -529,6 +529,7 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
+    requestAnimationFrame(updatePositions);
 }
 
 function requestTick() {
@@ -545,7 +546,8 @@ function requestTick() {
 var offset = 0;
 var updateRunning = false;
 function onScroll() { 
-    requestTick();
+    offset = document.body.scrollTop / 1250;
+//    requestTick();
 }
 
 // runs updatePositions on scroll
@@ -572,3 +574,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   updatePositions();
 });
+requestAnimationFrame(updatePositions);
