@@ -17,6 +17,8 @@
   },
   "homepage": "https://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/",
   "devDependencies": {
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsdoc": "^0.5.7",
+    "ink-docstrap": "^0.4.12"
   }
 }

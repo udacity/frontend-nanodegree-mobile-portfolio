@@ -1,6 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-- Web site: http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
+- View the web site here: http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
 - PageSpeed Insights setup is https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
 - Github repo: https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/tree/gh-pages
     - Note: The final project is in gh-pages branch, ***not*** the master branch.
@@ -15,14 +15,6 @@
 - **@font-face**: Took the @font-face css sections for "*latin*" only from google api css and put it in local style.css.
     - Resource: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization
     - Resource: http://fonts.googleapis.com/css?family=Open+Sans:400,700
-- **Minified css** with Grunt.
-    - Resource: https://www.youtube.com/watch?v=MK_UhwymsvU
-    - Resource: https://github.com/gruntjs/grunt-contrib-cssmin/issues/83
-        - How to prevent concatenation problem when re-minifying css.
-- **Minified js** with Grunt but used the **cssmin** *files* format for multiple directories.
-    - Resource: http://gruntjs.com/sample-gruntfile
-- **Grunt Watch** for auto-minifying js and css when files changed.
-    - Resource: http://24ways.org/2013/grunt-is-not-weird-and-hard/
 
 
 ### Chnages to pizza.html and assets.
@@ -41,3 +33,18 @@
 - **Global list variables** used to store pizza elements and eliminate most document queries.
     - `var items` moved to global.
     - Global `var pizzasDiv`, `var pizzaContainer`, and `var pizzas` created for storing DOM elements.
+
+
+### Grunt task automation used
+
+- **Minified css** with Grunt.
+    - Resource: https://www.youtube.com/watch?v=MK_UhwymsvU
+    - Resource: https://github.com/gruntjs/grunt-contrib-cssmin/issues/83
+        - Shows how to prevent concatenation problem when re-minifying css.
+- **Minified js** with Grunt but used the **cssmin** *files* format for multiple directories.
+    - Resource: http://gruntjs.com/sample-gruntfile
+- **Grunt Watch** for minifying js and css when files changed.
+    - Resource: http://24ways.org/2013/grunt-is-not-weird-and-hard/
+- **Grunt JSDoc** added for automating documentation (also added `watch` plugin).
+    - Resource: https://github.com/krampstudio/grunt-jsdoc/blob/master/Gruntfile.js
+        - Shows how to use Docstrap with themes.
