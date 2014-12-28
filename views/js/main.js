@@ -20,132 +20,132 @@ cameron *at* udacity *dot* com
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
-  "Pepperoni",
-  "Sausage",
-  "Fennel Sausage",
-  "Spicy Sausage",
-  "Chicken",
-  "BBQ Chicken",
-  "Chorizo",
-  "Chicken Andouille",
-  "Salami",
-  "Tofu",
-  "Bacon",
-  "Canadian Bacon",
-  "Proscuitto",
-  "Italian Sausage",
-  "Ground Beef",
-  "Anchovies",
-  "Turkey",
-  "Ham",
-  "Venison",
-  "Lamb",
-  "Duck",
-  "Soylent Green",
-  "Carne Asada",
-  "Soppressata Picante",
-  "Coppa",
-  "Pancetta",
-  "Bresola",
-  "Lox",
-  "Guanciale",
-  "Chili",
-  "Beef Jerky",
-  "Pastrami",
-  "Kielbasa",
-  "Scallops",
-  "Filet Mignon"
+    "Pepperoni",
+    "Sausage",
+    "Fennel Sausage",
+    "Spicy Sausage",
+    "Chicken",
+    "BBQ Chicken",
+    "Chorizo",
+    "Chicken Andouille",
+    "Salami",
+    "Tofu",
+    "Bacon",
+    "Canadian Bacon",
+    "Proscuitto",
+    "Italian Sausage",
+    "Ground Beef",
+    "Anchovies",
+    "Turkey",
+    "Ham",
+    "Venison",
+    "Lamb",
+    "Duck",
+    "Soylent Green",
+    "Carne Asada",
+    "Soppressata Picante",
+    "Coppa",
+    "Pancetta",
+    "Bresola",
+    "Lox",
+    "Guanciale",
+    "Chili",
+    "Beef Jerky",
+    "Pastrami",
+    "Kielbasa",
+    "Scallops",
+    "Filet Mignon"
 ];
 pizzaIngredients.nonMeats = [
-  "White Onions",
-  "Red Onions",
-  "Sauteed Onions",
-  "Green Peppers",
-  "Red Peppers",
-  "Banana Peppers",
-  "Ghost Peppers",
-  "Habanero Peppers",
-  "Jalapeno Peppers",
-  "Stuffed Peppers",
-  "Spinach",
-  "Tomatoes",
-  "Pineapple",
-  "Pear Slices",
-  "Apple Slices",
-  "Mushrooms",
-  "Arugula",
-  "Basil",
-  "Fennel",
-  "Rosemary",
-  "Cilantro",
-  "Avocado",
-  "Guacamole",
-  "Salsa",
-  "Swiss Chard",
-  "Kale",
-  "Sun Dried Tomatoes",
-  "Walnuts",
-  "Artichoke",
-  "Asparagus",
-  "Caramelized Onions",
-  "Mango",
-  "Garlic",
-  "Olives",
-  "Cauliflower",
-  "Polenta",
-  "Fried Egg",
-  "Zucchini",
-  "Hummus"
+    "White Onions",
+    "Red Onions",
+    "Sauteed Onions",
+    "Green Peppers",
+    "Red Peppers",
+    "Banana Peppers",
+    "Ghost Peppers",
+    "Habanero Peppers",
+    "Jalapeno Peppers",
+    "Stuffed Peppers",
+    "Spinach",
+    "Tomatoes",
+    "Pineapple",
+    "Pear Slices",
+    "Apple Slices",
+    "Mushrooms",
+    "Arugula",
+    "Basil",
+    "Fennel",
+    "Rosemary",
+    "Cilantro",
+    "Avocado",
+    "Guacamole",
+    "Salsa",
+    "Swiss Chard",
+    "Kale",
+    "Sun Dried Tomatoes",
+    "Walnuts",
+    "Artichoke",
+    "Asparagus",
+    "Caramelized Onions",
+    "Mango",
+    "Garlic",
+    "Olives",
+    "Cauliflower",
+    "Polenta",
+    "Fried Egg",
+    "Zucchini",
+    "Hummus"
 ];
 pizzaIngredients.cheeses = [
-  "American Cheese",
-  "Swiss Cheese",
-  "Goat Cheese",
-  "Mozzarella Cheese",
-  "Parmesean Cheese",
-  "Velveeta Cheese",
-  "Gouda Cheese",
-  "Muenster Cheese",
-  "Applewood Cheese",
-  "Asiago Cheese",
-  "Bleu Cheese",
-  "Boursin Cheese",
-  "Brie Cheese",
-  "Cheddar Cheese",
-  "Chevre Cheese",
-  "Havarti Cheese",
-  "Jack Cheese",
-  "Pepper Jack Cheese",
-  "Gruyere Cheese",
-  "Limberger Cheese",
-  "Manchego Cheese",
-  "Marscapone Cheese",
-  "Pecorino Cheese",
-  "Provolone Cheese",
-  "Queso Cheese",
-  "Roquefort Cheese",
-  "Romano Cheese",
-  "Ricotta Cheese",
-  "Smoked Gouda"
+    "American Cheese",
+    "Swiss Cheese",
+    "Goat Cheese",
+    "Mozzarella Cheese",
+    "Parmesean Cheese",
+    "Velveeta Cheese",
+    "Gouda Cheese",
+    "Muenster Cheese",
+    "Applewood Cheese",
+    "Asiago Cheese",
+    "Bleu Cheese",
+    "Boursin Cheese",
+    "Brie Cheese",
+    "Cheddar Cheese",
+    "Chevre Cheese",
+    "Havarti Cheese",
+    "Jack Cheese",
+    "Pepper Jack Cheese",
+    "Gruyere Cheese",
+    "Limberger Cheese",
+    "Manchego Cheese",
+    "Marscapone Cheese",
+    "Pecorino Cheese",
+    "Provolone Cheese",
+    "Queso Cheese",
+    "Roquefort Cheese",
+    "Romano Cheese",
+    "Ricotta Cheese",
+    "Smoked Gouda"
 ];
 pizzaIngredients.sauces = [
-  "Red Sauce",
-  "Marinara",
-  "BBQ Sauce",
-  "No Sauce",
-  "Hot Sauce"
+    "Red Sauce",
+    "Marinara",
+    "BBQ Sauce",
+    "No Sauce",
+    "Hot Sauce"
 ];
 pizzaIngredients.crusts = [
-  "White Crust",
-  "Whole Wheat Crust",
-  "Flatbread Crust",
-  "Stuffed Crust"
+    "White Crust",
+    "Whole Wheat Crust",
+    "Flatbread Crust",
+    "Stuffed Crust"
 ];
 
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
 String.prototype.capitalize = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1);
+    return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
 // Pulls adjective out of array using random number sent from generator
@@ -305,29 +305,17 @@ function randomName() {
 // These functions return a string of a random ingredient from each respective category of ingredients.
 // NOTE: Consolidated the below functions into a call to "selectRandom".
 var selectRandom = function(itemType) {
-    var randIndex = Math.floor((Math.random() * pizzaIngredients[itemType].length));
-    return pizzaIngredients[itemType][randIndex];
+    return function() {
+        var randIndex = Math.floor((Math.random() * pizzaIngredients[itemType].length));
+        return pizzaIngredients[itemType][randIndex];
+    }
 }
 
-var selectRandomMeat = function() {
-    return selectRandom('meats');
-}
-
-var selectRandomNonMeat = function() {
-    return selectRandom('nonMeats');
-}
-
-var selectRandomCheese = function() {
-    return selectRandom('cheeses');
-}
-
-var selectRandomSauce = function() {
-    return selectRandom('sauces');
-}
-
-var selectRandomCrust = function() {
-    return selectRandom('crusts');
-}
+var selectRandomMeat = selectRandom('meats');
+var selectRandomNonMeat = selectRandom('nonMeats');
+var selectRandomCheese = selectRandom('cheeses');
+var selectRandomSauce = selectRandom('sauces');
+var selectRandomCrust = selectRandom('crusts');
 
 var ingredientItemizer = function(string) {
     return "<li>" + string + "</li>";
@@ -452,6 +440,7 @@ var resizePizzas = function(size) {
     // NOTE: Document query removed from loop
     // NOTE: Using local pizzas array instead of a document query.
     function changePizzaSizes(size) {
+        // NOTE: "dx" and "newwidth" only need one time calculation.
         var dx = determineDx(pizzaContainer[0], size);
         var newwidth = (pizzaContainer[0].offsetWidth + dx) + "px";
         for (var i = 0; i < pizzas.length; i++) {

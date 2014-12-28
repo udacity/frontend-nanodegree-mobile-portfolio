@@ -1,19 +1,43 @@
 ## Website Performance Optimization portfolio project
 
 - Web site: http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
-
-- PageSpeed Insights is https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
-
+- PageSpeed Insights setup is https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
 - Github repo: https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/tree/gh-pages
+    - Note: The final project is in gh-pages branch, ***not*** the master branch.
 
-### Changes
+### Changes to index.html and assets.
 
-- Analytics changed to async loading.
-- Created webp images and thumbnails. (Resource: http://image.online-convert.com/convert-to-webp)
-- media="print" added to print.css loading.
+- **analytics.js** changed to *async* loading.
+- **Images** changed to webp format and created thumbnails. 
+    - Resource: http://image.online-convert.com/convert-to-webp
+- **print.css** added media="print" to restrict loading to when necessary.
 - (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
-- Took the @font-face css sections for "latin" only from "http://fonts.googleapis.com/css?family=Open+Sans:400,700" and put it in style.css. (Resource: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
-- Learned about Grunt and minifying css with "https://www.youtube.com/watch?v=MK_UhwymsvU".
-- Looked at "https://github.com/gruntjs/grunt-contrib-cssmin/issues/83" to solve a bug in cssmin plugin for Grunt.
+- **@font-face**: Took the @font-face css sections for "*latin*" only from google api css and put it in local style.css.
+    - Resource: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization
+    - Resource: http://fonts.googleapis.com/css?family=Open+Sans:400,700
+- **Minified css** with Grunt.
+    - Resource: https://www.youtube.com/watch?v=MK_UhwymsvU
+    - Resource: https://github.com/gruntjs/grunt-contrib-cssmin/issues/83
+        - How to prevent concatenation problem when re-minifying css.
+- **Minified js** with Grunt but used the **cssmin** *files* format for multiple directories.
+    - Resource: http://gruntjs.com/sample-gruntfile
+- **Grunt Watch** for auto-minifying js and css when files changed.
+    - Resource: http://24ways.org/2013/grunt-is-not-weird-and-hard/
 
-- Consolidated repeated code in ingredient randomizer.
+
+### Chnages to pizza.html and assets.
+
+- **Random ingredient** functions consolidated. Repeated code placed in function `selectRandom`.
+    - `selectRandom` takes one parameter ("meats", "nonMeats", etc.) and returns a randomizer function.
+- **Change pizza sizes** function now uses a global variable that stores the pizza div elements instead of repeated document queries.
+    - `var dx` and `var newwdith` calculations removed from loop.
+- **Timing API** removed from code because it is not necessary for web site performance.
+- **Pizza movement** changed from editing `elem.style.left` positioning to editing `elem.style.transform: translateX`.
+    - Resource: https://docs.google.com/presentation/d/19R_E5B__kdE55L1bTpS6IFKbYbHq-PQKKky4do5Yc6A/edit#slide=id.ge7672e82_064
+    - `elem.style.basicLeft` became unnecessary because `elem.style.left` no longer changes.
+- **Request animation frame** implemented.
+    - Resource: http://www.html5rocks.com/en/tutorials/speed/animations/
+    - `onScroll` function added that limits the calls to rAF.
+- **Global list variables** used to store pizza elements and eliminate most document queries.
+    - `var items` moved to global.
+    - Global `var pizzasDiv`, `var pizzaContainer`, and `var pizzas` created for storing DOM elements.
