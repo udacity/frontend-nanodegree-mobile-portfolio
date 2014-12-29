@@ -1,4 +1,4 @@
-## Website Performance Optimization portfolio project
+## Website Performance Optimization Project
 
 - View the web site here: http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
 - PageSpeed Insights setup is here: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
@@ -17,7 +17,7 @@
     - Resource: http://fonts.googleapis.com/css?family=Open+Sans:400,700
 
 
-### Chnages to pizza.html and assets.
+### Changes to pizza.html and assets.
 
 - **Random ingredient** functions consolidated. Repeated code placed in function `selectRandom`.
     - `selectRandom` takes one parameter ("meats", "nonMeats", etc.) and returns a randomizer function.
@@ -40,11 +40,18 @@
 - **Minified css** with Grunt.
     - Resource: https://www.youtube.com/watch?v=MK_UhwymsvU
     - Resource: https://github.com/gruntjs/grunt-contrib-cssmin/issues/83
-        - Shows how to prevent concatenation problem when re-minifying css.
+        - Learned how to prevent concatenation problem when re-minifying css.
 - **Minified js** with Grunt but used the **cssmin** *files* format for multiple directories.
     - Resource: http://gruntjs.com/sample-gruntfile
 - **Grunt Watch** for minifying js and css when files changed.
     - Resource: http://24ways.org/2013/grunt-is-not-weird-and-hard/
 - **Grunt JSDoc** added for automating documentation (also added `watch` plugin).
     - Resource: https://github.com/krampstudio/grunt-jsdoc/blob/master/Gruntfile.js
-        - Shows how to use Docstrap with themes.
+        - Learned how to use Docstrap with themes.
+        
+### Other Resources and Tools
+
+- **Brackets** for html, css, and js editing: http://brackets.io/
+    - JSDoc style block comment plugin: https://github.com/wikunia/brackets-funcdocr
+    - Block comment plugin: https://github.com/peterflynn/reasonable-comments
+- **Dillinger** for markdown editing: http://dillinger.io/

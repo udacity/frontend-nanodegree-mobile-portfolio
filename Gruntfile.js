@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['js/*.js', 'views/js/*.js'],
+                files: ['js/*.js', 'views/js/*.js', 'README.md'],
                 tasks: ['uglify','jsdoc'],
                 options: {
                     spawn: false,
