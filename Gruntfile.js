@@ -58,16 +58,18 @@ module.exports = function(grunt) {
             } 
         },
         jsdoc : {
-            dist : {
-                src: ['js/*.js', 'views/js/*.js', 'README.md'], 
-                options: {
-                    destination: 'doc'
-                }
-            },
+            // JSDoc default theme.
+//            dist : { 
+//                src: ['js/*.js', 'views/js/*.js', 'README.md'], 
+//                options: {
+//                    destination: 'doc'
+//                }
+//            },
+            // DocStrap theme (see jsdoc.conf.json file).
             docstrap : {
                 src: ['js/*.js', 'views/js/*.js', 'README.md'], 
                 options: {
-                    destination: 'docstrap',
+                    destination: 'doc',
                     template : 'node_modules/ink-docstrap/template',
                     configure : "node_modules/ink-docstrap/template/jsdoc.conf.json"
                 }
