@@ -1,9 +1,10 @@
 ## Website Performance Optimization Project
 
-- View the web site here: http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/
-- PageSpeed Insights setup is here: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop
-- Github repo: https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/tree/gh-pages
+- [Web site live view](http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/)
+- [PageSpeed Insights setup](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop)
+- [Github repo](https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/tree/gh-pages)
     - Note: The final project is in gh-pages branch, ***not*** the master branch.
+- [Documentation and notes](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Ripley6811/frontend-nanodegree-mobile-portfolio/gh-pages/doc/index.html)
 
 ### Changes to index.html and assets.
 
