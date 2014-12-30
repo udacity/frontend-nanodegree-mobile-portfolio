@@ -1,4 +1,111 @@
-/*
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Website Optimization Project Source: main.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spruce.css">
+
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Website Optimization Project</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="global.html#ingredientItemizer">ingredientItemizer</a>
+						</li>
+						
+						<li>
+							<a href="global.html#items">items</a>
+						</li>
+						
+						<li>
+							<a href="global.html#loadBackgroundPizzas">loadBackgroundPizzas</a>
+						</li>
+						
+						<li>
+							<a href="global.html#makeRandomPizza">makeRandomPizza</a>
+						</li>
+						
+						<li>
+							<a href="global.html#offset">offset</a>
+						</li>
+						
+						<li>
+							<a href="global.html#onScroll">onScroll</a>
+						</li>
+						
+						<li>
+							<a href="global.html#pizzaContainer">pizzaContainer</a>
+						</li>
+						
+						<li>
+							<a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a>
+						</li>
+						
+						<li>
+							<a href="global.html#pizzas">pizzas</a>
+						</li>
+						
+						<li>
+							<a href="global.html#pizzasDiv">pizzasDiv</a>
+						</li>
+						
+						<li>
+							<a href="global.html#resizePizzas">resizePizzas</a>
+						</li>
+						
+						<li>
+							<a href="global.html#selectRandom">selectRandom</a>
+						</li>
+						
+						<li>
+							<a href="global.html#updatePositions">updatePositions</a>
+						</li>
+						
+						<li>
+							<a href="global.html#updateRunning">updateRunning</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+			<div class="span12">
+				
+				<div id="main">
+					
+
+
+		<h1 class="page-title">Source: main.js</h1>
+    
+<section>
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">/*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
 
@@ -326,11 +433,11 @@ var selectRandomCrust = selectRandom('crusts');
  * @returns {String} HTML code for a list item containing the string.
  */
 var ingredientItemizer = function(string) {
-    return "<li>" + string + "</li>";
+    return "&lt;li>" + string + "&lt;/li>";
 }
 
 /**
- * Returns a string with random pizza ingredients nested inside <li> tags.
+ * Returns a string with random pizza ingredients nested inside &lt;li> tags.
  * @returns {String} HTML code for a list of items.
  */
 var makeRandomPizza = function() {
@@ -340,15 +447,15 @@ var makeRandomPizza = function() {
     var numberOfNonMeats = Math.floor((Math.random() * 3));
     var numberOfCheeses = Math.floor((Math.random() * 2));
 
-    for (var i = 0; i < numberOfMeats; i++) {
+    for (var i = 0; i &lt; numberOfMeats; i++) {
         pizza = pizza + ingredientItemizer(selectRandomMeat());
     }
 
-    for (var i = 0; i < numberOfNonMeats; i++) {
+    for (var i = 0; i &lt; numberOfNonMeats; i++) {
         pizza = pizza + ingredientItemizer(selectRandomNonMeat());
     }
 
-    for (var i = 0; i < numberOfCheeses; i++) {
+    for (var i = 0; i &lt; numberOfCheeses; i++) {
         pizza = pizza + ingredientItemizer(selectRandomCheese());
     }
 
@@ -474,7 +581,7 @@ var resizePizzas = function(size) {
         // NOTE: "dx" and "newwidth" only need one time calculation.
         var dx = determineDx(pizzaContainer[0], size);
         var newwidth = (pizzaContainer[0].offsetWidth + dx) + "px";
-        for (var i = 0; i < pizzas.length; i++) {
+        for (var i = 0; i &lt; pizzas.length; i++) {
             pizzas[i].style.width = newwidth;
         }
     }
@@ -496,7 +603,7 @@ var pizzaContainer = document.querySelectorAll(".randomPizzaContainer");
 var pizzas = [pizzaContainer[0], pizzaContainer[1]];
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
+for (var i = 2; i &lt; 100; i++) {
     var pizza = pizzaElementGenerator(i);
     pizzasDiv.appendChild(pizza);
     pizzas.push(pizza);
@@ -510,7 +617,7 @@ for (var i = 2; i < 100; i++) {
 function updatePositions() {
     updateRunning = false;
     // NOTE: Changed style repositioning to a transform.
-    for (var i = 0; i < items.length; i++) {
+    for (var i = 0; i &lt; items.length; i++) {
         var transform = "translateX(" + 100 * Math.sin(offset + (i % 5)) + "px)";
         items[i].style.webkitTransform = transform;
         items[i].style.MozTransform = transform;
@@ -562,7 +669,7 @@ function loadBackgroundPizzas() {
     var maxHeight = window.innerHeight + 256;
     var cols = 8;
     var s = 256;
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i &lt; 200; i++) {
         var posY = Math.floor(i / cols) * s;
         if (posY > maxHeight) break;
 
@@ -579,4 +686,105 @@ function loadBackgroundPizzas() {
     }
     updatePositions();
 }
-document.addEventListener('DOMContentLoaded', loadBackgroundPizzas);
+document.addEventListener('DOMContentLoaded', loadBackgroundPizzas);</pre>
+	</article>
+</section>
+
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="copyright">
+		DocStrap Copyright © 2012-2014 The contributors to the JSDoc3 and DocStrap projects.
+		</span>
+					<br />
+					
+		<span class="jsdoc-message">
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a>
+		on Wed Dec 31st 2014 using the <a
+			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		</span>
+				</footer>
+			</div>
+
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<!--<script src="scripts/sunlight.js"></script>-->
+	<script src="scripts/docstrap.lib.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+	<script>
+		$( function () {
+			$( "[id*='$']" ).each( function () {
+				var $this = $( this );
+
+				$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+			} );
+
+			$( "#toc" ).toc( {
+				anchorName  : function ( i, heading, prefix ) {
+					return $( heading ).attr( "id" ) || ( prefix + i );
+				},
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : "100px"
+			} );
+
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+			$( '.dropdown-toggle' ).dropdown();
+//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+
+			$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+				var $this = $( this );
+
+				var example = $this.find( "code" );
+				exampleText = example.html();
+				var lang = /{@lang (.*?)}/.exec( exampleText );
+				if ( lang && lang[1] ) {
+					exampleText = exampleText.replace( lang[0], "" );
+					example.html( exampleText );
+					lang = lang[1];
+				} else {
+					lang = "javascript";
+				}
+
+				if ( lang ) {
+
+					$this
+						.addClass( "sunlight-highlight-" + lang )
+						.addClass( "linenums" )
+						.html( example.html() );
+
+				}
+			} );
+
+			Sunlight.highlightAll( {
+				lineNumbers : true,
+				showMenu : true,
+				enableDoclinks : true
+			} );
+		} );
+	 </script>
+
+
+
+	<!--Navigation and Symbol Display-->
+	
+
+
+	<!--Google Analytics-->
+	
+
+</body>
+</html>

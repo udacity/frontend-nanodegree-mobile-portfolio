@@ -1,0 +1,24 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "1.0.0",
+  "description": "Optimized Web Site Project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/",
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsdoc": "^0.5.7",
+    "ink-docstrap": "^0.4.12"
+  }
+}
