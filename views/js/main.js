@@ -485,9 +485,10 @@ var resizePizzas = function(size) {
 }
 
 
-// NOTE: Document get element removed from loop
+/** The main div that contains all pizza menu item divs. */
 var pizzasDiv = document.getElementById("randomPizzas");
-// NOTE: Get the two pizzas created in pizza.html and add to array.
+
+/** For referencing the first two pizzas created in pizza.html. */
 var pizzaContainer = document.querySelectorAll(".randomPizzaContainer");
 
 /**
