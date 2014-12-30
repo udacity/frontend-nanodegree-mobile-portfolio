@@ -11,6 +11,8 @@
 - **analytics.js** changed to *async* loading.
 - **Images** changed to webp format and created thumbnails. 
     - Resource: http://image.online-convert.com/convert-to-webp
+- **Picture tag** used to offer JPEG image if the browser does not support WebP.
+    - Resource: http://www.html5rocks.com/en/tutorials/responsive/picture-element/#toc-file-type
 - **print.css** added media="print" to restrict loading to when necessary.
 - (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)
 - **@font-face**: Took the @font-face css sections for "*latin*" only from google api css and put it in local style.css.
