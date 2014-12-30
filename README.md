@@ -4,7 +4,7 @@
 - [PageSpeed Insights setup](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fripley6811.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F&tab=desktop)
 - [Github repo](https://github.com/Ripley6811/frontend-nanodegree-mobile-portfolio/tree/gh-pages)
     - Note: The final project is in gh-pages branch, ***not*** the master branch.
-- [Code Documentation](http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/gh-pages/doc/global.html)
+- [Code Documentation](http://ripley6811.github.io/frontend-nanodegree-mobile-portfolio/doc/global.html)
 
 ### Changes to index.html and assets.
 
