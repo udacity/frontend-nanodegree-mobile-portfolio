@@ -202,15 +202,15 @@ function getAdj(x){
     case "scientific":
       var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"]
+      "extinct", "galactic"];
       return scientific;
     default:
       var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological", 
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar", 
-      "extinct", "galactic"]
+      "extinct", "galactic"];
       return scientific;
-  };
-};
+  }
+}
 
 // Pulls noun out of array using random number sent from generator
 function getNoun(y) {
