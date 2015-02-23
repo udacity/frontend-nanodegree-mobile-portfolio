@@ -432,11 +432,11 @@ var resizePizzas = function(size) {
     function sizeSwitcher (size) {
       switch(size) {
         case "1":
-          return 0.25;
-        case "2":
           return 0.3333;
+        case "2":
+          return 0.6666;
         case "3":
-          return 0.5;
+          return 1;
         default:
           console.log("bug in sizeSwitcher");
       }
@@ -454,11 +454,12 @@ var resizePizzas = function(size) {
     var i = 0;
     // Query the DOM once for elements with class randomPizzaContainer and set result to items
     var items = document.querySelectorAll(".randomPizzaContainer");
+    var allItems = items.length;
     // get dx and newwidth for 1st element
     var dx = determineDx(items[i], size);
     var newwidth = (items[i].offsetWidth + dx) + 'px';
     // loop through pizza elements and apply newwidth
-    for (i; i < items.length; i++) {
+    for (i; i < allItems; i++) {
       items[i].style.width = newwidth;
     }
   }
