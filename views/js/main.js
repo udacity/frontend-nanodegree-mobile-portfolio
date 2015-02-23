@@ -432,11 +432,11 @@ var resizePizzas = function(size) {
     function sizeSwitcher (size) {
       switch(size) {
         case "1":
-          return 0.3333;
+          return 0.25;
         case "2":
-          return 0.6666;
+          return 0.333;
         case "3":
-          return 1;
+          return 0.5;
         default:
           console.log("bug in sizeSwitcher");
       }
