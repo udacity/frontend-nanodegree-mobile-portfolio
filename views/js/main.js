@@ -509,10 +509,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
   // query the DOM for all elements marked as class mover and assign to items
   var items = document.querySelectorAll('.mover');
-  // cache the scrolltop position
-  var cachedScrollTop = document.body.scrollTop;
+  // query the scrolltop position and assign to cachedScrollTop
+  var cachedScrollTop = document.body.scrollTop/1250;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((cachedScrollTop/1250) + (i % 5));
+    var phase = Math.sin(cachedScrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
