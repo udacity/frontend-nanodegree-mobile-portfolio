@@ -511,8 +511,10 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   // query the scrolltop position and assign to cachedScrollTop
   var cachedScrollTop = document.body.scrollTop/1250;
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(cachedScrollTop + (i % 5));
+  var i = 0;
+  var phase;
+  for (i; i < items.length; i++) {
+    phase = Math.sin(cachedScrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
