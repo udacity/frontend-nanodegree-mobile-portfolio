@@ -1,0 +1,24 @@
+<ifModule mod_headers.c>
+# Turn on Expires and set default expires to 3 days
+ExpiresActive On
+ExpiresDefault A259200
+
+# Set up caching on media files for 1 month
+<filesMatch ".(ico|gif|jpg|jpeg|png|flv|pdf|swf|mov|mp3|wmv|ppt)$">
+ExpiresDefault A2419200
+Header append Cache-Control "public"
+</filesMatch>
+
+# Set up 2 Hour caching on commonly updated files
+<filesMatch ".(xml|txt|html|js|css)$">
+ExpiresDefault A7200
+Header append Cache-Control "private, must-revalidate"
+</filesMatch>
+
+# Force no caching for dynamic files
+<filesMatch ".(php|cgi|pl|htm)$">
+ExpiresDefault A0
+Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+Header set Pragma "no-cache"
+</filesMatch>
+</ifModule>
