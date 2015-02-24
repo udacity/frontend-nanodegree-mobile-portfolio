@@ -9,9 +9,9 @@ ExpiresDefault A2419200
 Header append Cache-Control "public"
 </filesMatch>
 
-# Set up 2 Hour caching on commonly updated files
+# Set up 4 Hour caching on commonly updated files
 <filesMatch ".(xml|txt|html|js|css)$">
-ExpiresDefault A7200
+ExpiresDefault A14400
 Header append Cache-Control "private, must-revalidate"
 </filesMatch>
 
