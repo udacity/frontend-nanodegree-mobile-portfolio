@@ -154,50 +154,6 @@
           padding-left: 4.5em;
         }
       }
-      @media print {
-        * {
-          background: transparent !important;
-          color: black !important;
-          text-shadow: none !important;
-          filter: none !important;
-          -ms-filter: none !important;
-        }
-
-        a,
-        a:visited {
-          color: #444 !important;
-          text-decoration: underline;
-        }
-
-        a[href]:after {
-          content: " (" attr(href) ")";
-        }
-
-        tr,
-        img {
-          page-break-inside: avoid;
-        }
-
-        img {
-          max-width: 100% !important;
-        }
-
-      @page {
-          margin: 0.5cm;
-      }
-
-        p,
-        h2,
-        h3 {
-          orphans: 3;
-          widows: 3;
-        }
-
-        h2,
-        h3 {
-          page-break-after: avoid;
-        }
-      }
       @font-face {
         font-family: 'Open Sans';
         font-style: normal;
@@ -206,8 +162,8 @@
         unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
       }
     </style>
-    <!-- <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet"> -->
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <link href="css/print.css" rel="stylesheet" media="print">
 
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
