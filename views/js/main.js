@@ -510,7 +510,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
   // query the DOM for all elements marked as class mover and assign to sliders
   var sliders = document.querySelectorAll('.mover');
-  var allSliders = sliders.length
+  var allSliders = sliders.length;
   // query the scrolltop position and assign to cachedScrollTop
   var cachedScrollTop = document.body.scrollTop/1250;
   var i = 0;
