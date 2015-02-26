@@ -56,6 +56,9 @@ Included a .htaccess file to change default caching behaviour
 * Frame rate of 60fps should be obtained for the pizza page (views/pizza.html)
 	* Pizza sliding functionality contained within the eventListener function which on DOMContentLoaded runs the updatePositions function
 	* Moved the DOM queries out of the loop to only run it once
+
+	![scroll timeline](https://github.com/allbad/frontend-nanodegree-mobile-portfolio/raw/gh-pages/screenshots/ss_scroll_timeline.jpg "Scroll Timeline")
+
 * Identify and perform optimisations impacting content efficiency
 	* Optimised the pizzeria.jpg and pizza.png using ImageAlpha and ImageOptim
 	* Used grunt to minify file resources (see above for plugins used) and build an automated optimisation process
