@@ -38,7 +38,7 @@ Optimisations completed as follows:
 
 ####Result: Pagespeed score of 95 when connecting via ngrok to my PC - 99 when serving from my [website](allgood.technology/optimise/index.html)
 
-![website score](http://allbad.github.io/frontend-nanodegree-mobile-portfolio/screenshots/ss_index_99_at.jpg"Website Score")
+![website score](https://github.com/allbad/frontend-nanodegree-mobile-portfolio/raw/gh-pages/screenshots/ss_index_99_at.jpg "Website Score")
 
 
 ####Part 2: Optimize Frames per Second in pizza.html
