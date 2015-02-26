@@ -46,19 +46,20 @@ Included a .htaccess file to change default caching behaviour
 ###Part 2: Optimize Frames per Second in pizza.html
 
 ####Target:
-*Time to resize pizza is less than 5ms
-	*Resize pizza functionality contained within functions resizePizzas, changeSliderLabel, determineDx, sizeSwitcher and critically in this instance changePizzaSizes
-	*The changePizzaSizes function includes multiple DOM queries in a loop, so moved those outside the loop
+
+* Time to resize pizza is less than 5ms
+	* Resize pizza functionality contained within functions resizePizzas, changeSliderLabel, determineDx, sizeSwitcher and critically in this instance changePizzaSizes
+	* The changePizzaSizes function includes multiple DOM queries in a loop, so moved those outside the loop
 
 	![resize time](https://github.com/allbad/frontend-nanodegree-mobile-portfolio/raw/gh-pages/screenshots/ss_pizza_resize.jpg "Resize Time")
 
-*Frame rate of 60fps should be obtained for the pizza page (views/pizza.html)
+* Frame rate of 60fps should be obtained for the pizza page (views/pizza.html)
 	* Pizza sliding functionality contained within the eventListener function which on DOMContentLoaded runs the updatePositions function
 	* Moved the DOM queries out of the loop to only run it once
-*Identify and perform optimisations impacting content efficiency
-	*Optimised the pizzeria.jpg and pizza.png using ImageAlpha and ImageOptim
-	*Used grunt to minify file resources (see above for plugins used) and build an automated optimisation process
-	*Included a .htaccess file to change default caching behaviour
+* Identify and perform optimisations impacting content efficiency
+	* Optimised the pizzeria.jpg and pizza.png using ImageAlpha and ImageOptim
+	* Used grunt to minify file resources (see above for plugins used) and build an automated optimisation process
+	* Included a .htaccess file to change default caching behaviour
 
 
 
