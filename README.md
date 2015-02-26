@@ -36,9 +36,9 @@ Optimisations completed as follows:
 	* grunt-contrib-htmlmin
 * Other grunt plugins condsidered but not used here yet: grunt-inline, grunt-imageoptim
 
-####Result: Pagespeed score of 95 when connecting via ngrok to my PC - 99 when serving from my [webhost] (allgood.technology/optimise/index.html)
+####Result: Pagespeed score of 95 when connecting via ngrok to my PC - 99 when serving from my [website](allgood.technology/optimise/index.html)
 
-![ngrok score](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![website score](http://allbad.github.io/frontend-nanodegree-mobile-portfolio/screenshots/ss_index_99_at.jpg"Website Score")
 
 
 ####Part 2: Optimize Frames per Second in pizza.html
