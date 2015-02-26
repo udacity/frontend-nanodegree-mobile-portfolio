@@ -1,38 +1,32 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+Challenge to optimise the the portfolio for P4 Website Optimisation Module of [Udacity Front-End Web Developer Nanodegree](https://www.udacity.com/course/nd001).
 
-To get started, check out the repository, inspect the code,
+Applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-### Getting started
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
-Some useful tips to help you get started:
+Target: PageSpeed score of 90 for index.html (both Mobile and Desktop scores should be at least 90)
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+The pages were tested on a local web server and [ngrok](https://ngrok.com/) used to make the server accessible remotely for testing PageSpeed score.
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+PageSpeed Score indicated a number of items which needed to be remediated
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
+* Eliminate render-blocking JavaScript and CSS in above-the-fold content
+..* Remove render-blocking JavaScript: http://www.google-analytics.com/analytics.js
+..* Optimize CSS Delivery of the following:
+....* http://fonts.googleapis.com/css?family=Open+Sans:400,700
+....* http://7fc90bc.ngrok.com/css/style.css
+....* http://7fc90bc.ngrok.com/css/print.css
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
+* Enable compression on http://7fc90bc.ngrok.com/css/style.css
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
