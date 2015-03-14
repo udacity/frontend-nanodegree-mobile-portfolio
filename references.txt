@@ -1,0 +1,9 @@
+Mozilla Developer Network
+Google documentation (links Udacity provided in project directions)
+MSDN
+LazyLoad for ideas on how to calculate viewport: https://raw.githubusercontent.com/tuupola/jquery_lazyload
+Nanodegree Office Hours for P4
+Pagespeed Insights
+Ngrok
+VS 2013 Web Essentials (for minification)
+
