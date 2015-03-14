@@ -450,11 +450,17 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
+      var pizzaDiv = document.getElementById("randomPizzas");
+      var pizzaClone = pizzaDiv.cloneNode(true);
+      var pizzas = pizzaClone.getElementsByClassName("randomPizzaContainer");
+      var dx, newwidth, item;
+      for (var i = 0; i < pizzas.length; i++) {
+        dx = determineDx(pizzas[i], size);
+        newwidth = (pizzas[i].offsetWidth + dx) + 'px';
+        pizzas[i].style.width = newwidth;
+      }
+      
+      pizzaDiv.parentNode.replaceChild(pizzaClone, pizzaDiv);
   }
 
   changePizzaSizes(size);
@@ -502,10 +508,11 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   var items = document.getElementsByClassName('mover');
-  var offset = Math.sin(document.body.scrollTop / 1250)
+  var offset = Math.sin(document.body.scrollTop / 1250);
   var viewBottom = window.innerHeight;
   var viewTop = document.body.clientTop;
- 
+  var fragment = document.createDocumentFragment();
+  var item;
   // only draw items that are visible in the viewport
   for (var i = 0; i < items.length; i++) {
       var phase = offset + (i % 5);
@@ -535,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "images/smallpizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
