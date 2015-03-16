@@ -358,45 +358,14 @@ var makeRandomPizza = function () {
     return pizza;
 };
 
-
-// returns a DOM element for each pizza
-var pizzaElementGenerator = function (i) {
-    var pizzaContainer,             // contains pizza title, image and list of ingredients
-        pizzaImageContainer,        // contains the pizza image
-        pizzaImage,                 // the pizza image itself
-        pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
-        pizzaName,                  // the pizza name itself
-        ul;                         // the list of ingredients
-
-    pizzaContainer = document.createElement("div");
-    pizzaImageContainer = document.createElement("div");
-    pizzaImage = document.createElement("img");
-    pizzaDescriptionContainer = document.createElement("div");
-
-    pizzaContainer.classList.add("randomPizzaContainer");
-    pizzaContainer.style.height = "325px";
-    pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
-    pizzaImageContainer.classList.add("col-md-6");
-
-    pizzaImage.src = "images/pizza.png";
-    pizzaImage.classList.add("img-responsive");
-    pizzaImageContainer.appendChild(pizzaImage);
-    pizzaContainer.appendChild(pizzaImageContainer);
-
-
-    pizzaDescriptionContainer.classList.add("col-md-6");
-
-    pizzaName = document.createElement("h4");
-    pizzaName.innerHTML = randomName();
-    pizzaDescriptionContainer.appendChild(pizzaName);
-
-    ul = document.createElement("ul");
-    ul.innerHTML = makeRandomPizza();
-    pizzaDescriptionContainer.appendChild(ul);
-    pizzaContainer.appendChild(pizzaDescriptionContainer);
-
-    return pizzaContainer;
+var pizzaElementCloner = function (i, originalPizza) {
+    var freshHotPizza = originalPizza.cloneNode(true);
+    freshHotPizza.getElementsByTagName('h4')[0].innerHTML = randomName();
+    freshHotPizza.getElementsByTagName('ul')[0].innerHTML = makeRandomPizza();
+    freshHotPizza.id = 'pizza' + i;
+    return freshHotPizza;
 };
+
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function (size) {
     window.performance.mark("mark_start_resize");   // User Timing API function
@@ -456,7 +425,7 @@ var resizePizzas = function (size) {
         var dx = determineDx(pizza, size);
         if (document.styleSheets) {
             var rules = document.styleSheets[1].rules === null ? document.styleSheets[1].cssRules : document.styleSheets[1].rules;
-            rules[8].style.width = (pizza.offsetWidth + dx) + 'px';
+            rules[0].style.width = (pizza.offsetWidth + dx) + 'px';
         } else {
             console.warn("document claims no stylesheets");
         }
@@ -476,8 +445,10 @@ window.performance.mark("mark_start_generating"); // collect timing data
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
 var pizzasDivClone = pizzasDiv.cloneNode(true);
+var originalPizza = document.getElementById('pizza1');
+
 for (var i = 2; i < 100; i++) {
-    pizzasDivClone.appendChild(pizzaElementGenerator(i));
+    pizzasDivClone.appendChild(pizzaElementCloner(i, originalPizza));
 }
 pizzasDiv.parentNode.replaceChild(pizzasDivClone, pizzasDiv);
 
@@ -508,33 +479,24 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // CHANGE: take certain calculations out of the loop
 // CHANGE: use clone to avoid re-layout each time we alter one of the pizza locations
 // CHANGE: use getElementById instead of the slower querySelector
-// CHANGE: only change elements currently visible on-screen
-var viewBottom = window.innerHeight;
-
+// CHANGE: update Top as well as Left so we need fewer pizzas
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
 
-    //var items = document.querySelectorAll('.mover');
-    //for (var i = 0; i < items.length; i++) {
-    //    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    //    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    //}
+    var pizzaMovers = document.getElementById('movingPizzas1');
+    var pizzaMoversClone = pizzaMovers.cloneNode(true);
+    var items = pizzaMoversClone.getElementsByClassName('mover');
     var scrollTop = document.body.scrollTop;
     var offset = scrollTop / 1250;
-    var startIndex = Math.floor(scrollTop / 256);
-    var endIndex = Math.floor((window.innerHeight + scrollTop) / 256);
-    var positions = [5];
-    for (var i = 0; i < 5; i++) {
-        positions[i] = Math.sin(offset + i);
-    }
- 
-    // update visible pizzas
-    var items = document.getElementsByClassName('mover');
-    for (i = startIndex; i < endIndex * 8; i++) {
-        items[i].style.left = parseInt(items[i].getAttribute('basicleft')) + 100 * positions[i % 5] + 'px';
+
+    for (var i = 0; i < items.length; i++) {
+        var phase = Math.sin(offset + (i % 5));
+        items[i].style.left = parseInt(items[i].getAttribute('basicLeft')) + 100 * phase + 'px';
+        items[i].style.top = document.body.scrollTop + items[i].style.top + 'px';
     }
 
+    pizzaMovers.parentNode.replaceChild(pizzaMoversClone, pizzaMovers);
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
     // Super easy to create custom metrics.
@@ -550,29 +512,24 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // CHANGE: use setAttribute so we don't lose basicleft when cloning
-// CHANGE: clone so we aren't updating the page 200 times
-// CHANGE: no need to update positions when we've just created the content
+// CHANGE: clone so we aren't updating the page 50 times
+// CHANGE: only 50 pizzas instead of 200
 // Generates the sliding pizzas when the page loads.
-var basicLeft = [40];
 document.addEventListener('DOMContentLoaded', function () {
     var cols = 8;
     var s = 256;
     var movingPizzas = document.getElementById("movingPizzas1");
     var movingPizzasClone = movingPizzas.cloneNode(true);
 
-    for (var i = 0; i < 40; i++) {
-           basicLeft[i] = (i % cols) * 256;
-    }
-    
-    // create our pizzas. 
-    for (i = 0; i < 200; i++) {
+    for (i = 0; i < 50; i++) {
         var elem = document.createElement('img');
         elem.src = "images/pizza.png";
-        elem.className = 'mover mover' + (i % cols);
-        elem.style.top = (Math.floor(i / cols) * s) + 'px';
+        elem.className = 'mover';
+        elem.style.top = Math.floor(i / cols) * s + 'px';
         elem.setAttribute('basicleft', (i % cols) * s);
         movingPizzasClone.appendChild(elem);
     }
     movingPizzas.parentNode.replaceChild(movingPizzasClone, movingPizzas);
+    updatePositions();
 });
 
