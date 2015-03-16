@@ -1,0 +1,4 @@
+https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+
+I didn't use many recources, I read into the project and the code and watched the office hours. Also I visited the forum discussions.
