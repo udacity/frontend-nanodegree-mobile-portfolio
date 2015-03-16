@@ -522,6 +522,7 @@ function updatePositions() {
 }
 
 function sinCalc() {
+  var items = document.querySelectorAll('.mover');
   var phase = [];
   for (var i = 0; i < items.length; i++) {
     phase[i] = Math.sin((document.body.scrollTop / 1250) + (i % 5));
