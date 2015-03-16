@@ -504,7 +504,7 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
 
-  var phase = Math.sin((document.body.scrollTop / 1250) + (Math.random() * 200 % 5));
+  var phase = Math.sin((document.body.scrollTop / 1250) + ((Math.random() * 200) % 5));
   for (var i = 0; i < items.length; i++) {
     //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     //console.log("item: "+i);
