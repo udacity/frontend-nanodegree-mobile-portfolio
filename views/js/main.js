@@ -342,17 +342,14 @@ var makeRandomPizza = function() {
 
   for (var i = 0; i < numberOfMeats; i++) {
     pizza = pizza + ingredientItemizer(selectRandomMeat());
-    console.log("Pizza randomMeat: " + pizza);
   }
 
   for (var j = 0; j < numberOfNonMeats; j++) {
     pizza = pizza + ingredientItemizer(selectRandomNonMeat());
-    console.log("Pizza randomNonMeat: " + pizza);
   }
 
   for (var k = 0; k < numberOfCheeses; k++) {
     pizza = pizza + ingredientItemizer(selectRandomCheese());
-    console.log("Pizza randomCheese: " + pizza);
   }
 
   pizza = pizza + ingredientItemizer(selectRandomSauce());
@@ -506,8 +503,8 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
