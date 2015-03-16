@@ -503,12 +503,13 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-
-  var phase = Math.sin((document.body.scrollTop / 1250) + ((Math.random() * 200) % 5));
+  var phase = [];
+  sinCalc();
+  //var phase = Math.sin((document.body.scrollTop / 1250) + ((Math.random() * 200) % 5));
   for (var i = 0; i < items.length; i++) {
     //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     //console.log("item: "+i);
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -518,6 +519,12 @@ function updatePositions() {
   if (frame % 10 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
+  }
+}
+
+function sinCalc() {
+  for (var i = 0; i < items.length; i++) {
+    phase[i] = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   }
 }
 
