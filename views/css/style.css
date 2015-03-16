@@ -29,17 +29,7 @@ form {
   font-weight: 800;
 }
 
-.mover {
-  position: fixed;
-  width: 256px;
-  z-index: -1;
-}
 
-.randomPizzaContainer {
-  float: left;
-  display: flex;
-  width:33.33%;
-}
 
 .randomPizzaContainer:after {
   content: "";
