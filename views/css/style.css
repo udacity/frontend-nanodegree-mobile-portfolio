@@ -1,51 +1,43 @@
 /** {
   outline: 1px solid red !important;
 }*/
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -box-sizing: border-box;
-}
 
 body {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  background: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background: black;
 }
 
 input {
-  background: grey;
-  font-size: 18px;
+    background: grey;
+    font-size: 18px;
 }
 
 form {
-  display: inline-block;
+    display: inline-block;
 }
 
 .centered {
-  text-align: center;
+    text-align: center;
 }
 
 #pizzaSize {
-  font-weight: 800;
+    font-weight: 800;
 }
 
 .mover {
-  position: fixed;
-  width: 256px;
-  z-index: -1;
-}
-
-.randomPizzaContainer {
-  float: left;
-  display: flex;
+    height: 100px;
+    width: 73.333px;
+    position: fixed;
+    z-index: -1;
+    backface-visibility: hidden;
 }
 
 .randomPizzaContainer:after {
-  content: "";
-  display: table;
-  clear:both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
- .container {
-  background-color: rgba(240, 60, 60, 0.8);
+.container {
+    background-color: rgba(240, 60, 60, 0.8);
 }
