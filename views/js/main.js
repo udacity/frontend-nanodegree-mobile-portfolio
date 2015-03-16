@@ -455,11 +455,13 @@ var resizePizzas = function(size) {
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }*/
-    var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
-    var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+    var pizContainer = document.querySelector(".randomPizzaContainer");
+    var pizContainerArray = document.querySelectorAll(".randomPizzaContainer");
+    var dx = determineDx(pizzaContainerArray), size);
+    var newwidth = (pizzaContainerArray).offsetWidth + dx) + 'px';
     //document.querySelectorAll(".randomPizzaContainer").style.width = newwidth;
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    for (var i = 0; i < pizContainerArray.length; i++) {
+      pizContainerArray[i].style.width = newwidth;
     }
   }
 
