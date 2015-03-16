@@ -450,11 +450,14 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    /*for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
+    }*/
+    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+    var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
   }
 
   changePizzaSizes(size);
@@ -504,10 +507,9 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   var phase = sinCalc(items);
-  //var phase = Math.sin((document.body.scrollTop / 1250) + ((Math.random() * 200) % 5));
+  
   for (var i = 0; i < items.length; i++) {
     //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    //console.log("item: "+i);
     items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
   }
 
@@ -521,6 +523,7 @@ function updatePositions() {
   }
 }
 
+// returns array of values used to sliede the pizzas in the background while scrolling
 function sinCalc(items) {
   var phase = [];
   for (var i = 0; i < items.length; i++) {
