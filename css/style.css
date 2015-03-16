@@ -22,7 +22,7 @@ body { background: #fff; }
 header, footer, .container { max-width: 45em; margin: 0 auto; }
 
 header { padding: 0 0.5em; color: #C90B0B; }
-header img { border-radius: 40px; float: left; }
+header img { width: 70px; height: 70px; border-radius: 40px; float: left; }
 header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
 header p span { font-size: 0.8em; font-weight: normal;}
 
@@ -33,7 +33,7 @@ header p span { font-size: 0.8em; font-weight: normal;}
 
 .content { padding: 1em 1em; }
 .content li { list-style-type: none; font-size: 1.1em;}
-li img { float:left; padding-right: 1em; }
+li img { float:left; padding-right: 1em; width: 100px;}
 li p { font-size: 0.9em; font-style: italic; }
 
 footer {
@@ -41,9 +41,3 @@ footer {
   border-top: 1px solid #ccc;
 }
 footer span { float: right; font-style: italic; }
-
-/* Smartphones (portrait) */
-@media only screen and (max-width: 480px) {
-  body { font-size: 12px;}
-  header p { padding-left: 4.5em;}
-}
