@@ -33,7 +33,7 @@ header p span { font-size: 0.8em; font-weight: normal;}
 
 .content { padding: 1em 1em; }
 .content li { list-style-type: none; font-size: 1.1em;}
-li img { float:left; padding-right: 1em; }
+li img { float:left; padding-right: 1em; width: 100px;}
 li p { font-size: 0.9em; font-style: italic; }
 
 footer {
