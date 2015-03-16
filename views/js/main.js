@@ -503,7 +503,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-  var phase = sinCalc();
+  var phase = sinCalc(items);
   //var phase = Math.sin((document.body.scrollTop / 1250) + ((Math.random() * 200) % 5));
   for (var i = 0; i < items.length; i++) {
     //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
@@ -521,8 +521,7 @@ function updatePositions() {
   }
 }
 
-function sinCalc() {
-  var items = document.querySelectorAll('.mover');
+function sinCalc(items) {
   var phase = [];
   for (var i = 0; i < items.length; i++) {
     phase[i] = Math.sin((document.body.scrollTop / 1250) + (i % 5));
