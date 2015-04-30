@@ -456,7 +456,7 @@ var resizePizzas = function(size) {
     // Moved code outside of loop as containers are the same size
     var dx = determineDx(randomPizzaElement[0], size);
     var newwidth = (randomPizzaElement[0].offsetWidth + dx) + 'px';
-    for (var i = 0; i < randomPizzaElement; i++) {
+    for (var i = 0; i < pizzaLength; i++) {
       randomPizzaElement[i].style.width = newwidth;
     }
   }
