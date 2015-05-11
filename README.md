@@ -1,3 +1,32 @@
+I improved the index.html page score, so that the index.html page came back with a PageSpeed score above 90 with the following changes.
+
+1.	Minified the pizzeria image from 2.4 MB to 110KB using an online image optimizer.
+2.	Simplified the CSS file by inlining the CSS that contributed to the initial page load. I also added code at the bottom of the HTML page that loaded the simplified CSS page (restStyle.css) after the initial page load and during the idle time. 
+3.	Created new class names for the inlined CSS that originally forced the browser to re-read the DOM tree. For example “li img” became “contentImage”. 
+4.	Added “async” to the Google analytics source and “print media” to the print style sheet.
+5.	Added script that linked to Google Fonts at the bottom of the HTML page, so that it loaded after the initial page load and during the idle time. 
+
+In order to optimize the “Cam’s Pizzeria” webpage, I had to improve the pizza.html page so that it had a consistent frame rate at 60 fps when the user scrolled down the page. In order to achieve this rate, I added the following four changes.
+
+
+1.	Decreased the number of pizzas from 200 to 20. 
+2.	Changed the phase variable to an array of 5 numbers, so that the browser didn’t have to recalculate the position of the pizzas every time the user scrolled down the page. 
+3.	Changed “selectAllQueryItems()” to “getElementByClassName. 
+4.	Added “backface-visibility: hidden” to the “mover” class in the CSS file, so that the pizzas in the background had their own layer and the browser didn’t have to repaint the whole screen every time the user scrolled down the page. 
+5.	Created numRandomPizzas function to calculate the number of random pizzas based on the browser height and width. This function is called both when the page is initially loaded and when scrolling. 
+
+I decreased the resize pizza time from 5 ms to 0.84 ms with the following steps.
+
+1.	Deleted “determinedDx” function, so that the “changePizzaSizes” function does not have to calculate the change in pizza sizes. This calculation was pointless because there are only 3 set sizes. Now the browser only has to determine if the pizza is one of three set sizes. 
+2.	Removed the px to % conversion, since the pizzas’ width as a percentage is enough to determine the correct pizza size. 
+3.	Removed the scrollTop calculation from the for loop within the for loop within the “updatePosition” function (line 425). new variable called moveTop (line 425) that calculated the scrollTop.
+
+I also personalized Cam’s Pizzeria’s page to become Cam’s Compassionate Pizzeria by:
+1.	Changed the slider pizza image to only show plant foods. 
+2.	Rewrote the ingredients, so that they only include plants. 
+3.	Changed the title and text of the page to reflect plant power. ☺
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
