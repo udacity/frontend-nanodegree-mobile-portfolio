@@ -6,13 +6,13 @@ html {
   -webkit-text-size-adjust: none;
   font-family: 'Open Sans', sans-serif; 
   color: #333;
+  font-size: 14px; 
+  line-height: 1.61; 
+  font-weight: 400;
 }
 
 body { 
-  margin: 0; 
-  font-size: 14px; 
-  line-height: 1.61; 
-  font-weight: 400; 
+  max-width: 45em; margin: 0 auto; 
 }
 
 
@@ -30,51 +30,41 @@ a:hover, a:active {
   outline: 0; 
 }
 
-b, strong { 
+strong { 
   font-weight: bold; 
 }
 
-pre, code { 
-  font-family: monospace, monospace; 
-  font-size: 1em; 
-}
 
-ul, ol { 
+ul { 
   margin: 1em 0; 
-  padding: 0 0 0 20px; }
+  padding: 0 0 0 20px; 
+}
 
 img { 
   border: 0; 
-  max-width: 100%; }
-
-body { 
-  background: #fff; 
-}
-
-header, footer, .container { 
-  max-width: 45em; 
-  margin: 0 auto; 
+  max-width: 100%; 
 }
 
 header { 
   padding: 0 0.5em; 
-  color: #C90B0B; 
 }
 
-header img { 
-  border-radius: 
-  40px; float: left; 
+.prof_pic { 
+  border-radius: 40px; 
+  float: left; 
 }
 
-header p { 
+.title { 
   font-size:1.5em; 
   font-weight: bold; 
   padding-left: 4em;
+  color: #C90B0B; 
 }
 
-header p span { 
+.subtitle { 
   font-size: 0.8em; 
   font-weight: normal;
+  color: #C90B0B; 
 }
 
 .hero { 
@@ -89,16 +79,19 @@ header p span {
   padding: 1em 1em; 
 }
 
-.content li { 
-  list-style-type: none; font-size: 1.1em;
+li{ 
+  list-style-type: none; 
+  font-size: 1.1em;
 }
 
-li img { 
-  float:left; padding-right: 1em;
+.list_img { 
+  float:left; 
+  padding-right: 1em;
 }
 
-li p { 
-  font-size: 0.9em; font-style: italic;
+.list_subtitles { 
+  font-size: 0.9em; 
+  font-style: italic;
 }
 
 footer {
@@ -106,12 +99,13 @@ footer {
   border-top: 1px solid #ccc;
 }
 
-footer span { 
-  float: right; font-style: italic;
+#crp-stats { 
+  float: right; 
+  font-style: italic;
 }
 
 /* Smartphones (portrait) */
 @media only screen and (max-width: 480px) {
   body { font-size: 12px;}
-  header p { padding-left: 4.5em;}
+  .title { padding-left: 4.5em;}
 }
