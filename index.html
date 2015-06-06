@@ -7,8 +7,8 @@
     <meta name="author" content="Erin Lehmkuhl">
     <title>Cameron Pittman: Portfolio</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
+<!--     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+ -->
     <link href="css/style.css" rel="stylesheet">
 
 
@@ -17,6 +17,13 @@
 
 
   <body>
+<style>@font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v9/abcd.woff) format('woff');
+    }
+  </style>
     <header>
       <a href="/"><img class = "prof_pic" src="img/profilepic.jpg"></a>
       <p class= "title">Cameron Pittman<br><span class= "subtitle">Course Developer</span></p>
@@ -58,14 +65,7 @@
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
-        <script async>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
-      // TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
-      ga('send', 'pageview');
-    </script>
+    <script async src="js/googleAnalytics.js"></script>
     <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
   </head>
