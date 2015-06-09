@@ -6,16 +6,121 @@
     <meta name="description" content="quest to speed up this page">
     <meta name="author" content="Erin Lehmkuhl">
     <title>Cameron Pittman: Portfolio</title>
+    <style>
+      html {
+        font-size: 100%;
+        overflow-y: scroll;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: none;
+        font-family: 'Open Sans', sans-serif; 
+        color: #333;
+        font-size: 14px; 
+        line-height: 1.61; 
+        font-weight: 400;
+      }
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
-    <link href="css/style.css" rel="stylesheet">
-
-
-<!--    <link href="css/print.css" rel="stylesheet">
- -->
+      body { 
+        max-width: 45em; margin: 0 auto; 
+      }
 
 
+      a { 
+        color: #12C; 
+      }
+
+      a:visited { 
+        color: #61C; 
+      }
+
+      a:hover, a:active { 
+        color: #c00; 
+        outline: 0; 
+      }
+
+      strong { 
+        font-weight: bold; 
+      }
+
+
+      ul { 
+        margin: 1em 0; 
+        padding: 0 0 0 20px; 
+      }
+
+      img { 
+        border: 0; 
+        max-width: 100%; 
+      }
+
+      header { 
+        padding: 0 0.5em; 
+      }
+
+      .prof_pic { 
+        border-radius: 40px; 
+        float: left; 
+      }
+
+      .title { 
+        font-size:1.5em; 
+        font-weight: bold; 
+        padding-left: 4em;
+        color: #C90B0B; 
+      }
+
+      .subtitle { 
+        font-size: 0.8em; 
+        font-weight: normal;
+        color: #C90B0B; 
+      }
+
+      .hero { 
+        padding: 2em; 
+        background-color: #f8f8f8; 
+        font-size:1.2em;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+      }
+
+      .content { 
+        padding: 1em 1em; 
+      }
+
+      li{ 
+        list-style-type: none; 
+        font-size: 1.1em;
+      }
+
+      .list_img { 
+        float:left; 
+        padding-right: 1em;
+      }
+
+      .list_subtitles { 
+        font-size: 0.9em; 
+        font-style: italic;
+      }
+
+      footer {
+        padding: 0 0.5em;
+        border-top: 1px solid #ccc;
+      }
+
+      #crp-stats { 
+        float: right; 
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v9/abcd.woff) format('woff');
+        }
+    </style>
+    <link href="css/style.css" rel="stylesheet" media="media">
+    <link href="css/print.css" rel="stylesheet" media="print">
   <body>
     <header>
       <a href="/"><img class = "prof_pic" src="img/profilepic.jpg"></a>
@@ -42,8 +147,7 @@
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
-    <script async src="js/googleAnalytics.js"></script>
-    <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
+    <script async src="http://www.google-analytics.com/analytics.js"></script>
   </body>
 </html>
