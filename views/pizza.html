@@ -34,6 +34,8 @@
       margin-left: auto;
       padding-left: 15px;
       padding-right: 15px;
+      background-color: rgba(240, 60, 60, 0.8);
+      overflow: hidden;
     }
 
     .row {
@@ -90,10 +92,6 @@
       clear:both;
     }
 
-     .container {
-      background-color: rgba(240, 60, 60, 0.8);
-    }
-
     .clearfix:before,
     .clearfix:after,
     .container:before,
@@ -108,8 +106,37 @@
     .row:after {
       clear: both;
     }
+
+    @media (min-width: 860px) {
+     .container {
+      width: 860px;
+      }
+      .col-md-4, .col-md-6, .col-md-8, .col-md-10, .col-md-12 {
+        float: left;
+      }
+      .col-md-12 {
+        width: 100%;
+      }
+      .col-md-10 {
+        width: 83.33333333%;
+      }
+      .col-md-8 {
+        width: 66.66666667%;
+      }
+      .col-md-6 {
+        width: 50%;
+      }
+      .col-md-4 {
+        width: 33.33333333%;
+      }
+      .col-md-push-3 {
+        left: 25%;
+      }
+      .col-md-push-2 {
+        left: 16.66666667%;
+      }
+  }
   </style>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css" media="screen">
 </head>
 
 <body>
@@ -244,8 +271,7 @@
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script async type="text/javascript" src="js/main.js"></script>
   <script async type="text/javascript" src="js/belowTheFold.js"></script>
 </body>
-
 </html>

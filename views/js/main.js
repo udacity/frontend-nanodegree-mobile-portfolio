@@ -9,7 +9,6 @@ var ticking = false;
 function onScroll() {
   lastKnownScrollY = window.scrollY;
   requestTick();
-  console.log(scrollY);
 }
 
 //animates bg pizzas on scroll
