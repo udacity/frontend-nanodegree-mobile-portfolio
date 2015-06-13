@@ -1,6 +1,6 @@
-@media (min-width: 992px) {
+@media (min-width: 860px) {
    .container {
-    width: 970px;
+    width: 860px;
   }
   .col-md-4, .col-md-6, .col-md-8, .col-md-10, .col-md-12 {
     float: left;
