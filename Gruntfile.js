@@ -57,7 +57,10 @@ module.exports = function(grunt) {
 		      	},
 		    	files: {                                   // Dictionary of files 
 		        	'index.html': 'src/index.html',     // 'destination': 'source' 
-		        	'views/pizza.html': 'views/src/pizza.html'
+		        	'views/pizza.html': 'views/src/pizza.html',
+		        	'project-webperf.html': 'src/project-webperf.html',
+		        	'project-mobile.html': 'src/project-mobile.html',
+		        	'project-2048.html': 'src/project-2048.html'
 		      	}
 		    }
 	    }
