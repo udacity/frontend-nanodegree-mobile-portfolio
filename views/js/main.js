@@ -25,7 +25,7 @@ function updatePositions() {
   var items = document.getElementsByClassName("mover");
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(currentScrollY + (i % 5));
-    items[i].style.left = items[i].basicLeft - 2000 * phase + 'px';
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
   ticking = false;
 }

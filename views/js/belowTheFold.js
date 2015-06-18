@@ -367,7 +367,7 @@ var pizzaElementGenerator = function(i) {
   pizzaDescriptionContainer = document.createElement("div");
 
   pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.style.width = "50%";
+  pizzaContainer.style.width = "33.33%";
   pizzaContainer.style.height = "325px";
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
@@ -401,19 +401,22 @@ var resizePizzas = function(size) {
       document.querySelector("#pizzaSize").innerHTML = "Small";
       for (var i = 0; i < numFgPizzas; i++) {
         thisPizza = "pizza"+i;
-        document.getElementById(thisPizza).style.width = 50 + "%";
+        document.getElementById(thisPizza).style.width = 30 + "%";
+        document.getElementById(thisPizza).style.translateZ = 0;
       }
   }else if (size === "2") {
       document.querySelector("#pizzaSize").innerHTML = "Medium";
       for (var i = 0; i < numFgPizzas; i++) {
         thisPizza = "pizza"+i;
-        document.getElementById(thisPizza).style.width = 60 + "%";
+        document.getElementById(thisPizza).style.width = 33.33 + "%";
+        document.getElementById(thisPizza).style.translateZ =0;
       }
   }else if (size === "3") {
       document.querySelector("#pizzaSize").innerHTML = "Large";
       for (var i = 0; i < numFgPizzas; i++) {
         thisPizza = "pizza"+i;
-        document.getElementById(thisPizza).style.width = 70 + "%";
+        document.getElementById(thisPizza).style.width = 50 + "%";
+        document.getElementById(thisPizza).style.translateZ = 0;
       }
   }else {
       console.log("bug in changeSliderLabel");

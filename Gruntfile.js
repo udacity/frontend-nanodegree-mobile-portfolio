@@ -44,7 +44,9 @@ module.exports = function(grunt) {
 		  	target: {
 		    	files: {
 		      		'css/media.min.css': ['css/media.css'],
-		      		'css/print.min.css': ['css/print.css']
+		      		'css/print.min.css': ['css/print.css'],
+		      		'css/inline_style.min.css': ['css/inline_style.css'],
+		      		'views/css/inline_style.min.css': ['views/css/inline_style.css']
 		    	}
 			}
 		},
