@@ -379,6 +379,8 @@ var pizzaElementGenerator = function(i) {
 
 
   pizzaDescriptionContainer.classList.add("col-md-6");
+  pizzaDescriptionContainer.style.translateZ = "0";
+
 
   pizzaName = document.createElement("h4");
   pizzaName.innerHTML = randomName();
