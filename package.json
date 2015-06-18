@@ -1,0 +1,40 @@
+{
+  "name": "mobile_portfolio",
+  "version": "1.0.0",
+  "description": "Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erinlehmkuhl/04_Mobile_Portfolio.git"
+  },
+  "keywords": [
+    "grunt",
+    "workflow",
+    "04",
+    "portfolio",
+    "mobile",
+    "minimize"
+  ],
+  "author": "erin lehmkuhl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erinlehmkuhl/04_Mobile_Portfolio/issues"
+  },
+  "homepage": "https://github.com/erinlehmkuhl/04_Mobile_Portfolio#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-htmlmin": "^0.4.0",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-newer": "^1.1.1"
+  },
+  "dependencies": {
+    "mozjpeg": "^4.0.1"
+  }
+}
