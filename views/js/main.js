@@ -438,9 +438,10 @@ var resizePizzas = function(size) {
         console.log("bug in sizeSwitcher");
     }
 
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
-    for (var i = 0; i < randomPizzas.length; i++) {
+    var radomPizzasLength = randomPizzas.length
+    for (var i = 0; i < radomPizzasLength; i++) {
 
       randomPizzas[i].style.width = newWidth + "%";
     }
@@ -491,13 +492,13 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   //Optimization: moved scrollTop out of the for loop. Also, refactored the code to use transform to move the pizzas instead of updating layout.
-  var scrollPosition = document.body.scrollTop;
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((scrollPosition / 1250) + (i % 5));
-    var move = items[i].basicLeft + 100 * phase + 'px';
-    items[i].style.transform = "translateX(" + move + ") translateZ(0)";
+  var phase;
+  var scrollPosition = document.body.scrollTop / 1250;
+  for (var i = 0, len = items.length; i < len; i++) {
+    phase = Math.sin(scrollPosition + i % 5) * 400 + 'px';
+    items[i].style.transform = "translateX(" + phase + ")";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
