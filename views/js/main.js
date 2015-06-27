@@ -422,8 +422,9 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
 
-  // Iterates through pizza elements on the page and changes their widths
+  // Optimization: removed overly complicated code to create calculate the new image size and replaced it with a switch with set image sizes.
   function changePizzaSizes(size) {
+    window.performance.mark("mark_start_resize");
     switch(size) {
       case "1":
         newWidth = 25;
@@ -433,7 +434,7 @@ var resizePizzas = function(size) {
         break;
       case "3":
         newWidth = 50;
-        break
+        break;
       default:
         console.log("bug in sizeSwitcher");
     }
@@ -492,9 +493,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  //Optimization: moved scrollTop out of the for loop. Also, refactored the code to use transform to move the pizzas instead of updating layout.
+  var scrollPosition = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    var phase = Math.sin((scrollPosition / 1250) + (i % 5));
+    var move = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.transform = "translateX(" + move + ") translateZ(0)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -509,12 +513,12 @@ function updatePositions() {
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
-
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  //Optimization: Reduced the number of sliding pizzas to 200.
+  for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
