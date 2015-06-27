@@ -422,9 +422,8 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
 
-  // Optimization: removed overly complicated code to create calculate the new image size and replaced it with a switch with set image sizes.
+  // Optimization: Following Cam's solution from the course, I removed overly complicated code to create calculate the new image size and replaced it with a switch with set image sizes.
   function changePizzaSizes(size) {
-    window.performance.mark("mark_start_resize");
     switch(size) {
       case "1":
         newWidth = 25;
