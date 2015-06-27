@@ -497,7 +497,7 @@ function updatePositions() {
   var phase;
   var scrollPosition = document.body.scrollTop / 1250;
   for (var i = 0, len = items.length; i < len; i++) {
-    phase = Math.sin(scrollPosition + i % 5) * 400 + 'px';
+    phase = Math.sin(scrollPosition + i % 10) * 1000 + 'px';
     items[i].style.transform = "translateX(" + phase + ")";
   }
 
