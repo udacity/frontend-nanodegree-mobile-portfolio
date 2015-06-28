@@ -151,7 +151,9 @@ function getNoun(y){switch(y){
 		var randomCrust=pizzaIngredients.crusts[Math.floor((Math.random()*pizzaIngredients.crusts.length))];
 		return randomCrust;};
 	var ingredientItemizer=function(string){return"<li>"+string+"</li>";};
-	var makeRandomPizza=function(){var pizza="";var numberOfMeats=Math.floor((Math.random()*4));
+	var makeRandomPizza=function(){
+		var pizza="";
+		var numberOfMeats=Math.floor((Math.random()*4));
 		var numberOfNonMeats=Math.floor((Math.random()*3));
 		var numberOfCheeses=Math.floor((Math.random()*2));
 		for(var i=0;i<numberOfMeats;i++){
@@ -163,66 +165,69 @@ function getNoun(y){switch(y){
 			pizza=pizza+ingredientItemizer(selectRandomSauce());
 			pizza=pizza+ingredientItemizer(selectRandomCrust());
 		return pizza;};
-		var pizzaElementGenerator=function(i){
-			var pizzaContainer,pizzaImageContainer,pizzaImage,pizzaDescriptionContainer,pizzaName,ul;
-			pizzaContainer=document.createElement("div");
-			pizzaImageContainer=document.createElement("div");pizzaImage=document.createElement("img");
-			pizzaDescriptionContainer=document.createElement("div");
-			pizzaContainer.classList.add("randomPizzaContainer");
-			pizzaContainer.style.width="33.33%";pizzaContainer.style.height="325px";pizzaContainer.id="pizza"+i;
-			pizzaImageContainer.classList.add("col-md-6");
-			pizzaImage.src="images/pizza.png";pizzaImage.classList.add("img-responsive");
-			pizzaImageContainer.appendChild(pizzaImage);
-			pizzaContainer.appendChild(pizzaImageContainer);pizzaDescriptionContainer.classList.add("col-md-6");
-			pizzaName=document.createElement("h4");pizzaName.innerHTML=randomName();
-			pizzaDescriptionContainer.appendChild(pizzaName);
-			ul=document.createElement("ul");
-			ul.innerHTML=makeRandomPizza();
-			pizzaDescriptionContainer.appendChild(ul);
-			pizzaContainer.appendChild(pizzaDescriptionContainer);
-			return pizzaContainer;};
-		var resizePizzas=function(size){window.performance.mark("mark_start_resize");
-			function changeSliderLabel(size){switch(size){
-				case"1":document.querySelector("#pizzaSize").innerHTML="Small";return;
-				case"2":document.querySelector("#pizzaSize").innerHTML="Medium";return;
-				case"3":document.querySelector("#pizzaSize").innerHTML="Large";return;
-				default:console.log("bug in changeSliderLabel");}}
-			changeSliderLabel(size);
-			function determineDx(elem,size){var oldwidth=elem.offsetWidth;
-				var windowwidth=document.querySelector("#randomPizzas").offsetWidth;
-				var oldsize=oldwidth / windowwidth;
-				function sizeSwitcher(size){switch(size){
-					case"1":return 0.25;
-					case"2":return 0.3333;
-					case"3":return 0.5;
-					default:console.log("bug in sizeSwitcher");}}
-			var newsize=sizeSwitcher(size);
-			var dx=(newsize-oldsize)*windowwidth;return dx;}
-			function changePizzaSizes(size){
-				for(var i=0;i<document.querySelectorAll(".randomPizzaContainer").length;i++){
-					var dx=determineDx(document.querySelectorAll(".randomPizzaContainer")[i],size);
-					var newwidth=(document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth+dx)+'px';
-					document.querySelectorAll(".randomPizzaContainer")[i].style.width=newwidth;}}
-			changePizzaSizes(size);
-			window.performance.mark("mark_end_resize");
-			window.performance.measure("measure_pizza_resize","mark_start_resize","mark_end_resize");
-			var timeToResize=window.performance.getEntriesByName("measure_pizza_resize");
-			console.log("Time to resize pizzas: "+timeToResize[0].duration+"ms");};
-			window.performance.mark("mark_start_generating");
-			for(var i=2;i<100;i++){var pizzasDiv=document.getElementById("randomPizzas");
+	var pizzaElementGenerator=function(i){
+		var pizzaContainer,pizzaImageContainer,pizzaImage,pizzaDescriptionContainer,pizzaName,ul;
+		pizzaContainer=document.createElement("div");
+		pizzaImageContainer=document.createElement("div");pizzaImage=document.createElement("img");
+		pizzaDescriptionContainer=document.createElement("div");
+		pizzaContainer.classList.add("randomPizzaContainer");
+		pizzaContainer.style.width="33.33%";pizzaContainer.style.height="325px";pizzaContainer.id="pizza"+i;
+		pizzaImageContainer.classList.add("col-md-6");
+		pizzaImage.src="images/pizza.png";pizzaImage.classList.add("img-responsive");
+		pizzaImageContainer.appendChild(pizzaImage);
+		pizzaContainer.appendChild(pizzaImageContainer);pizzaDescriptionContainer.classList.add("col-md-6");
+		pizzaName=document.createElement("h4");pizzaName.innerHTML=randomName();
+		pizzaDescriptionContainer.appendChild(pizzaName);
+		ul=document.createElement("ul");
+		ul.innerHTML=makeRandomPizza();
+		pizzaDescriptionContainer.appendChild(ul);
+		pizzaContainer.appendChild(pizzaDescriptionContainer);
+		return pizzaContainer;};
+	var resizePizzas=function(size){window.performance.mark("mark_start_resize");
+	function changeSliderLabel(size){switch(size){
+		case"1":document.querySelector("#pizzaSize").innerHTML="Small";return;
+		case"2":document.querySelector("#pizzaSize").innerHTML="Medium";return;
+		case"3":document.querySelector("#pizzaSize").innerHTML="Large";return;
+		default:console.log("bug in changeSliderLabel");}}
+	changeSliderLabel(size);
+	function determineDx(elem,size){var oldwidth=elem.offsetWidth;
+		var windowwidth=document.querySelector("#randomPizzas").offsetWidth;
+		var oldsize=oldwidth / windowwidth;
+		function sizeSwitcher(size){switch(size){
+			case"1":return 0.25;
+			case"2":return 0.3333;
+			case"3":return 0.5;
+			default:console.log("bug in sizeSwitcher");}}
+		var newsize=sizeSwitcher(size);
+		var dx=(newsize-oldsize)*windowwidth;return dx;}
+	function changePizzaSizes(size){
+		for(var i=0;i<document.querySelectorAll(".randomPizzaContainer").length;i++){
+			var dx=determineDx(document.querySelectorAll(".randomPizzaContainer")[i],size);
+			var newwidth=(document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth+dx)+'px';
+			document.querySelectorAll(".randomPizzaContainer")[i].style.width=newwidth;}}
+	changePizzaSizes(size);
+	window.performance.mark("mark_end_resize");
+	window.performance.measure("measure_pizza_resize","mark_start_resize","mark_end_resize");
+	var timeToResize=window.performance.getEntriesByName("measure_pizza_resize");
+	console.log("Time to resize pizzas: "+timeToResize[0].duration+"ms");};
+		window.performance.mark("mark_start_generating");
+		for(var i=2;i<100;i++){var pizzasDiv=document.getElementById("randomPizzas");
 				pizzasDiv.appendChild(pizzaElementGenerator(i));}
 			window.performance.mark("mark_end_generating");
 			window.performance.measure("measure_pizza_generation","mark_start_generating","mark_end_generating");
 			var timeToGenerate=window.performance.getEntriesByName("measure_pizza_generation");
 			console.log("Time to generate pizzas on load: "+timeToGenerate[0].duration+"ms");
-			var frame=0;function logAverageFrame(times){
+			var frame=0;
+			function logAverageFrame(times){
 				var numberOfEntries=times.length;var sum=0;
 				for(var i=numberOfEntries-1;i>numberOfEntries-11;i--){sum=sum+times[i].duration;}
 				console.log("Average time to generate last 10 frames: "+sum / 10+"ms");}
 			function updatePositions(){frame++;window.performance.mark("mark_start_frame");
 				var items=document.querySelectorAll('.mover');
+				var phase_no_i=(document.body.scrollTop / 1250);
+
 				for(var i=0;i<items.length;i++){
-					var phase=Math.sin((document.body.scrollTop / 1250)+(i%5));
+					var phase=Math.sin(phase_no_i+(i%5));
 					items[i].style.left=items[i].basicLeft+100*phase+'px';}
 				window.performance.mark("mark_end_frame");
 				window.performance.measure("measure_frame_duration","mark_start_frame","mark_end_frame");
