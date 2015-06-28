@@ -201,16 +201,17 @@ function getNoun(y){switch(y){
 		var newsize=sizeSwitcher(size);
 		var dx=(newsize-oldsize)*windowwidth;return dx;}
 	function changePizzaSizes(size){
-		for(var i=0;i<document.querySelectorAll(".randomPizzaContainer").length;i++){
-			var dx=determineDx(document.querySelectorAll(".randomPizzaContainer")[i],size);
-			var newwidth=(document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth+dx)+'px';
-			document.querySelectorAll(".randomPizzaContainer")[i].style.width=newwidth;}}
+		var docElement = document.getElementsByClassName(".randomPizzaContainer")
+		for(var i=0;i< docElement.length;i++){
+			var dx=determineDx(docElement[i],size);
+			var newwidth=(docElement[i].offsetWidth+dx)+'px';
+			newwidth =docElement.style.width;}}
 	changePizzaSizes(size);
 	window.performance.mark("mark_end_resize");
 	window.performance.measure("measure_pizza_resize","mark_start_resize","mark_end_resize");
 	var timeToResize=window.performance.getEntriesByName("measure_pizza_resize");
 	console.log("Time to resize pizzas: "+timeToResize[0].duration+"ms");};
-		window.performance.mark("mark_start_generating");
+	window.performance.mark("mark_start_generating");
 		for(var i=2;i<100;i++){var pizzasDiv=document.getElementById("randomPizzas");
 				pizzasDiv.appendChild(pizzaElementGenerator(i));}
 			window.performance.mark("mark_end_generating");
