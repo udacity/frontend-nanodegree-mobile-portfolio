@@ -18,8 +18,8 @@ pizzaIngredients.cheeses=["American Cheese","Swiss Cheese","Goat Cheese","Mozzar
 	"Roquefort Cheese","Romano Cheese","Ricotta Cheese","Smoked Gouda"];
 pizzaIngredients.sauces=["Red Sauce","Marinara","BBQ Sauce","No Sauce","Hot Sauce"];
 pizzaIngredients.crusts=["White Crust","Whole Wheat Crust","Flatbread Crust","Stuffed Crust"];
-String.prototype.capitalize=function(){return this.charAt(0).toUpperCase()+this.slice(1);};
-function getAdj(x){switch(x){
+String.prototype.capitalize=function(){"use strict";return this.charAt(0).toUpperCase()+this.slice(1);};
+function getAdj(x){"use strict";switch(x){
 	case"dark":var dark=["dark","morbid","scary","spooky","gothic","deviant",
 		"creepy","sadistic","black","dangerous","dejected","haunted","morose","tragic","shattered","broken",
 		"sad","melancholy","somber","dark","gloomy","homicidal","murderous","shady","misty","dusky","ghostly",
@@ -70,7 +70,7 @@ function getAdj(x){switch(x){
 		"formulating","cyberpunk","mechanical","technological","innovative","brainy","chemical","quantum","astro",
 		"space","theoretical","atomic","electronic","gaseous","investigative","solar","extinct","galactic"];
 		return scientific_default;}}
-function getNoun(y){switch(y){
+function getNoun(y){"use strict";switch(y){
 	case"animals":var animals=["flamingo","hedgehog","owl","elephant","pussycat",
 		"alligator","dachsund","poodle","beagle","crocodile","kangaroo","wallaby","woodpecker","eagle","falcon",
 		"canary","parrot","parakeet","hamster","gerbil","squirrel","rat","dove","toucan","raccoon","vulture",
@@ -128,30 +128,32 @@ function getNoun(y){switch(y){
 		"darkMatter","constellation","circuit","asteroid"];return scifi_default;}}
 	var adjectives=["dark","color","whimsical","shiny","noise","apocalyptic","insulting","praise","scientific"];
 	var nouns=["animals","everyday","fantasy","gross","horror","jewelry","places","scifi"];
-	function generator(adj,noun){var adjectives=getAdj(adj);var nouns=getNoun(noun);
+	function generator(adj,noun){"use strict";
+		var adjectives=getAdj(adj);var nouns=getNoun(noun);
 		var randomAdjective=parseInt(Math.random()*adjectives.length);
 		var randomNoun=parseInt(Math.random()*nouns.length);
 		var name="The "+adjectives[randomAdjective].capitalize()+" "+nouns[randomNoun].capitalize();return name;}
-	function randomName(){var randomNumberAdj=parseInt(Math.random()*adjectives.length);
+	function randomName(){"use strict";
+		var randomNumberAdj=parseInt(Math.random()*adjectives.length);
 		var randomNumberNoun=parseInt(Math.random()*nouns.length);
 		return generator(adjectives[randomNumberAdj],nouns[randomNumberNoun]);}
-	var selectRandomMeat=function(){
+	var selectRandomMeat=function(){"use strict";
 		var randomMeat=pizzaIngredients.meats[Math.floor((Math.random()*pizzaIngredients.meats.length))];
 		return randomMeat;};
-	var selectRandomNonMeat=function(){
+	var selectRandomNonMeat=function(){"use strict";
 		var randomNonMeat=pizzaIngredients.nonMeats[Math.floor((Math.random()*pizzaIngredients.nonMeats.length))];
 		return randomNonMeat;};
-	var selectRandomCheese=function(){
+	var selectRandomCheese=function(){"use strict";
 		var randomCheese=pizzaIngredients.cheeses[Math.floor((Math.random()*pizzaIngredients.cheeses.length))];
 		return randomCheese;};
-	var selectRandomSauce=function(){
+	var selectRandomSauce=function(){"use strict";
 		var randomSauce=pizzaIngredients.sauces[Math.floor((Math.random()*pizzaIngredients.sauces.length))];
 		return randomSauce;};
-	var selectRandomCrust=function(){
+	var selectRandomCrust=function(){"use strict";
 		var randomCrust=pizzaIngredients.crusts[Math.floor((Math.random()*pizzaIngredients.crusts.length))];
 		return randomCrust;};
-	var ingredientItemizer=function(string){return"<li>"+string+"</li>";};
-	var makeRandomPizza=function(){
+	var ingredientItemizer=function(string){"use strict";return"<li>"+string+"</li>";};
+	var makeRandomPizza=function(){"use strict";
 		var pizza="";
 		var numberOfMeats=Math.floor((Math.random()*4));
 		var numberOfNonMeats=Math.floor((Math.random()*3));
@@ -165,7 +167,7 @@ function getNoun(y){switch(y){
 			pizza=pizza+ingredientItemizer(selectRandomSauce());
 			pizza=pizza+ingredientItemizer(selectRandomCrust());
 		return pizza;};
-	var pizzaElementGenerator=function(i){
+	var pizzaElementGenerator=function(i){"use strict";
 		var pizzaContainer,pizzaImageContainer,pizzaImage,pizzaDescriptionContainer,pizzaName,ul;
 		pizzaContainer=document.createElement("div");
 		pizzaImageContainer=document.createElement("div");pizzaImage=document.createElement("img");
@@ -183,63 +185,72 @@ function getNoun(y){switch(y){
 		pizzaDescriptionContainer.appendChild(ul);
 		pizzaContainer.appendChild(pizzaDescriptionContainer);
 		return pizzaContainer;};
-	var resizePizzas=function(size){window.performance.mark("mark_start_resize");
-	function changeSliderLabel(size){switch(size){
+	var resizePizzas=function(size){"use strict";window.performance.mark("mark_start_resize");
+	function changeSliderLabel(size){"use strict";switch(size){
 		case"1":document.querySelector("#pizzaSize").innerHTML="Small";return;
 		case"2":document.querySelector("#pizzaSize").innerHTML="Medium";return;
 		case"3":document.querySelector("#pizzaSize").innerHTML="Large";return;
 		default:console.log("bug in changeSliderLabel");}}
 	changeSliderLabel(size);
-	function determineDx(elem,size){var oldwidth=elem.offsetWidth;
+	function determineDx(elem,size){"use strict";
+		var oldwidth=elem.offsetWidth;
 		var windowwidth=document.querySelector("#randomPizzas").offsetWidth;
 		var oldsize=oldwidth / windowwidth;
-		function sizeSwitcher(size){switch(size){
+		function sizeSwitcher(size){"use strict";switch(size){
 			case"1":return 0.25;
 			case"2":return 0.3333;
 			case"3":return 0.5;
 			default:console.log("bug in sizeSwitcher");}}
 		var newsize=sizeSwitcher(size);
 		var dx=(newsize-oldsize)*windowwidth;return dx;}
-	function changePizzaSizes(size){
-		var docElement = document.getElementsByClassName(".randomPizzaContainer")
-		for(var i=0;i< docElement.length;i++){
-			var dx=determineDx(docElement[i],size);
-			var newwidth=(docElement[i].offsetWidth+dx)+'px';
-			newwidth =docElement.style.width;}}
+	function changePizzaSizes(size){"use strict";
+		var container = document.getElementsByClassName("randomPizzaContainer");
+		var dx;
+		var newwidth;
+		for(var i=0, len = container.length;i< len;i++){
+			dx=determineDx(container[i],size);
+			newwidth=(container[i].offsetWidth+dx)+'px';
+			newwidth = container[i].style.width;}}
 	changePizzaSizes(size);
 	window.performance.mark("mark_end_resize");
 	window.performance.measure("measure_pizza_resize","mark_start_resize","mark_end_resize");
 	var timeToResize=window.performance.getEntriesByName("measure_pizza_resize");
 	console.log("Time to resize pizzas: "+timeToResize[0].duration+"ms");};
 	window.performance.mark("mark_start_generating");
-		for(var i=2;i<100;i++){var pizzasDiv=document.getElementById("randomPizzas");
-				pizzasDiv.appendChild(pizzaElementGenerator(i));}
-			window.performance.mark("mark_end_generating");
-			window.performance.measure("measure_pizza_generation","mark_start_generating","mark_end_generating");
-			var timeToGenerate=window.performance.getEntriesByName("measure_pizza_generation");
-			console.log("Time to generate pizzas on load: "+timeToGenerate[0].duration+"ms");
-			var frame=0;
-			function logAverageFrame(times){
-				var numberOfEntries=times.length;var sum=0;
-				for(var i=numberOfEntries-1;i>numberOfEntries-11;i--){sum=sum+times[i].duration;}
-				console.log("Average time to generate last 10 frames: "+sum / 10+"ms");}
-			function updatePositions(){frame++;window.performance.mark("mark_start_frame");
-				var items=document.querySelectorAll('.mover');
-				var phase_no_i=(document.body.scrollTop / 1250);
-
-				for(var i=0;i<items.length;i++){
-					var phase=Math.sin(phase_no_i+(i%5));
-					items[i].style.left=items[i].basicLeft+100*phase+'px';}
-				window.performance.mark("mark_end_frame");
-				window.performance.measure("measure_frame_duration","mark_start_frame","mark_end_frame");
-				if(frame%10===0){
-					var timesToUpdatePosition=window.performance.getEntriesByName("measure_frame_duration");
-					logAverageFrame(timesToUpdatePosition);}}
-			window.addEventListener('scroll',updatePositions);
-			document.addEventListener('DOMContentLoaded',function(){var cols=8;var s=256;
-			for(var i=0;i<20;i++){var elem=document.createElement('img');
-				elem.className='mover';elem.src="images/pizza.png";elem.style.height="100px";
-				elem.style.width="73.333px";elem.basicLeft=(i%cols)*s;
-				elem.style.top=(Math.floor(i / cols)*s)+'px';
-				document.querySelector("#movingPizzas1").appendChild(elem);}
-		updatePositions();});
+	var pizzasDiv=document.getElementById("randomPizzas");
+	for(var i=2;i<100;i++){
+		pizzasDiv.appendChild(pizzaElementGenerator(i));}
+	window.performance.mark("mark_end_generating");
+	window.performance.measure("measure_pizza_generation","mark_start_generating","mark_end_generating");
+	var timeToGenerate=window.performance.getEntriesByName("measure_pizza_generation");
+	console.log("Time to generate pizzas on load: "+timeToGenerate[0].duration+"ms");
+	var frame=0;
+	function logAverageFrame(times){"use strict";
+		var numberOfEntries=times.length;var sum=0;
+		for(var i=numberOfEntries-1;i>numberOfEntries-11;i--){sum=sum+times[i].duration;}
+			console.log("Average time to generate last 10 frames: "+sum / 10+"ms");}
+	function updatePositions(){"use strict";frame++;window.performance.mark("mark_start_frame");
+		var items=document.getElementsByClassName('mover');
+		var top=(document.body.scrollTop / 1250);
+		var phase;
+		for(var i=0;i<items.length;i++){
+			phase=Math.sin(top+i%5);
+			items[i].style.left=items[i].basicLeft+100*phase+'px';}
+		window.performance.mark("mark_end_frame");
+		window.performance.measure("measure_frame_duration","mark_start_frame","mark_end_frame");
+		if(frame%10===0){
+			var timesToUpdatePosition=window.performance.getEntriesByName("measure_frame_duration");
+			logAverageFrame(timesToUpdatePosition);}}
+		window.addEventListener('scroll',updatePositions);
+		document.addEventListener('DOMContentLoaded',
+			function(){"use strict";
+				var cols=8;var s=256;
+				var elem;
+				for(var i=0;i<40;i++){
+					elem=document.createElement('img');
+					elem.className='mover';
+					elem.src="images/pizza.png";elem.style.height="100px";
+					elem.style.width="73.333px";elem.basicLeft=(i%cols)*s;
+					elem.style.top=(Math.floor(i / cols)*s)+'px';
+					document.getElementById("movingPizzas1").appendChild(elem);}
+			updatePositions();});
