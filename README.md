@@ -32,7 +32,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
@@ -71,3 +71,26 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
 * <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
 * <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+
+
+*******************************
+1   To run the Cameron Portfolio application, pull up the web application on the web
+2.  When the Cameron Portfolio application is up on the web then go to the Cam's Pizzeria link to get to the Cam's Pizzeria page
+
+3.  At the Cam's Pizzeria page:
+	A.  You can move to Menu by scrolling down or use the Menu button.
+	B.  You can move to Our Ingredients by scrolling down or use the Our Ingredients button.
+	C.  You can move to Locations by scrolling down or use the Locations button.
+	D.  You can move to Contacts by scrolling down or use the Contacts button.
+	E.  You can pick a pizza by using the Pick A Pizza button.
+	F.  You can change the size of your pizza by scrolling down to the Our Pizzas section and then use the Slider to set the size of the pizza.
+
+4.  The optimization was done on index.html to increase pageSpeed to 90.
+	A.  In-line css to eliminate render-blocking css
+	B.  Minify css and js
+	C.  Optimized images by making them the smaller sizes thru compression
+
+5.  The optimization was done on pizza.html to increase pageSpeed to 89,
+	A.  in-line css to eliminate render-blocking css
+	B.  Minify css and js
+	C.  Optimized images by making them smaller sizes thru compression
