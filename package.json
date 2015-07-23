@@ -1,0 +1,19 @@
+{
+  "name": "website-performance-optimization",
+  "version": "1.0.0",
+  "description": "use the crital rendering path to optimise website performance",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lesansley/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "author": "Les Ansley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lesansley/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/lesansley/frontend-nanodegree-mobile-portfolio#readme"
+}
