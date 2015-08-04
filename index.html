@@ -7,11 +7,13 @@
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
 
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet">
+    <!-- Hmm, what is the impact of web fonts on speed? Measure it...
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet"> 
+    Added google fonts via javascript on line 85--> 
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <link href="css/print.css" rel="stylesheet" media = "print">
+    <!--<link href="css/inlineStyle.css" rel="stylesheet">-->
+    <style>body{margin:0;font-size:14px;line-height:1.61;font-weight:400;font-family:'Open Sans',sans-serif;background:#fff}a{color:#12C}.container,footer,header{max-width:45em;margin:0 auto}header{padding:0 .5em;color:#C90B0B}.header-img{border-radius:40px;float:left}.header-text{font-size:1.5em;font-weight:700;padding-left:4em}.header-span{font-size:.8em;font-weight:400}.hero{padding:2em;background-color:#f8f8f8;font-size:1.2em;border-bottom:1px solid #ccc;border-top:1px solid #ccc}.contentImage{float:left;padding-right:1em}.contentText{font-size:.9em;font-style:italic}.contentLink{list-style-type:none;font-size:1.1em}.content{padding:1em}footer{padding:0 .5em;border-top:1px solid #ccc}footer span{float:right;font-style:italic}@media only screen and (max-width:480px){body{font-size:12px}header p{padding-left:4.5em}}</style>
 
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
@@ -21,14 +23,14 @@
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
-    <script src="http://www.google-analytics.com/analytics.js"></script>
+    <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
   </head>
 
   <body>
     <header>
-      <a href="/"><img src="img/profilepic.jpg"></a>
-      <p>Cameron Pittman<br><span>Course Developer</span></p>
+      <a href="/"><img src="img/profilepic.jpg" class= "header-img"></a>
+      <p class= "header-text">Cameron Pittman<br><span class= "header-span">Course Developer</span></p>
     </header>
 
     <div class="container">
@@ -38,28 +40,28 @@
 
       <div class="content">
         <ul>
-          <li>
-            <img src="https://lh4.ggpht.com/kJEnfqhPvtm4m3EneSZ4fWYGS8lW4YNhEjk6zPkyrQaBUHc-2Y_ElDic99NHI0h-UBLXVbRCjFybFvrWxdk=s100">
-            <a href="project-2048.html">Build Your Own 2048!</a>
-            <p>I made my own version of 2048. How cool is that!?</p>
+          <li class = "contentLink">
+            <img class = "contentImage" src="https://lh4.ggpht.com/kJEnfqhPvtm4m3EneSZ4fWYGS8lW4YNhEjk6zPkyrQaBUHc-2Y_ElDic99NHI0h-UBLXVbRCjFybFvrWxdk=s100">
+            <a  href="project-2048.html">Build Your Own 2048!</a>
+            <p class = "contentText">I made my own version of 2048. How cool is that!?</p>
           </li>
 
-          <li>
-            <img src="https://lh6.ggpht.com/f_0W8h__3G99CWTjnMjD8BUKm7yp2-wJyApLtTwFoFtlal2ULf_JgHIsOQq2NiYfKOdMlXlMHDKNo5XVZLs=s100">
+          <li class = "contentLink">
+            <img class = "contentImage" src="https://lh6.ggpht.com/f_0W8h__3G99CWTjnMjD8BUKm7yp2-wJyApLtTwFoFtlal2ULf_JgHIsOQq2NiYfKOdMlXlMHDKNo5XVZLs=s100">
             <a href="project-webperf.html">Website Performance Optimization</a>
-            <p>Hey... this class looks familiar.</p>
+            <p class = "contentText">Hey... this class looks familiar.</p>
           </li>
 
-          <li>
-            <img src="https://lh5.ggpht.com/IKdCmTWn8a2nMhlwMYzryvzRN5CUZAOBr4tDrEAbszV7TIFe9pRAInA4kkYcgTXwrifJsBEsq1agTueuu-g=s100">
+          <li class = "contentLink">
+            <img class = "contentImage" src="https://lh5.ggpht.com/IKdCmTWn8a2nMhlwMYzryvzRN5CUZAOBr4tDrEAbszV7TIFe9pRAInA4kkYcgTXwrifJsBEsq1agTueuu-g=s100">
             <a href="project-mobile.html">Mobile Web Development</a>
-            <p>Making mobile apps isn't so hard after all.</p>
+            <p class = "contentText">Making mobile apps isn't so hard after all.</p>
           </li>
 
-          <li>
-            <img style="width: 100px;" src="views/images/pizzeria.jpg">
+          <li class = "contentLink">
+            <img class= "contentImage" style="width: 100px;" src="views/images/pizzeriaMini.jpg">
             <a href="views/pizza.html">Cam's Pizzeria</a>
-            <p>Who wants a performant pizza?</p>
+            <p class = "contentText">Who wants a performant pizza?</p>
           </li>
         </ul>
     </div>
@@ -67,5 +69,32 @@
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
+  </div>
+    <!--link to css that downloads during idle time-->
+     <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'css/restStyle.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+     <!--link to google fonts-->
+     <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
   </body>
 </html>
