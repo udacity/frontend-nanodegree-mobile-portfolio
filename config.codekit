@@ -53,6 +53,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/opt\/2048.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 17771,
+		"inputAbbreviatedPath": "\/img\/opt\/2048.png",
+		"outputAbbreviatedPath": "\/img\/opt\/2048.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/opt\/cam_be_like.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 67828,
+		"inputAbbreviatedPath": "\/img\/opt\/cam_be_like.jpg",
+		"outputAbbreviatedPath": "\/img\/opt\/cam_be_like.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/opt\/mobilewebdev.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 27037,
+		"inputAbbreviatedPath": "\/img\/opt\/mobilewebdev.jpg",
+		"outputAbbreviatedPath": "\/img\/opt\/mobilewebdev.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/opt\/profilepic.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3050,
+		"inputAbbreviatedPath": "\/img\/opt\/profilepic.jpg",
+		"outputAbbreviatedPath": "\/img\/opt\/profilepic.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/profilepic.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
