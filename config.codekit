@@ -75,6 +75,15 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/index-unminified.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/index-unminified.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -190,28 +199,6 @@
 		"initialSize": 48696,
 		"inputAbbreviatedPath": "\/views\/images\/opt\/pizzeria.jpg",
 		"outputAbbreviatedPath": "\/views\/images\/opt\/pizzeria.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/views\/images\/pizza.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 49907,
-		"inputAbbreviatedPath": "\/views\/images\/pizza.png",
-		"outputAbbreviatedPath": "\/views\/images\/pizza.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/views\/images\/pizzeria.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 2.37007e+06,
-		"inputAbbreviatedPath": "\/views\/images\/pizzeria.jpg",
-		"outputAbbreviatedPath": "\/views\/images\/pizzeria.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
