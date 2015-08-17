@@ -20,38 +20,16 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/img\/2048.png": {
-		"fileType": 32768,
+	"\/Gruntfile.js": {
+		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 65480,
-		"inputAbbreviatedPath": "\/img\/2048.png",
-		"outputAbbreviatedPath": "\/img\/2048.png",
+		"inputAbbreviatedPath": "\/Gruntfile.js",
+		"outputAbbreviatedPath": "\/min\/Gruntfile-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/cam_be_like.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 267932,
-		"inputAbbreviatedPath": "\/img\/cam_be_like.jpg",
-		"outputAbbreviatedPath": "\/img\/cam_be_like.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/mobilewebdev.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 190465,
-		"inputAbbreviatedPath": "\/img\/mobilewebdev.jpg",
-		"outputAbbreviatedPath": "\/img\/mobilewebdev.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/img\/opt\/2048.png": {
 		"fileType": 32768,
@@ -97,17 +75,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/profilepic.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 14399,
-		"inputAbbreviatedPath": "\/img\/profilepic.jpg",
-		"outputAbbreviatedPath": "\/img\/profilepic.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -123,6 +90,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/perfmatters.js",
 		"outputAbbreviatedPath": "\/js\/min\/perfmatters-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/min\/Gruntfile-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/min\/Gruntfile-min.js",
+		"outputAbbreviatedPath": "\/min\/min\/Gruntfile-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -193,6 +171,28 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/views\/images\/opt\/pizza.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20427,
+		"inputAbbreviatedPath": "\/views\/images\/opt\/pizza.png",
+		"outputAbbreviatedPath": "\/views\/images\/opt\/pizza.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/views\/images\/opt\/pizzeria.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48696,
+		"inputAbbreviatedPath": "\/views\/images\/opt\/pizzeria.jpg",
+		"outputAbbreviatedPath": "\/views\/images\/opt\/pizzeria.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/views\/images\/pizza.png": {
 		"fileType": 32768,
