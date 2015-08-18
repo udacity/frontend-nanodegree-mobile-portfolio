@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'ngrok' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose install initial load of /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/package.json
+5 verbose installManyTop reading scoped package data from /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/node_modules/grunt/package.json
+6 verbose installManyTop reading scoped package data from /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/node_modules/grunt-responsive-images/package.json
+7 verbose installManyTop reading scoped package data from /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/node_modules/ngrok/package.json
+8 verbose installManyTop reading scoped package data from /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/node_modules/supervisor/package.json
+9 info package.json grunt@0.4.5 No license field.
+10 info package.json grunt-responsive-images@0.1.6 No license field.
+11 info package.json supervisor@0.7.1 No license field.
+12 verbose readDependencies loading dependencies from /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/package.json
+13 verbose install ngrok is installed as 0.1.99
+14 silly cache add args [ 'ngrok', null ]
+15 verbose cache add spec ngrok
+16 silly cache add parsed spec { raw: 'ngrok',
+16 silly cache add   scope: null,
+16 silly cache add   name: null,
+16 silly cache add   rawSpec: 'ngrok',
+16 silly cache add   spec: '/Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4/ngrok',
+16 silly cache add   type: 'local' }
+17 silly addLocalTarball shasum (computed) 36aaf8260e239dcff6909b2328416634f3fe14c3
+18 verbose addTmpTarball /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4/ngrok not in flight; adding
+19 verbose addTmpTarball validating metadata from /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4/ngrok
+20 verbose tar unpack /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4/ngrok
+21 verbose tar unpacking to /tmp/npm-75877-1c183145/unpack-ff180ceb6b1f
+22 silly gentlyRm /tmp/npm-75877-1c183145/unpack-ff180ceb6b1f is being purged
+23 verbose gentlyRm don't care about contents; nuking /tmp/npm-75877-1c183145/unpack-ff180ceb6b1f
+24 silly gunzTarPerm modes [ '755', '644' ]
+25 error not a package /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4/ngrok
+26 error addLocal Could not install /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4/ngrok
+27 verbose stack Error: ENOENT, open '/tmp/npm-75877-1c183145/unpack-ff180ceb6b1f/package.json'
+27 verbose stack     at Error (native)
+28 verbose cwd /Users/mhazani/Documents/Coding/projects/Udacity NanoDegree/Projects/Udacity-project-4
+29 error Darwin 14.4.0
+30 error argv "node" "/usr/local/bin/npm" "install" "ngrok"
+31 error node v0.12.7
+32 error npm  v2.11.3
+33 error path /tmp/npm-75877-1c183145/unpack-ff180ceb6b1f/package.json
+34 error code ENOENT
+35 error errno -2
+36 error enoent ENOENT, open '/tmp/npm-75877-1c183145/unpack-ff180ceb6b1f/package.json'
+36 error enoent This is most likely not a problem with npm itself
+36 error enoent and is related to npm not being able to find a file.
+37 verbose exit [ -2, true ]
