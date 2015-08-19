@@ -1,19 +1,20 @@
 {
-  "name": "website-performance-optimization",
-  "version": "1.0.0",
-  "description": "use the crital rendering path to optimise website performance",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "website-optimisation",
+  "version": "0.0.1",
+  "description": "Front-end Web Development Nanodegree - Assignment 4",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^2.0.2",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.0.0",
+    "load-grunt-config": "^0.17.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lesansley/frontend-nanodegree-mobile-portfolio.git"
-  },
-  "author": "Les Ansley",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lesansley/frontend-nanodegree-mobile-portfolio/issues"
-  },
-  "homepage": "https://github.com/lesansley/frontend-nanodegree-mobile-portfolio#readme"
+  "dependencies": {
+    "jshint-stylish": "^2.0.1",
+    "time-grunt": "^1.2.1"
+  }
 }
