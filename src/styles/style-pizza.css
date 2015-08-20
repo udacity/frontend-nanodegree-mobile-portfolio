@@ -66,6 +66,19 @@ form {
 
 .row {
   width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3,
+.col-md-4,
+.col-md-6,
+.col-md-8,
+.col-md-12 {
+  float: left;
 }
 
 .col-md-3 {
@@ -87,3 +100,11 @@ form {
 .col-md-12 {
   width: 100%
 }
+
+.col-md-push-2 {
+    left: 16.67%;
+  }
+
+  .col-md-push-3 {
+    left: 25%;
+  }
