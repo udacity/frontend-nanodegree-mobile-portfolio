@@ -41,6 +41,10 @@ form {
   display: flex;
 }
 
+#pizzaGenerator {
+  will-change: transform;
+}
+
 .randomPizzaContainer:after {
   content: "";
   display: table;
@@ -49,4 +53,32 @@ form {
 
  .container {
   background-color: rgba(240, 60, 60, 0.8);
+}
+
+.random-pizza-image {
+  width: 100%;
+}
+
+.row {
+  width: 100%;
+}
+
+.col-md-3 {
+  width: 25%;
+}
+
+.col-md-4 {
+  width: 33.33%;
+}
+
+.col-md-6 {
+  width: 50%;
+}
+
+.col-md-8 {
+  width: 66.66%
+}
+
+.col-md-12 {
+  width: 100%
 }
