@@ -459,34 +459,28 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     var allPizzaContainers = document.querySelectorAll('.randomPizzaContainer');
-    var pizzaContainer = document.querySelector(".randomPizzaContainer");
-    //Determine what the col-md value is in order to remove it
-    var oldPizzaClass = pizzaContainer.classList[1];
-    var newPizzaClass;
+    var newPizzaSize;
 
     switch(size) {
       case "1":
-        newPizzaClass = "col-md-3";
+        newPizzaSize = "25%";
         break;
       case "2":
-        newPizzaClass = "col-md-4";
+        newPizzaSize = "33.3333%";
         break;
       case "3":
-        newPizzaClass = "col-md-6";
+        newPizzaSize = "50%";
         break;
       default:
         console.log("bug in changeSliderLabel");
         break;
     }
 
-    for(var i in allPizzaContainers) {
-      console.log(allPizzaContainers[i].classList);
-      allPizzaContainers[i].classList.remove(oldPizzaClass);
-      allPizzaContainers[i].classList.add(newPizzaClass);
+    for(var i=0; i < allPizzaContainers.length; i++) {
+      allPizzaContainers[i].style.width = newPizzaSize;
     }
     
   }
-
 
   changePizzaSizes(size);
 
@@ -529,14 +523,19 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-function updatePositions() {
+function updatePositions(s, columns) {
   frame++;
   window.performance.mark("mark_start_frame");
   
   var items = document.querySelectorAll('.mover');
-  var phaseInt = document.body.scrollTop / 1250;
-  for(var i=0; i<40; i++) {
-    var move = Math.sin(phaseInt + (i % 5)) * 100 + items[i].basicLeft;
+  count = items.length;
+
+  //INTEROGATION OF THE DOM WAS REMOVED FROM THE LOOP
+  //ADJUSTED SCROLL TO SCREEN RESOLUTION
+  var phaseInt = document.body.scrollTop / screen.height;
+  
+  for(var i=0; i < count; i++) {
+    var move = Math.sin(phaseInt + (i % 5)) * 100 + items[i].basicLeft; 
     items[i].style.left = move + 'px';
   }
 
@@ -557,7 +556,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 40; i++) {
+  var rows = Math.ceil(screen.height/s);
+  var count = cols * rows
+  console.log(screen.height);
+  
+  //THE NUMBER OF SLIDING PIZZAS GENERATED IS DEPENDENT ON SCREEN RESOLUTION
+  for (var i = 0; i < count; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "img/pizza.png";
@@ -567,5 +571,5 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  updatePositions();
+  updatePositions(s, cols);
 });
