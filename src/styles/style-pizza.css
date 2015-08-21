@@ -29,6 +29,13 @@ form {
   font-weight: 800;
 }
 
+.img-responsive {
+  display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+}
+
 .mover {
   position: fixed;
   width: 256px;
@@ -105,6 +112,6 @@ form {
     left: 16.67%;
   }
 
-  .col-md-push-3 {
-    left: 25%;
-  }
+.col-md-push-3 {
+  left: 25%;
+}
