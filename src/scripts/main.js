@@ -358,24 +358,35 @@ var makeRandomPizza = function() {
   return pizza;
 };
 
-// returns a DOM element for each pizza
-var pizzaElementGenerator = function() {
+// returns a complete DOM for each all the pizzas
+var pizzaElementGenerator = function(greeting) {
 
-  var pizzaWorker = new Worker('pizzaWorker.js')
+  var HTMLpizzaContainer = '<div id="pizza%data%" class="randomPizzaContainer" style="height: 325px; width: 33.3333%;"><div class="col-md-6"><img src="img/pizza.png" class="img-responsive random-pizza-image"></div><div class="col-md-6"><h4>%randomName%</h4><ul>%makeRandomPizza%</ul></div></div>';
+  var allPizzaElements = '';
   
-  pizzaWorker.postMessage(100);
+  for(var i=2; i < 100; i++) {
+    var pizzaElement = HTMLpizzaContainer.replace('%data%',i);
+    pizzaElement = pizzaElement.replace('%randomName%', randomName());
+    pizzaElement = pizzaElement.replace('%makeRandomPizza%', makeRandomPizza());
+    allPizzaElements += pizzaElement;
+  }
+
+  var pizzaWorker = new Worker('src/scripts/pizza-worker.js')
+  /*pizzaWorker.postMessage(100);
 
     //listen for response from web-worker
     pizzaWorker.onmessage = function(e) {
-      var pizzaElement = e;
+      var pizzaElement = e.data;
       console.log(pizzaElement);
       var pizzasDiv = document.getElementById("randomPizzas");
       pizzasDiv.append(pizzaElement);
-  }
-    
+    }*/
+    var pizzasDiv = document.getElementById("randomPizzas");
+    console.log(pizzasDiv);
+    pizzasDiv.insertAdjacentHTML('beforeend', allPizzaElements);
 };
 
-pizzaElementGenerator();
+pizzaElementGenerator("hello");
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
