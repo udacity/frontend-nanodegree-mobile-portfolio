@@ -40,7 +40,7 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
-  will-change: transform;
+  
 }
 
 .randomPizzaContainer {
@@ -49,7 +49,7 @@ form {
 }
 
 #pizzaGenerator {
-  will-change: transform;
+  
 }
 
 .randomPizzaContainer:after {
