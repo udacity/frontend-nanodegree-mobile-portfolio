@@ -1,0 +1,117 @@
+/** {
+  outline: 1px solid red !important;
+}*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background: black;
+}
+
+input {
+  background: grey;
+  font-size: 18px;
+}
+
+form {
+  display: inline-block;
+}
+
+.centered {
+  text-align: center;
+}
+
+#pizzaSize {
+  font-weight: 800;
+}
+
+.img-responsive {
+  display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+}
+
+.mover {
+  position: fixed;
+  width: 256px;
+  z-index: -1;
+  will-change: transform;
+}
+
+.randomPizzaContainer {
+  float: left;
+  display: flex;
+}
+
+#pizzaGenerator {
+  will-change: transform;
+}
+
+.randomPizzaContainer:after {
+  content: "";
+  display: table;
+  clear:both;
+}
+
+ .container {
+  background-color: rgba(240, 60, 60, 0.8);
+  max-width: 1140px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.random-pizza-image {
+  width: 100%;
+}
+
+.row {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3,
+.col-md-4,
+.col-md-6,
+.col-md-8,
+.col-md-12 {
+  float: left;
+}
+
+.col-md-3 {
+  width: 25%;
+}
+
+.col-md-4 {
+  width: 33.33%;
+}
+
+.col-md-6 {
+  width: 50%;
+}
+
+.col-md-8 {
+  width: 66.66%
+}
+
+.col-md-12 {
+  width: 100%
+}
+
+.col-md-push-2 {
+    left: 16.67%;
+  }
+
+.col-md-push-3 {
+  left: 25%;
+}
