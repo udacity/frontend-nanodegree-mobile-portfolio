@@ -1,0 +1,63 @@
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
+}
+body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; background: #fff; }
+body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
+
+a { color: #12C; }
+a:visited { color: #61C; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { color: #c00; outline: 0; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
+img { border: 0; max-width: 100%; }
+
+header, footer, .container { max-width: 1140px; margin: 0 auto; }
+
+header { padding: 0 0.5em; color: #C90B0B; }
+header img { border-radius: 40px; float: left; }
+header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
+header p span { font-size: 0.8em; font-weight: normal;}
+
+.hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.content { padding: 1em 1em; }
+.content li { list-style-type: none; font-size: 1.1em;}
+li img { float:left; padding-right: 1em; }
+li p { font-size: 0.9em; font-style: italic; }
+
+footer {
+  padding: 0 0.5em;
+  border-top: 1px solid #ccc;
+}
+footer span { float: right; font-style: italic; }
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 480px) {
+  body { font-size: 12px;}
+  header p { padding-left: 4.5em;}
+}

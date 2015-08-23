@@ -1,0 +1,73 @@
+/** {
+  outline: 1px solid red !important;
+}*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background: black;
+}
+
+input {
+  background: grey;
+  font-size: 18px;
+}
+
+form {
+  display: inline-block;
+}
+
+.centered {
+  text-align: center;
+}
+
+#pizzaSize {
+  font-weight: 800;
+}
+
+.img-responsive {
+  display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+}
+
+.mover {
+  position: fixed;
+  width: 256px;
+  z-index: -1;
+  
+}
+
+.randomPizzaContainer {
+  float: left;
+  display: flex;
+}
+
+#pizzaGenerator {
+  
+}
+
+.randomPizzaContainer:after {
+  content: "";
+  display: table;
+  clear:both;
+}
+
+ .container {
+  background-color: rgba(240, 60, 60, 0.8);
+  max-width: 1140px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.random-pizza-image {
+  width: 100%;
+}
+
