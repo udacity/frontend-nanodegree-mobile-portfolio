@@ -16,7 +16,7 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 
 Updates:
-ss01:  Scott Stubbs 10/10/2015 - replaced the pizza resize fucntion to removed the Forced Sync Layout issue
+ss01:  Scott Stubbs 10/10/2015 - replaced the pizza resize fucntion to remove the Forced Sync Layout issue
 */
 
 // As you may have realized, this website randomly generates pizzas.
@@ -455,14 +455,17 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
 
-/* ss01 =======
+    /* ss01 =======
+    remplaced this section you should not be looping through something that looks at the offset then changes it.  This is the cause of the FSL
+
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }  ========= ss01 */
+    }  
+    ========= ss01 */
 
-    // ss01 use this instead of calling the size switcher function
+    // ss01 use this simple method of getting the size percentage instead of calling the determineDx and sizeSwitcher
     switch(size) {
       case "1":
         newWidth = 25;
@@ -474,15 +477,13 @@ var resizePizzas = function(size) {
         newWidth = 50;
         break;
       default:
-        console.log("Invalid size - it should be 1,2 or 3; size = " + size);
+        console.log("Invalid size- it should be 1,2 or 3; size = " + size);
     }
     var randomPizzas = document.querySelectorAll(".randomPizzaContainer");  // ss01 store the 
     for (var i = 0; i < randomPizzas.length; i++) {
       //randomPizzas[i].style.width = sizeSwitcher(size) * 100 + "%"; no longer call the sideswitcher function
       randomPizzas[i].style.width = newWidth + "%"; // the pizzas will be scaled to the new width
     }
-
-
   }
 
   changePizzaSizes(size);
