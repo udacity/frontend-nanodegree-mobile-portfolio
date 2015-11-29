@@ -16,7 +16,7 @@ a:hover, a:active { color: #c00; outline: 0; }
 b, strong { font-weight: bold; }
 pre, code { font-family: monospace, monospace; font-size: 1em; }
 ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
-img { border: 0; max-width: 100%; }
+img { border: 0; max-width: 10%; }
 
 body { background: #fff; }
 header, footer, .container { max-width: 45em; margin: 0 auto; }
