@@ -1,0 +1,7 @@
+node_modules /
+bower_components /
+.DS_Store
+.sass_cache
+.env
+dist
+* debug.log

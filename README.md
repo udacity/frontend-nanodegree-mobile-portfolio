@@ -3,13 +3,15 @@ frontend-nanodegree-mobile-portfolio
 
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+clone the repo, and develop With gulpJs, nodeJs & Npm
+1.read Project structure.md
 
 To get started, check out the repository, inspect the code,
 
 ### Getting started
 
 #step for Website Performance Optimization
+##Optimize PageSpeed Insights score for index.html
 
 ###collaborative optimization
 ##Jiar Manosalva
@@ -17,6 +19,7 @@ To get started, check out the repository, inspect the code,
 #Optimizing the CRP
 
 1. Async javascript
+   We reviewed the html file does not immediately need to load javascript, if so follow step 2
 1. window.onload event
 
   ```bash
@@ -29,116 +32,10 @@ To get started, check out the repository, inspect the code,
   <img src="img/control.png" class="center" cache-control="HTTP">
   ```
 1. minimize css, js
+CSS minimizes the base and hits the index.html between style tags
+only if it is not very large
 1. minimizing gzip
-
-1. Proect structure for Front end project
-
-
-  ```bash
-  $> git init
-  $> ls -a
-  $> touch README.md
-  $> subl README.md
-  $> touch .gitignore
-  $> subl
-  ```
-1. Edit .gitignore
-
-  ```bash
-  node_modules/
-  bower_components/
-  .DS_store
-  .sass_cache
-  .env
-  dist
-  *debug.log
-  ```
-
-  ```bash
-  $> npm install async
-  $> touch package.json
-  $> touch bower.json
-  $> npm install --save-dev gulp
-  $> mkdir src
-  $> mkdir src/scripts src/styles
-  $> touch src/index.html src/scripts/app.js  src/styles/main.css
-  $> open src/index.html
-  $> touch gulpfile.js
-  $> gulp hello
-  $> npm install --save-dev browser-sync gulp-uglify gulp-minify-css
-     gulp-html-replace gulp-sourcemaps
-  ```
-1. Edit package.json
-
-  ```bash
-  {
-    "name": "project_name",
-    "version": "0.0.1",
-    "description": "optimizing project",
-    "author": {
-      "name": "Jair Manosalva",
-      "email": "yayomanosalva@gmail.com"
-    },
-    "script": {
-      "start": "npm install && gulp"
-    },
-    "dependencies": {
-      "async": "^1.5.2"
-    },
-    "devDependencies": {
-      "axios": "^0.8.1",
-      "browser-sync": "^2.11.1",
-      "gulp": "^3.9.0",
-      "gulp-uglify": "^1.5.1"
-    }
-  }
-  ```
-
-1. Edit gulpfile.js
-
-  ```bash
-  var gulp = require('gulp');
-  var browserSync = require('browser-sync').create();
-  var reload = browserSync.reload;
-  var uglify = require('gulp-uglify');
-  var concat = require('gulp-concat');
-  var minifyCSS = require('gulp-minify-css');
-  var replace =  require('gulp-html-replace');
-  var sourcemap = require('gulp-sourcemap');
-
-  gulp.task('content', function(){
-    gulp.src('./src/index.html')
-        .pipe(gulp.dest('./dist/'))
-        .pipe(reload({stream: true}))
-  });
-
-  gulp.task('script', function(){
-    gulp.src('./src/srcipts/*.js')
-      .pipe(sourcemap.init())
-        .pipe(uglify())
-        .pipe(concat('app.js'))
-      .pipe(sourcemap.write())
-      .pipe(gulp.dest('./dist/scripts'))
-      .pipe(reload({stream: true}))
-  });
-
-  gulp.task('styles', function(){
-    gulp.src('./src/styles/*.js')
-      .pipe(uglifyCSS())
-        .pipe(gulp.dest('./dist/styles'))
-  });
-
-  gulp.task('serve', function(){
-    browserSync.init(){
-        serve: {
-          baseDir: './dist/'
-        }
-    }
-    gulp.watch('./src/index.html', ['content']);
-    gulp.watch('./src/scripts/*.js', ['scripts']);
-    gulp.watch('./src/styles', ['styles']);
-  }
-  ```
+  gzip will allow a compressed page, though hosting in the cloud provide this service when you buy a service
 
 1. To inspect the site on your phone, you can run a local server
 
@@ -157,5 +54,53 @@ To get started, check out the repository, inspect the code,
 
 1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt or gulp and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
 
+#Part 2: Optimize Frames per Second in pizza.html
+
+##optimize the file main.js
+1.We modify querySelector methods getElementById and stir # are thus:
+
+```bash
+  i = document.getElementById ("randomPizzas"). offsetWidth,
+```
+
+1. declare variable randomPizzas, no repeat yourself and change querySelectorAll for getElementsByClassName and remove. line 180 are thus:
+```bash
+  var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+```
+
+1. The n and i variables can go out the loop and are thus:
+
+```bash
+  var n = r(randomPizzas[0], e),i = randomPizzas[0].offsetWidth + n + "px";
+  for ( var a = 0; a < randomPizzas.length; a++) {
+    randomPizzas[a].style.width = i
+  }
+```
+
+1. declare the pizzasDiv variable outside the loop and are thus:
+
+```bash
+  var pizzasDiv = document.getElementById("randomPizzas");
+  for ( var i = 2; 100 > i; i++) {
+    pizzasDiv.appendChild(pizzaElementGenerator(i))
+  }
+```
+
+1. declare variable outside the loop and  calculate the number of rows using the height property of the screen, and then multiply row * cols
+
+```bash
+  var frame = 0, e = 8, a = 256, f = Math.ceil(window.innerHeight / a) + 1;
+
+  var movingPizzas1 = document.getElementById("movingPizzas1");
+  window.addEventListener( "scroll", updatePositions), document.addEventListener("DOMContentLoaded", function() {
+    for (r = 0; e * f > r; r++) {
+        var n = document.createElement("img");
+        n.className = "mover", n.src = "images/pizza.png", 
+        n.style.height = "100px", n.style.width = "73.333px", n.basicLeft = r % e * a, n.style.top = Math.floor(r / e) * a + "px", movingPizzas1.appendChild(n)
+    }
+    updatePositions()
+});
+
+```
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 

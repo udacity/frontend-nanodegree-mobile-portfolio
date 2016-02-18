@@ -1,0 +1,110 @@
+
+#Project structure for Front end project
+
+1. npm install
+1. configure gulp
+
+  ```bash
+  $> git init
+  $> ls -a
+  $> touch README.md
+  $> subl README.md
+  $> touch .gitignore
+  $> subl
+  ```
+1. Edit .gitignore
+
+  ```bash
+  node_modules/
+  bower_components/
+  .DS_store
+  .sass_cache
+  .env
+  dist
+  *debug.log
+  ```
+
+  ```bash
+  $> npm install async
+  $> touch package.json
+  $> touch bower.json
+  $> npm install --save-dev gulp
+  $> mkdir src
+  $> mkdir src/scripts src/styles
+  $> touch src/index.html src/scripts/app.js  src/styles/main.css
+  $> open src/index.html
+  $> touch gulpfile.js
+  $> gulp hello
+  $> npm install --save-dev browser-sync gulp-uglify gulp-minify-css
+     gulp-html-replace gulp-sourcemaps
+  ```
+1. Edit package.json
+
+  ```bash
+  {
+    "name": "project_name",
+    "version": "0.0.1",
+    "description": "optimizing project",
+    "author": {
+      "name": "Jair Manosalva",
+      "email": "yayomanosalva@gmail.com"
+    },
+    "script": {
+      "start": "npm install && gulp"
+    },
+    "dependencies": {
+      "async": "^1.5.2"
+    },
+    "devDependencies": {
+      "axios": "^0.8.1",
+      "browser-sync": "^2.11.1",
+      "gulp": "^3.9.0",
+      "gulp-uglify": "^1.5.1"
+    }
+  }
+  ```
+
+1. Edit gulpfile.js
+
+  ```bash
+  var gulp = require('gulp');
+  var browserSync = require('browser-sync').create();
+  var reload = browserSync.reload;
+  var uglify = require('gulp-uglify');
+  var concat = require('gulp-concat');
+  var minifyCSS = require('gulp-minify-css');
+  var replace =  require('gulp-html-replace');
+  var sourcemap = require('gulp-sourcemap');
+
+  gulp.task('content', function(){
+    gulp.src('./src/index.html')
+        .pipe(gulp.dest('./dist/'))
+        .pipe(reload({stream: true}))
+  });
+
+  gulp.task('script', function(){
+    gulp.src('./src/srcipts/*.js')
+      .pipe(sourcemap.init())
+        .pipe(uglify())
+        .pipe(concat('app.js'))
+      .pipe(sourcemap.write())
+      .pipe(gulp.dest('./dist/scripts'))
+      .pipe(reload({stream: true}))
+  });
+
+  gulp.task('styles', function(){
+    gulp.src('./src/styles/*.js')
+      .pipe(uglifyCSS())
+        .pipe(gulp.dest('./dist/styles'))
+  });
+
+  gulp.task('serve', function(){
+    browserSync.init(){
+        serve: {
+          baseDir: './dist/'
+        }
+    }
+    gulp.watch('./src/index.html', ['content']);
+    gulp.watch('./src/scripts/*.js', ['scripts']);
+    gulp.watch('./src/styles', ['styles']);
+  }
