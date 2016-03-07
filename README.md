@@ -28,12 +28,26 @@ Latest Updates (more details on [Github](https://github.com/guillaumesimler/nano
 ----
 
 
+Repo folder structure
+----
+You will find the following structure on the repository
+* **"src"** will contain the development directory
+* **"dir"** will contain the productive directory
+* **"grunt"** contains the two main grunt files
+* **"PageInsight ..."*** contains the screenshots of the PageInsight measurements
+
+
+Use of grunt
+----
+Grunt was widely used in this project. A complete readme of my generic Gruntfiles can be read on its [own Github repository](https://github.com/guillaumesimler/gruntmaster)
+
 
 Known bugs, improvements and major changes
 ----
 The known bugs are published [here](https://github.com/guillaumesimler/nanofep4/issues). Should you find a unknown bug, please be so kind to update the issue. 
 
 The improvements and major changes will be discussed on the [Github wiki](#)
+
 
 Used repository 
 ----
