@@ -69,6 +69,9 @@ function updatePositions() {
 
 ####OPTIMIZED CODE
 
+By moving the query selector to its own for-loop I'm reading the layout properties and then in a second for-loop I'm batching the style changes
+By doing this I'm avoiding Stoping Forced Synchronous Layout
+
   ```bash
   // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
@@ -77,9 +80,7 @@ function updatePositions() {
 
 
   var items = document.querySelectorAll('.mover');
-   //by moving the query selector to its own for-loop I'm reading the layout properties 
-   //and then in a second for-loop I'm batching the style changes
-   //By doing this I'm avoiding Stoping Forced Synchronous Layout
+
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   };
@@ -141,6 +142,9 @@ function updatePositions() {
 
 ####OPTIMIZED CODE
 
+Saving the collection of .randomPizzaContaner to a randomPizza variable before the loop. 
+Then in the for-loop I'm batching the style changes and by doing this I'm avoiding Stoping Forced Synchronous Layout as well.
+
   ```bash
   function changePizzaSizes(size) {
     switch(size) {
@@ -156,10 +160,9 @@ function updatePositions() {
       default:
         console.log("bug in sizeSwitcher");
     }
-	//Saving the collection of .randomPizzaContaner to a randomPizza variable befor the loop.
+
     var randomPizzas = document.querySelectorAll('.randomPizzaContainer');
-	//with this for-loop I'm batching the style changes 
-	//and by doing this I'm avoiding Stoping Forced Synchronous Layout as well.
+
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
