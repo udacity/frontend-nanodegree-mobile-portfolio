@@ -490,7 +490,7 @@ function updatePositions() {
 
 
   var items = document.querySelectorAll('.mover');
-   //by moving the query selector that then calculates var phase outside the for-loop that modifies items[i].style.left,
+   //by moving the query selector that then calculates var phase outside the for-loop that modifies items[i].style.left
    //the code manages to achieve a better persormance for the pizza sliding. 
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
