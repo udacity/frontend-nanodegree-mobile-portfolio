@@ -69,8 +69,7 @@ function updatePositions() {
 
 ####OPTIMIZED CODE
 
-By moving the query selector to its own for-loop I'm reading the layout properties and then in a second for-loop I'm batching the style changes
-By doing this I'm avoiding Stoping Forced Synchronous Layout
+By moving the query selector to its own for-loop I'm reading the layout properties and then in a second for-loop I'm batching the style changes. By doing this I'm avoiding Stoping Forced Synchronous Layout
 
   ```bash
   // Moves the sliding background pizzas based on scroll position
@@ -142,7 +141,7 @@ function updatePositions() {
 
 ####OPTIMIZED CODE
 
-Saving the collection of .randomPizzaContaner to a randomPizza variable before the loop. 
+Saving the collection of .randomPizzaContainer to a randomPizza variable before the loop. 
 Then in the for-loop I'm batching the style changes and by doing this I'm avoiding Stoping Forced Synchronous Layout as well.
 
   ```bash
