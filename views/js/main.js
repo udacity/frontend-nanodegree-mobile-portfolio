@@ -420,7 +420,7 @@ var resizePizzas = function(size) {
   }
 
   changeSliderLabel(size);
-  // Changes the width percentage for the size of the pizza
+  // Changed ChangePizzaSizes the width percentage for the size of the pizza
   function changePizzaSizes(size) {
     switch(size) {
       case "1":
@@ -435,9 +435,10 @@ var resizePizzas = function(size) {
       default:
         console.log("bug in sizeSwitcher");
     }
-
+//Saving the collection of .randomPizzaContainer to a randomPizza variable befor the loop.
     var randomPizzas = document.querySelectorAll('.randomPizzaContainer');
-    
+//with this for-loop I'm batching the style changes 
+//and by doing this I'm avoiding Stoping Forced Synchronous Layout as well.
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
@@ -490,8 +491,9 @@ function updatePositions() {
 
 
   var items = document.querySelectorAll('.mover');
-   //by moving the query selector that then calculates var phase outside the for-loop that modifies items[i].style.left
-   //the code manages to achieve a better persormance for the pizza sliding. 
+   //by moving the query selector to its own for-loop I'm reading the layout properties 
+   //and then in a second for-loop I'm batching the style changes
+   //By doing this I'm avoiding Stoping Forced Synchronous Layout
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   };
