@@ -449,11 +449,21 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+   //length calculation is moved outside loop logic
+    var length = document.querySelectorAll(".randomPizzaContainer").length;
+    //Avoid querySelectorAll multiple times
+    var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+    
+    var widthArr = [];
+    for (var i = 0; i < length; i++) {
+      var dx = determineDx(randomPizzaContainer[i], size);
+      widthArr[i] = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
     }
+
+    for (var i = 0; i < length; i++) {
+      randomPizzaContainer[i].style.width = widthArr[i];
+    }
+
   }
 
   changePizzaSizes(size);
@@ -502,8 +512,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+	//moving calc out of loop
+  var tmpValue = (document.body.scrollTop / 1250);
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((tmpValue + (i % 5)));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
