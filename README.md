@@ -39,6 +39,12 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
 
+
+###EXtra Optimization 
+    cwebp -q 50 -lossless pizzeria.jpg -o pizzeria.webp
+    cwebp -q 50 -lossless profilepic.jpg -o profilepic.webp
+
+
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
 ### Optimization Tips and Tricks
