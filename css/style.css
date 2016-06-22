@@ -21,10 +21,10 @@ img { border: 0; max-width: 100%; }
 body { background: #fff; }
 header, footer, .container { max-width: 45em; margin: 0 auto; }
 
-header { padding: 0 0.5em; color: #C90B0B; }
+header { padding: 0 0.5em; color: #C90B0B;  font-family: 'Tangerine', serif;}
 header img { border-radius: 40px; float: left; }
-header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
-header p span { font-size: 0.8em; font-weight: normal;}
+header p { font-size:2.7em; font-weight: bold; padding-left: 4em;}
+header p span { font-size: 0.7em; font-weight: normal;}
 
 .hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
   border-bottom: 1px solid #ccc;
