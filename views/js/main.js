@@ -16,6 +16,16 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
 
+var worker = new Worker('work.js');
+
+// Setup an event listener that will handle messages received from the worker.
+worker.addEventListener('message', function(e) {
+  // Log the workers message.
+  console.log(e.data);
+}, false);
+
+worker.postMessage('Hello World');
+
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -358,6 +368,7 @@ var makeRandomPizza = function() {
   return pizza;
 };
 
+//SHIT 1
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
   var pizzaContainer,             // contains pizza title, image and list of ingredients
@@ -468,10 +479,17 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+
+
+
+
 for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
+
+
+
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
@@ -496,17 +514,22 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+//SHIT 2
 // Moves the sliding background pizzas based on scroll position
-function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");
 
+function pizzaMove() {
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
+  };
+  requestAnimationFrame(pizzaMove);
+}
 
+function updatePositions() {
+  frame++;
+  window.performance.mark("mark_start_frame");
+  requestAnimationFrame(pizzaMove);
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
