@@ -16,7 +16,7 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
 
-var worker = new Worker('work.js');
+var worker = new Worker('respond.js');
 
 // Setup an event listener that will handle messages received from the worker.
 worker.addEventListener('message', function(e) {
