@@ -53,17 +53,14 @@ randomPie.onmessage = function(e) {
     pizzaDescriptionContainer = document.createElement("div");
 
     pizzaContainer.classList.add("randomPizzaContainer");
-    pizzaContainer.style.width = "33.33%";
-    pizzaContainer.style.height = "325px";
+    pizzaDescriptionContainer.classList.add("pizzaDescriptionContainer");
     pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
-    pizzaImageContainer.style.width="35%";
 
     pizzaImage.src = "images/pizza.png";
     pizzaImage.classList.add("img-responsive");
     pizzaImageContainer.appendChild(pizzaImage);
     pizzaContainer.appendChild(pizzaImageContainer);
 
-    pizzaDescriptionContainer.style.width="65%";
 
     pizzaName = document.createElement("h4");
     pizzaName.innerHTML = e.data[i];
