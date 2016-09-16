@@ -16,19 +16,14 @@ cameron *at* udacity *dot* com
 // Here are arrays of all possible pizza ingredients.
 /*var nameWorker = new Worker('js/namegenerator.js');
 var pizzaWorker = new Worker('js/pizzagenerator.js');
-
 var pizzaNames = [];
 var pizzaIngredients = [];
-
 nameWorker.postMessage(pizzaNames);
 nameWorker.onmessage = function(e) {
   console.log(e.data);
   console.log(e.data[0]);
   console.log(e.data[20]);
   };
-
-
-
 pizzaWorker.postMessage(pizzaIngredients);
 pizzaWorker.onmessage = function(f) {
   console.log(f.data[0]);
