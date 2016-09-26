@@ -1,0 +1,19 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "1.0.0",
+  "description": "Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christian-acuna/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "author": "Christian Acuña <cacuna0828@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christian-acuna/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/christian-acuna/frontend-nanodegree-mobile-portfolio#readme"
+}
