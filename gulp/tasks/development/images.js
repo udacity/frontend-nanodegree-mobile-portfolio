@@ -4,8 +4,8 @@ var config      = require('../../config').images;
 
 var $ = require('gulp-load-plugins')();
 
-gulp.task('images:main', function() {
-  return gulp.src(config.me)
+gulp.task('images:pizza', function() {
+  return gulp.src(config.pizza)
     .pipe($.responsive(config.imageConfig))
     .pipe(gulp.dest(config.imageFolder));
 });

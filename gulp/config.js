@@ -3,9 +3,9 @@ var dist              = 'dist';
 var public            = 'public';
 // var production        = 'build/production';
 // var srcAssets         = 'app/_assets';
-var developmentImages = 'dist/images';
+var developmentAssets = 'dist/assets';
 var developmentStyles = 'dist/styles';
-var mainPic = 'src/images/main/christian_acuna.jpg';
+var pizzaImg = 'src/views/images/pizzeria.jpg';
 var portfolioImages = 'src/images/*.{jpg,png}';
 var javascript = 'src/js/*.js';
 var css = 'src/css/*.css';
@@ -19,43 +19,43 @@ module.exports = {
       },
       files: [
         src + '/css/*.css',
-        src + '/js/*.js',
+        public + '/js/*.js',
         'index.html'
       ]
     }
   },
   delete: {
-    src: [developmentImages, developmentStyles]
+    src: [developmentAssets, developmentStyles]
   },
   images: {
-    me: mainPic,
+    pizza: pizzaImg,
     imageConfig: {
       // Convert all images to JPEG format
       '*': [{
-        width: 350,
+        width: 150,
         rename: {
           extname: '.jpg',
         },
       }, {
-        width: 350 * 2,
+        width: 150 * 2,
         rename: {
           suffix: '@2x',
           extname: '.jpg',
         },
       }, {
-        width: 350,
+        width: 150,
         rename: {
           extname: '.webp'
         },
       }, {
-        width: 350 * 2,
+        width: 150 * 2,
         rename: {
           suffix: '@2x',
           extname: '.webp',
         },
       }],
     },
-    imageFolder: developmentImages,
+    imageFolder: developmentAssets,
     portImages: portfolioImages,
     portImagesConfig: {
       // Convert all images to JPEG format
@@ -101,6 +101,6 @@ module.exports = {
   },
   styles: {
     css: css,
-    
+
   }
 };

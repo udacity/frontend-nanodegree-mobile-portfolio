@@ -8,3 +8,7 @@ var config = require('../../config').delete;
 gulp.task('delete', function() {
   del(config.src);
 });
+
+gulp.task('clean', function() {
+  del(['.tmp', 'dist/*', '!dist/.git'], {dot: true});
+});
