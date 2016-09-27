@@ -36,20 +36,23 @@ configuration file for each task.
 * `gulp images:pizza` and `gulp images:profile` generates optimized jpg and webp images
 * `gulp clean` cleans dist folder and .tmp
 
-
-####Part 1: Optimize PageSpeed Insights score for index.html
+#### Part 1: Optimize PageSpeed Insights score for index.html
 
 ![WebPageTest](https://cloud.githubusercontent.com/assets/7112158/18868400/a8ae3d4c-84da-11e6-8964-0c3d711fecf2.png)
 
 ![PageSpeed](https://cloud.githubusercontent.com/assets/7112158/18868489/f91960a4-84da-11e6-9e14-de139249e495.png)
 
 Site is hosted on:
+[https://christian-acuna.github.io/frontend-nanodegree-mobile-portfolio/](https://christian-acuna.github.io/frontend-nanodegree-mobile-portfolio/)
 
-`https://christian-acuna.github.io/frontend-nanodegree-mobile-portfolio/`
 
+#### Part 2: Optimize Frames per Second in pizza.html
 
-####Part 2: Optimize Frames per Second in pizza.html
+Changes made to views/js/main.js and views/css/style.css:
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
+1. Optimize changePizzaSizes(size) function
+2. Use getElementsByClassName when possible
+3. Move `document.body.scrollTop / 1250` out of for loop in `updatePositions()` function
+4. added `transform: translateZ(0);` to `.mover` in style.css
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+![Frame Rate](https://cloud.githubusercontent.com/assets/7112158/18869125/837fde92-84dd-11e6-8259-0f590cad4ec9.png)
