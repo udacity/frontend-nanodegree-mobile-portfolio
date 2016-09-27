@@ -20,7 +20,8 @@ module.exports = {
       files: [
         'src/styles/*.css',
         'src/js/*.js',
-        'src/index.html'
+        'src/index.html',
+        'src/views/'
       ]
     }
   },
