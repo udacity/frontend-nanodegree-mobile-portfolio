@@ -56,3 +56,5 @@ Changes made to views/js/main.js and views/css/style.css:
 4. added `transform: translateZ(0);` to `.mover` in style.css
 
 ![Frame Rate](https://cloud.githubusercontent.com/assets/7112158/18869125/837fde92-84dd-11e6-8259-0f590cad4ec9.png)
+
+Location of pizza.html: `dist/views/pizza.html`
