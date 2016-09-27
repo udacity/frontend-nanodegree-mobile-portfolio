@@ -1,12 +1,9 @@
 var src               = 'src';
 var dist              = 'dist';
-var public            = 'public';
-// var production        = 'build/production';
-// var srcAssets         = 'app/_assets';
-var developmentAssets = 'assets';
+var developmentAssets = 'dist/assets';
 var developmentStyles = 'styles';
 var pizzaImg = 'views/images/pizzeria.jpg';
-var portfolioImages = 'src/images/*.{jpg,png}';
+var profileImage = 'src/img/profilepic.jpg';
 var javascript = 'src/js/*.js';
 var css = 'src/css/*.css';
 // var productionAssets  = 'build/production/assets';
@@ -57,42 +54,18 @@ module.exports = {
       }],
     },
     imageFolder: developmentAssets,
-    portImages: portfolioImages,
-    portImagesConfig: {
+    profileImagePath: profileImage,
+    profileImagesConfig: {
       // Convert all images to JPEG format
       '*': [{
-        width: 500,
+        width: 70,
         rename: {
           extname: '.jpg',
         },
-      }, {
-        width: 500 * 2,
-        rename: {
-          suffix: '@2x',
-          extname: '.jpg',
-        },
-      }, {
-        width: 500 * 3,
-        rename: {
-          suffix: '@3x',
-          extname: '.jpg',
-        },
-      }, {
-        width: 500,
+      },{
+        width: 70,
         rename: {
           extname: '.webp'
-        },
-      }, {
-        width: 500 * 2,
-        rename: {
-          suffix: '@2x',
-          extname: '.webp',
-        },
-      }, {
-        width: 500 * 3,
-        rename: {
-          suffix: '@3x',
-          extname: '.webp',
         },
       }],
     },
