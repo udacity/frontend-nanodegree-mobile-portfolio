@@ -14,20 +14,27 @@
     <link href="styles/print.css" rel="stylesheet" media="print">
 
     <script>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      // Optional TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
+      ga('create', 'UA-84848912-1', 'auto');
       ga('send', 'pageview');
+
     </script>
-    <script async src="http://www.google-analytics.com/analytics.js"></script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
   </head>
 
   <body>
     <header>
-      <a href="/"><img src="img/profilepic.jpg"></a>
+      <a href="/">
+        <picture>
+          <source srcset="assets/profilepic.webp 1x" type="image/webp">
+          <img src="assets/profilepic.jpg">
+      </picture>
+    </a>
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
 

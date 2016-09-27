@@ -10,8 +10,8 @@ gulp.task('images:pizza', function() {
     .pipe(gulp.dest(config.imageFolder));
 });
 
-gulp.task('images:portfolio', function() {
-  return gulp.src(config.portImages)
-    .pipe($.responsive(config.portImagesConfig))
+gulp.task('images:profile', function() {
+  return gulp.src(config.profileImagePath)
+    .pipe($.responsive(config.profileImagesConfig))
     .pipe(gulp.dest(config.imageFolder));
 });
