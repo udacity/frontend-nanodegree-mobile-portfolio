@@ -1,10 +1,41 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+Install
+-------
+1. Fork or clone repo
+2. cd into folder and run `npm i`
+3. run `gulp` to launch browsersync server
 
-To get started, check out the repository and inspect the code.
+Gulp
+---
+Below is a breakdown of the folder structure and files used for Gulp:
+```
+|- gulp/
+      |- development/
+      |- browsersync.js
+      |- critical.js
+      |- css.js
+      |- delete.js
+      |- html.js
+      |- images.js
+      |- scripts.js
+  |- default.js
+  |- config.js
+  |- node_modules/
+  |- gulpfile.js
+  |- package.json
 
-### Getting started
+```
+
+Each task is broken into a separate file and config.js serves as the
+configuration file for each task.
+
+* `gulp` launches browsersync
+* `gulp html` generates and inlines Critical-path CSS via `gulp critical` task and minifies any index.html
+* `gulp scripts` uglifies perfmatters.js
+* `gulp images:pizza` and `gulp images:profile` generates optimized jpg and webp images
+* `gulp clean` cleans dist folder and .tmp
+
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
@@ -32,7 +63,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 

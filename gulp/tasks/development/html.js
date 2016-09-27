@@ -2,7 +2,7 @@ var gulp        = require('gulp');
 var $ = require('gulp-load-plugins')();
 
 // Scan your HTML for assets & optimize them
-gulp.task('html', function() {
+gulp.task('html', ['critical'], function() {
   return gulp.src('.tmp/index-crs.html')
     // .pipe($.useref({
     //   searchPath: '{.tmp,src}',
