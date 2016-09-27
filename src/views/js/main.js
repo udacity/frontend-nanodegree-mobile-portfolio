@@ -437,9 +437,11 @@ var resizePizzas = function(size) {
         default:
           console.log("bug in sizeSwitcher");
       }
-      var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+      // query DOM for array of elements with the class name randomPizzaContainer
+      var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
       
       for (var i = 0; i < randomPizzas.length; i++) {
+        //change the width of each pizza based on the slider position
         randomPizzas[i].style.width = newWidth + '%';
       }
   }
@@ -489,10 +491,13 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('.mover');
+  var items = document.getElementsByClassName('mover');
+  //Caluclate scroll postion once and store in a variable
+  var scrollPos = document.body.scrollTop / 1250
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((scrollPos) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
