@@ -3,7 +3,7 @@ var $ = require('gulp-load-plugins')();
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', function() {
-  return gulp.src('dist/index.html')
+  return gulp.src('.tmp/index-crs.html')
     // .pipe($.useref({
     //   searchPath: '{.tmp,src}',
     //   noAssets: true
@@ -23,5 +23,6 @@ gulp.task('html', function() {
     })))
     // Output files
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
-    .pipe(gulp.dest('index-min.html'));
+    .pipe($.rename("index.html"))
+    .pipe(gulp.dest('dist/'));
 });

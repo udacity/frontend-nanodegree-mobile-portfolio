@@ -14,27 +14,27 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="preload" as="style" onload="this.rel='stylesheet'">
     <noscript><link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"></noscript>
 
-    <link href="dist/styles/style.css" rel="preload" as="style" onload="this.rel='stylesheet'">
-    <noscript><link href="dist/styles/style.css" rel="stylesheet"></noscript>
-    <link href="dist/styles/print.css" rel="preload" as="style" onload="this.rel='stylesheet'">
-    <noscript><link href="dist/styles/print.css" rel="stylesheet"></noscript>
+    <link href="styles/style.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="styles/style.css" rel="stylesheet"></noscript>
+    <link href="styles/print.css" rel="preload" media="print" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="styles/print.css" rel="stylesheet" media="print"></noscript>
     <script>!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
 
-    <!-- <script>
+    <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
       w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
 
       // Optional TODO: replace with your Google Analytics profile ID.
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
-    </script> -->
+    </script>
     <script async src="http://www.google-analytics.com/analytics.js"></script>
-    <script async src="public/js/perfmatters.js"></script>
+    <script async src="js/perfmatters.js"></script>
   </head>
 
   <body>
     <header>
-      <a href="/"><img src="src/img/profilepic.jpg"></a>
+      <a href="/"><img src="img/profilepic.jpg"></a>
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
 
@@ -65,11 +65,10 @@
 
           <li>
             <picture>
-              <source srcset="dist/assets/pizzeria.webp 1x, dist/assets/pizzeria@2x.webp 2x" type="image/webp">
-              <img style="width: 100px;" src="dist/assets/pizzeria.jpg" srcset="dist/assets/pizzeria@2x.jpg 2x, dist/assets/pizzeria.jpg">
-        </picture>
-            <!-- <img style="width: 100px;" src="src/views/images/pizzeria.jpg"> -->
-            <a href="src/views/pizza.html">Cam's Pizzeria</a>
+              <source srcset="assets/pizzeria.webp 1x, assets/pizzeria@2x.webp 2x" type="image/webp">
+              <img style="width: 100px;" src="assets/pizzeria.jpg" srcset="assets/pizzeria@2x.jpg 2x, assets/pizzeria.jpg">
+          </picture>
+            <a href="views/pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
         </ul>

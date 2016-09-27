@@ -10,8 +10,8 @@
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
-    <link href="dist/styles/style.css" rel="stylesheet">
-    <link href="dist/styles/print.css" rel="stylesheet" media="print">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/print.css" rel="stylesheet" media="print">
 
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
@@ -22,12 +22,12 @@
       ga('send', 'pageview');
     </script>
     <script async src="http://www.google-analytics.com/analytics.js"></script>
-    <script async src="src/js/perfmatters.js"></script>
+    <script async src="js/perfmatters.js"></script>
   </head>
 
   <body>
     <header>
-      <a href="/"><img src="src/img/profilepic.jpg"></a>
+      <a href="/"><img src="img/profilepic.jpg"></a>
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
 
@@ -58,11 +58,10 @@
 
           <li>
             <picture>
-              <source srcset="dist/assets/pizzeria.webp 1x, dist/assets/pizzeria@2x.webp 2x" type="image/webp">
-              <img style="width: 100px;" src="dist/assets/pizzeria.jpg" srcset="dist/assets/pizzeria@2x.jpg 2x, dist/assets/pizzeria.jpg">
-        </picture>
-            <!-- <img style="width: 100px;" src="src/views/images/pizzeria.jpg"> -->
-            <a href="src/views/pizza.html">Cam's Pizzeria</a>
+              <source srcset="assets/pizzeria.webp 1x, assets/pizzeria@2x.webp 2x" type="image/webp">
+              <img style="width: 100px;" src="assets/pizzeria.jpg" srcset="assets/pizzeria@2x.jpg 2x, assets/pizzeria.jpg">
+          </picture>
+            <a href="views/pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
         </ul>

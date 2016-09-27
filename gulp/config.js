@@ -3,9 +3,9 @@ var dist              = 'dist';
 var public            = 'public';
 // var production        = 'build/production';
 // var srcAssets         = 'app/_assets';
-var developmentAssets = 'dist/assets';
-var developmentStyles = 'dist/styles';
-var pizzaImg = 'src/views/images/pizzeria.jpg';
+var developmentAssets = 'assets';
+var developmentStyles = 'styles';
+var pizzaImg = 'views/images/pizzeria.jpg';
 var portfolioImages = 'src/images/*.{jpg,png}';
 var javascript = 'src/js/*.js';
 var css = 'src/css/*.css';
@@ -15,12 +15,12 @@ module.exports = {
   browsersync: {
     development: {
       server: {
-        baseDir: './'
+        baseDir: [src, dist]
       },
       files: [
-        src + '/css/*.css',
-        public + '/js/*.js',
-        'index.html'
+        'src/styles/*.css',
+        'src/js/*.js',
+        'src/index.html'
       ]
     }
   },
