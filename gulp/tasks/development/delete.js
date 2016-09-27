@@ -10,5 +10,5 @@ gulp.task('delete', function() {
 });
 
 gulp.task('clean', function() {
-  del(['.tmp', 'dist/*', '!dist/.git'], {dot: true});
+  del(['.tmp', 'dist/*', '!views/'], {dot: true});
 });
