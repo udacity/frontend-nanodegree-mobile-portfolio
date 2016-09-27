@@ -36,7 +36,6 @@ gulp.task('minify-css', function() {
 
 gulp.task('styles', function() {
 
-  // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src(['src/css/*.css'])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
