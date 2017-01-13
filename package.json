@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/monish001/frontend-nanodegree-mobile-portfolio#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.6",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.5",

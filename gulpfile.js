@@ -7,14 +7,14 @@ var cleanCSS = require('gulp-clean-css');
 gulp.task('minify-css', function() {
   return gulp.src(['css/*.css', 'views/css/*.css'], {base: "./"})
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('dist'));
 });
 
-// gulp.task('minify-html', function() {
-//   return gulp.src('+(**/*.html|!node_modules/**/*.html)')
-//     .pipe(htmlmin({collapseWhitespace: true}))
-//     .pipe(gulp.dest('dist'));
-// });
+gulp.task('minify-html', function() {
+  return gulp.src('./*.html', {base: "./"})
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'));
+});
 
 gulp.task('clean:dist', function(){
   return del.sync('dist');
@@ -25,15 +25,12 @@ gulp.task('clean:dist', function(){
 // });
 
 gulp.task('build', function(callback){
-  runSequence(['clean:dist'],
-    [
-      'minify-css'//,
-      //'minify-html'
-    ]);
+  runSequence(['clean:dist'], ['minify-css', 'minify-html']);
 })
 
 gulp.task('watch', function(){
-  gulp.watch('**/*.css', ['minify-css']);
+  gulp.watch('css/*.css', ['minify-css']);
+  gulp.watch('views/css/*.css', ['minify-css']);
+  gulp.watch('./*.html', ['minify-html']);
   // Other watchers
 })
-
