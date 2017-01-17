@@ -8,6 +8,8 @@ var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
+var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
 
 gulp.task('minify-css', function() {
   return gulp.src(['css/*.css', 'views/css/*.css'], {base: "./"})
@@ -60,13 +62,10 @@ gulp.task('useref', function(){
     .pipe(gulp.dest('dist'))
 });
 
-/*TODO
-
-npm install gulp-imagemin --save-dev
-npm install gulp-uglify --save-dev
-npm install gulp-if --save-dev
-npm install gulp-cssnano --save-dev
-
-
-
- */
+gulp.task('images', function(){
+  return gulp.src('img/**/*.+(png|jpg|gif|svg)')
+  .pipe(cache(imagemin({
+    interlaced: true
+  })))
+  .pipe(gulp.dest('dist/img'))
+});
