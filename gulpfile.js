@@ -4,6 +4,10 @@ var runSequence = require('run-sequence');
 var del = require('del');
 var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync').create();
+var useref = require('gulp-useref');
+var uglify = require('gulp-uglify');
+var gulpIf = require('gulp-if');
+var cssnano = require('gulp-cssnano');
 
 gulp.task('minify-css', function() {
   return gulp.src(['css/*.css', 'views/css/*.css'], {base: "./"})
@@ -43,3 +47,26 @@ gulp.task('browserSync', function() {
   })
 })
 
+gulp.task('useref', function(){
+  return gulp.src('*.html')
+    .pipe(useref())
+
+    // Minifies only if it's a JavaScript file
+    .pipe(gulpIf('*.js', uglify()))
+
+    // Minifies only if it's a CSS file
+    .pipe(gulpIf('*.css', cssnano()))
+
+    .pipe(gulp.dest('dist'))
+});
+
+/*TODO
+
+npm install gulp-imagemin --save-dev
+npm install gulp-uglify --save-dev
+npm install gulp-if --save-dev
+npm install gulp-cssnano --save-dev
+
+
+
+ */
