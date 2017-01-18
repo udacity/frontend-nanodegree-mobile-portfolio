@@ -12,9 +12,9 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
 gulp.task('minify-css', function() {
-  return gulp.src(['css/*.css', 'views/css/*.css'], {base: "./"})
+  return gulp.src(['app/css/*.css', 'app/views/css/*.css'], {base: "app/"})
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('app/css-min'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -34,23 +34,23 @@ gulp.task('build', function(callback){
 
 gulp.task('watch', function(){
   runSequence(['browserSync'], ['build']);
-  gulp.watch('css/*.css', ['minify-css']);
-  gulp.watch('views/css/*.css', ['minify-css']);
-  gulp.watch('./*.html', browserSync.reload);
-  gulp.watch('js/*.js', browserSync.reload);
+  gulp.watch('app/css/*.css', ['minify-css']);
+  gulp.watch('app/views/css/*.css', ['minify-css']);
+  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/js/*.js', browserSync.reload);
   // Other watchers
 })
 
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: '.'
+      baseDir: 'app'
     },
   })
 })
 
 gulp.task('useref', function(){
-  return gulp.src('*.html')
+  return gulp.src('app/*.html', {base: "app/"})
     .pipe(useref())
 
     // Minifies only if it's a JavaScript file
@@ -63,9 +63,9 @@ gulp.task('useref', function(){
 });
 
 gulp.task('images', function(){
-  return gulp.src('img/**/*.+(png|jpg|gif|svg)')
+  return gulp.src('app/img/**/*.+(png|jpg|gif|svg)', {base: "app/"})
   .pipe(cache(imagemin({
     interlaced: true
   })))
-  .pipe(gulp.dest('dist/img'))
+  .pipe(gulp.dest('dist'))
 });
