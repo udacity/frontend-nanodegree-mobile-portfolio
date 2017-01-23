@@ -424,8 +424,7 @@ var resizePizzas = function(size) {
   // Removed determineDx() 
 
   // Create variables to avoid repeating
-  var pizzaSizeChange = document.getElementsByClassName("randomPizzaContainer");
-  var pizzaChangeLength = pizzaSizeChange.length;
+  var pizzaChangeLength = document.getElementsByClassName("randomPizzaContainer").length;
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
