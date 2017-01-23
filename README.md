@@ -16,9 +16,11 @@ Simply open index.html in a browser and interact with the pages as you like.
   * Changed querySelectorAll to getElementsByClassName.
   * Moved phase calculation out of the loop.
 
+
 2. To reduce pizza-resizing time to < 5ms
   * Removed determineDx() and recreated size switcher.
   * Simplified the loop to avoid forced synchronous layout.
+
 
 3. Other performance optimization
   * Replaced querySelectorAll with getElementsByClassName.
