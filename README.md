@@ -15,7 +15,7 @@ Some useful tips to help you get started:
 
   ```bash
   $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
+  $> npm run start
   ```
 
 1. Open a browser and visit localhost:8080
