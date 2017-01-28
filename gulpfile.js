@@ -10,6 +10,7 @@ var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
+var responsive = require('gulp-responsive-images');
 
 gulp.task('css', function() {
   return gulp.src(['app/css/*.css', 'app/views/css/*.css'], {base: "app/"})
@@ -33,7 +34,7 @@ gulp.task('clean:dist', function(){
 // });
 
 gulp.task('build', function(callback){
-  runSequence(['clean:dist'], ['images', 'css'], ['useref']);
+  runSequence(['clean:dist'], ['images', 'css'], ['responsive-images', 'useref']);
 })
 
 gulp.task('watch', function(){
@@ -75,5 +76,19 @@ gulp.task('images', function(){
   .pipe(cache(imagemin({
     interlaced: true
   })))
+  .pipe(gulp.dest('dist'));
+});
+
+gulp.task('responsive-images', function(){
+  return gulp.src('dist/**/*.+(png|jpg|gif|svg)', {base: "dist/"})
+  .pipe(responsive({
+    '**/pizzeria.jpg': [{
+      width: 115,
+      suffix: '-115'
+    }, {
+      width: 115 * 2,
+      suffix: '-115-2x'
+    }]
+  }))
   .pipe(gulp.dest('dist'))
 });
