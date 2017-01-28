@@ -11,6 +11,7 @@ var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var responsive = require('gulp-responsive-images');
+var imageTempDir = 'dist-image-temp-dir';
 
 gulp.task('css', function() {
   return gulp.src(['app/css/*.css', 'app/views/css/*.css'], {base: "app/"})
@@ -25,6 +26,10 @@ gulp.task('clean:dist', function(){
   return del.sync('dist');
 });
 
+gulp.task('clean:dist-image-temp-task', function(){
+  return del.sync(imageTempDir);
+});
+
 // gulp.task('clean:css-min', function(){
 //   return del.sync('app/css-min');
 // });
@@ -34,7 +39,7 @@ gulp.task('clean:dist', function(){
 // });
 
 gulp.task('build', function(callback){
-  runSequence(['clean:dist'], ['images', 'css'], ['responsive-images', 'useref']);
+  runSequence(['clean:dist'], ['responsive-images', 'css'], ['images', 'useref'], ['clean:dist-image-temp-task']);
 })
 
 gulp.task('watch', function(){
@@ -72,7 +77,7 @@ gulp.task('useref', function(){
 });
 
 gulp.task('images', function(){
-  return gulp.src('app/**/*.+(png|jpg|gif|svg)', {base: "app/"})
+  return gulp.src(imageTempDir+'/**/*.+(png|jpg|gif|svg)', {base: imageTempDir+"/"})
   .pipe(cache(imagemin({
     interlaced: true
   })))
@@ -80,15 +85,22 @@ gulp.task('images', function(){
 });
 
 gulp.task('responsive-images', function(){
-  return gulp.src('dist/**/*.+(png|jpg|gif|svg)', {base: "dist/"})
+  return gulp.src('app/**/*.+(png|jpg|gif|svg)', {base: "app/"})
   .pipe(responsive({
-    '**/pizzeria.jpg': [{
+    // '**/+(pizzeria.jpg|2048.jpg|crit-rendering-path.jpg|mobiles.jpg)': [{
+    '**/*.*': [{},{
       width: 100,
       suffix: '-100'
     }, {
       width: 100 * 2,
       suffix: '-100-2x'
+    }, {
+      width: 100 * 3,
+      suffix: '-100-3x'
+    }, {
+      width: 100 * 4,
+      suffix: '-100-4x'
     }]
   }))
-  .pipe(gulp.dest('dist'))
+  .pipe(gulp.dest(imageTempDir))
 });
