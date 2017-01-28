@@ -12,6 +12,9 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var responsive = require('gulp-responsive-images');
 var imageTempDir = 'dist-image-temp-dir';
+var lazypipe = require('lazypipe');
+var sourcemaps = require('gulp-sourcemaps');
+
 
 gulp.task('css', function() {
   return gulp.src(['src/css/*.css', 'src/views/css/*.css'], {base: "src/"})
@@ -56,8 +59,12 @@ gulp.task('browserSync', function() {
 })
 
 gulp.task('useref', function(){
-  return gulp.src('src/*.html', {base: "src/"})
-    .pipe(useref())
+  return gulp.src(['src/*.html', 'src/views/*.html'], {base: "src/"})
+    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
+    .pipe(sourcemaps.write('maps'))
+
+    // Minifies only if it's a Html file
+    //.pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true, removeComments: false})))
 
     // Minifies only if it's a JavaScript file
     .pipe(gulpIf('*.js', uglify()))
