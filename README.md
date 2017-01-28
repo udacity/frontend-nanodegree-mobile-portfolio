@@ -30,11 +30,28 @@ Some useful tips to help you get started:
 
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
+####Part 1: FIXES DONE FOR 'Optimize PageSpeed Insights score for index.html'
+- Minification of CSS using gulp-clean-css.
+- Concatination of CSS using gulp-useref.
+- Minification & Concatination of JS using gulp-uglify.
+- Minification of html using gulp-htmlmin.
+- Responsive images using gulp-responsive-images and SRCSET attribute in IMG tag.
+- Image compression using gulp-imagemin.
+- Compression of static resources using npm package `compression` for expressJS.
+- Scripts in all HTML pages moved to the bottom of the page.
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+
+####Part 2: FIXES DONE FOR 'Optimize Frames per Second in pizza.html'
+- Use of document.querySelectorAll minimized to calling it once in the beginning of the function `changePizzaSizes(size)`.
+- FSL observed in scroll callback - `updatePositions()`. Fixed it by computing all the layout calculations first and then applying all the styles later.
+- Call to `updatePositions()` wrapped in `requestAnimationFrame`.
+- `will-change:left` CSS property added to HTML element `#movingPizzas1`
+- In `changePizzaSizes(size)`, fixed FSL by computing all the layout calculations first and then applying all the styles later.
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
