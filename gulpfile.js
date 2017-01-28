@@ -63,14 +63,14 @@ gulp.task('useref', function(){
     .pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
     .pipe(sourcemaps.write('maps'))
 
-    // Minifies only if it's a Html file
-    //.pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true, removeComments: false})))
-
     // Minifies only if it's a JavaScript file
     .pipe(gulpIf('*.js', uglify()))
 
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
+
+    // Minifies only if it's a Html file
+    .pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true})))
 
     .pipe(gulp.dest('dist'))
 });
