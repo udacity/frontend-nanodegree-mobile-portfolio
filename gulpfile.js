@@ -14,7 +14,7 @@ var responsive = require('gulp-responsive-images');
 var imageTempDir = 'dist-image-temp-dir';
 
 gulp.task('css', function() {
-  return gulp.src(['app/css/*.css', 'app/views/css/*.css'], {base: "app/"})
+  return gulp.src(['src/css/*.css', 'src/views/css/*.css'], {base: "src/"})
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.reload({
@@ -40,23 +40,23 @@ gulp.task('build', function(callback){
 
 gulp.task('watch', function(){
   runSequence(['browserSync'], ['build']);
- gulp.watch('app/css/*.css', ['css']);
-  gulp.watch('app/views/css/*.css', ['css']);
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/*.js', browserSync.reload);
+ gulp.watch('src/css/*.css', ['css']);
+  gulp.watch('src/views/css/*.css', ['css']);
+  gulp.watch('src/*.html', browserSync.reload);
+  gulp.watch('src/js/*.js', browserSync.reload);
   // Other watchers
 })
 
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'app'
+      baseDir: 'src'
     },
   })
 })
 
 gulp.task('useref', function(){
-  return gulp.src('app/*.html', {base: "app/"})
+  return gulp.src('src/*.html', {base: "src/"})
     .pipe(useref())
 
     // Minifies only if it's a JavaScript file
@@ -77,7 +77,7 @@ gulp.task('images', function(){
 });
 
 gulp.task('responsive-images', function(){
-  return gulp.src('app/**/*.+(png|jpg|gif|svg)', {base: "app/"})
+  return gulp.src('src/**/*.+(png|jpg|gif|svg)', {base: "src/"})
   .pipe(responsive({
     '**/*.*': [{},{
       width: 100,
