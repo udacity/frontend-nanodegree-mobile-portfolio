@@ -8,7 +8,9 @@ var bodyParser = require('body-parser');
 var index = require('./app/routes/index');
 var users = require('./app/routes/users');
 
+var compression = require('compression');
 var app = express();
+app.use(compression())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'dist/views'));
