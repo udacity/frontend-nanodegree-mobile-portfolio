@@ -30,13 +30,9 @@ gulp.task('clean:dist-image-temp-task', function(){
   return del.sync(imageTempDir);
 });
 
-// gulp.task('clean:css-min', function(){
-//   return del.sync('app/css-min');
-// });
-
-// gulp.task('cache:clear', function (callback) {
-//   return cache.clearAll(callback)
-// });
+gulp.task('cache:clear', function (callback) {
+  return cache.clearAll(callback)
+});
 
 gulp.task('build', function(callback){
   runSequence(['clean:dist'], ['responsive-images', 'css'], ['images', 'useref'], ['clean:dist-image-temp-task']);
@@ -44,11 +40,7 @@ gulp.task('build', function(callback){
 
 gulp.task('watch', function(){
   runSequence(['browserSync'], ['build']);
-  // gulp.watch('app/css/*.css', ['minify-css']);
-  // gulp.watch('app/views/css/*.css', ['minify-css']);
-  // gulp.watch('app/css/*.css', ['useref']);
-  // gulp.watch('app/views/css/*.css', ['useref']);
-  gulp.watch('app/css/*.css', ['css']);
+ gulp.watch('app/css/*.css', ['css']);
   gulp.watch('app/views/css/*.css', ['css']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/*.js', browserSync.reload);
@@ -87,7 +79,6 @@ gulp.task('images', function(){
 gulp.task('responsive-images', function(){
   return gulp.src('app/**/*.+(png|jpg|gif|svg)', {base: "app/"})
   .pipe(responsive({
-    // '**/+(pizzeria.jpg|2048.jpg|crit-rendering-path.jpg|mobiles.jpg)': [{
     '**/*.*': [{},{
       width: 100,
       suffix: '-100'
