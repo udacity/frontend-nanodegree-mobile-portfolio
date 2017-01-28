@@ -83,11 +83,11 @@ gulp.task('responsive-images', function(){
   return gulp.src('dist/**/*.+(png|jpg|gif|svg)', {base: "dist/"})
   .pipe(responsive({
     '**/pizzeria.jpg': [{
-      width: 115,
-      suffix: '-115'
+      width: 100,
+      suffix: '-100'
     }, {
-      width: 115 * 2,
-      suffix: '-115-2x'
+      width: 100 * 2,
+      suffix: '-100-2x'
     }]
   }))
   .pipe(gulp.dest('dist'))
