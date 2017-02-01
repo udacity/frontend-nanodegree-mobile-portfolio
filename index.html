@@ -30,16 +30,26 @@
       li p { font-size: 0.9em; font-style: italic;}
       footer {padding: 0 0.5em; border-top: 1px solid #ccc;}
       footer span { float: right; font-style: italic;}
-
+      @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzBWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+        unicode-range: U+1F00-1FFF;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+      }
       @media only screen and (max-width: 480px) {
         body { font-size: 12px;}
         header p { padding-left: 4.5em;}
       }
     </style>
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link href="css/print.css" rel="stylesheet" media="print">
-
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
       w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
