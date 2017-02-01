@@ -297,8 +297,7 @@ function generator(adj, noun) {
     var nouns = getNoun(noun);
     var randomAdjective = parseInt(Math.random() * adjectives.length);
     var randomNoun = parseInt(Math.random() * nouns.length);
-    var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
-    return name;
+    return "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
 }
 
 // Chooses random adjective and random noun
@@ -310,28 +309,23 @@ function randomName() {
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
-    var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
-    return randomMeat;
+    return pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
 };
 
 var selectRandomNonMeat = function() {
-    var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
-    return randomNonMeat;
+    return pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
 };
 
 var selectRandomCheese = function() {
-    var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
-    return randomCheese;
+    return pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
 };
 
 var selectRandomSauce = function() {
-    var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
-    return randomSauce;
+    return pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
 };
 
 var selectRandomCrust = function() {
-    var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
-    return randomCrust;
+    return pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
 };
 
 var ingredientItemizer = function(string) {
@@ -448,17 +442,15 @@ var resizePizzas = function(size) {
         }
 
         var newSize = sizeSwitcher(size);
-        var dx = (newSize - oldSize) * windowWidth;
+        return (newSize - oldSize) * windowWidth;
 
-        return dx;
     }
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
         for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
             var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-            var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-            document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+            document.querySelectorAll(".randomPizzaContainer")[i].style.width = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
         }
     }
 
