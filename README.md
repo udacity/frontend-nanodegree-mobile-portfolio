@@ -1,3 +1,44 @@
+Changes made to optimize site:
+
+Defined font by adding WebFontConfig to index.html increase speed
+Losslessly compressed profilepic image per PageSpeed
+Compressed and resized images/pizzeria.jpg per PageSpeed
+Optimized CSS delivery by inlining CSS to index.html file per PageSpeed
+Decreased the number of pizzas generated from 200 to 28 in main.js
+Minimized main.js by removing code from loops and defining the variables within the loops
+
+
+Steps to run application:
+
+Copy/Paste the following link into your browser to view the main site:
+	http://tay1120.github.io/frontend-nanodegree-mobile-portfolio/
+Click on the last hyperlink at the bottom of the page that is labeled "Cam's Pizzeria" to view the pizza.html page
+Feel free to browse through the site and click on the links to view the various pages.
+ 
+
+Resources:
+
+http://tay1120.github.io/frontend-nanodegree-mobile-portfolio/
+https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
+https://developers.google.com/speed/docs/insights/MinifyResources
+https://developers.google.com/speed/docs/insights/OptimizeImages
+https://developers.google.com/speed/docs/insights/EnableCompression
+https://developers.google.com/speed/docs/insights/BlockingJS
+http://discussions.udacity.com/t/rendering-browser-60-fps/14327
+https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS
+http://discussions.udacity.com/t/how-do-you-get-60-fps-consistently/2423/3
+http://discussions.udacity.com/t/stuck-on-pizza-need-help-with-rps-and-resize-pizza/14719
+http://i.imgur.com/cI6zwUo.jpg
+https://www.udacity.com/course/viewer#!/c-ud884-nd
+http://discussions.udacity.com/t/what-are-the-best-was-to-improve-the-updatepositions-and-changepizzasizes-functions/3102
+http://discussions.udacity.com/t/web-site-optimization-setup/13826
+http://discussions.udacity.com/t/cannot-connect-s3-phone-via-usb/8185
+https://developer.chrome.com/devtools/docs/remote-debugging
+http://discussions.udacity.com/t/difference-between-refresh-button-and-ctrl-shift-r-shortcut/4035
+https://pages.github.com/
+
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
