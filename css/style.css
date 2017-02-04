@@ -56,6 +56,8 @@ textarea {
 .device {
     background-image: url("../img/device.jpg");
     background-size: cover;
+    width: 60px;
+    height: 40px;
     float: left;
 }
 
@@ -220,6 +222,8 @@ footer span {
     .device {
         background-image: url("../img/devicesmall.jpg");
         background-size: cover;
+        width: 60px;
+        height: 40px;
         float: left;
     }
     .pizzeriaSmal {
