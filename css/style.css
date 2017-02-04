@@ -10,7 +10,7 @@ body {
     margin: 0;
     font-size: 14px;
     line-height: 1.61;
-    font-weight: 400
+    font-weight: 400;
 }
 
 body,
@@ -19,7 +19,7 @@ input,
 select,
 textarea {
     font-family: 'Open Sans', sans-serif;
-    color: #333
+    color: #333;
 }
 
 .profilepic {
@@ -28,13 +28,13 @@ textarea {
     border-radius: 40px;
     width: 70px;
     height: 70px;
-    float: left
+    float: left;
 }
 
 .profilepic a {
     width: 70px;
     height: 70px;
-    display: block
+    display: block;
 }
 
 .own2048 {
@@ -42,7 +42,7 @@ textarea {
     background-size: cover;
     width: 100px;
     height: 63px;
-    float: left
+    float: left;
 }
 
 .people {
@@ -50,7 +50,7 @@ textarea {
     background-size: cover;
     width: 100px;
     height: 63px;
-    float: left
+    float: left;
 }
 
 .device {
@@ -66,7 +66,7 @@ textarea {
     background-size: cover;
     width: 100px;
     height: 63px;
-    float: left
+    float: left;
 }
 
 .kate {
@@ -75,69 +75,61 @@ textarea {
     border-radius: 40px;
     width: 70px;
     height: 70px;
-    float: left
+    float: left;
 }
 
 a {
-    color: #12C
+    color: #12C;
 }
 
 a:visited {
-    color: #61C
+    color: #61C;
 }
 
 a:focus {
-    outline: thin dotted
+    outline: thin dotted;
 }
 
 a:hover,
 a:active {
     color: #c00;
-    outline: 0
+    outline: 0;
 }
 
 b,
 strong {
-    font-weight: 700
+    font-weight: 700;
 }
 
 pre,
 code {
     font-family: monospace, monospace;
-    font-size: 1em
+    font-size: 1em;
 }
 
 ul,
 ol {
     margin: 1em 0;
-    padding: 0 0 0 20px
-}
-
-img {
-    border: 0;
-    max-width: 100%
+    padding: 0 0 0 20px;
 }
 
 body {
-    background: #fff
+    background: #fff;
 }
 
 header,
 footer,
 .container {
     max-width: 45em;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 header {
     padding: 0 .5em;
-    color: #C90B0B
+    color: #C90B0B;
 }
 
-header img {
-    border-radius: 40px;
-    float: left
-}
+
 
 header p {
     font-size: 1.5em;
@@ -147,7 +139,7 @@ header p {
 
 header p span {
     font-size: .8em;
-    font-weight: 400
+    font-weight: 400;
 }
 
 .hero {
@@ -155,44 +147,40 @@ header p span {
     background-color: #f8f8f8;
     font-size: 1.2em;
     border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc
+    border-top: 1px solid #ccc;
 }
 
 .content {
-    padding: 1em
+    padding: 1em;
 }
 
 .content li {
     list-style-type: none;
-    font-size: 1.1em
+    font-size: 1.1em;
 }
 
-li img {
-    float: left;
-    padding-right: 1em
-}
 
 li p {
     font-size: .9em;
-    font-style: italic
+    font-style: italic;
 }
 
 footer {
     padding: 0 .5em;
-    border-top: 1px solid #ccc
+    border-top: 1px solid #ccc;
 }
 
 footer span {
     float: right;
-    font-style: italic
+    font-style: italic;
 }
 
 @media only screen and (max-width: 480px) {
     body {
-        font-size: 12px
+        font-size: 12px;
     }
     header p {
-        padding-left: 4.5em
+        padding-left: 4.5em;
     }
     .profilepic {
         background-image: url(../img/profilepicsmall.jpg);
@@ -200,35 +188,39 @@ footer span {
         border-radius: 40px;
         width: 70px;
         height: 70px;
-        float: left
+        float: left;
     }
     .own2048 {
         background-image: url(../img/own2048small.jpg);
         background-size: cover;
         width: 60px;
         height: 40px;
-        float: left
+        float: left;
+        padding-right: 1em;
     }
     .people {
         background-image: url(../img/peoplesmall.jpg);
         background-size: cover;
         width: 60px;
         height: 40px;
-        float: left
+        float: left;
+        padding-right: 1em;
     }
     .device {
         background-image: url(../img/devicesmall.jpg);
         background-size: cover;
         width: 60px;
         height: 40px;
-        float: left
+        float: left;
+        padding-right: 1em;
     }
     .pizzeriaSmall {
         background-image: url(../img/pizzeriaSmall.jpg);
         background-size: cover;
         width: 60px;
         height: 40px;
-        float: left
+        float: left;
+        padding-right: 1em;
     }
     .kate {
         background-image: url(../img/katesmall.jpg);
@@ -236,6 +228,7 @@ footer span {
         border-radius: 40px;
         width: 70px;
         height: 70px;
-        float: left
+        float: left;
+        
     }
 }
