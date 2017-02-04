@@ -22,20 +22,7 @@ textarea {
     color: #333;
 }
 
-.profilepic {
-    background-image: url(../img/profilepic.jpg);
-    background-size: cover;
-    border-radius: 40px;
-    width: 70px;
-    height: 70px;
-    float: left;
-}
 
-.profilepic a {
-    width: 70px;
-    height: 70px;
-    display: block;
-}
 
 .own2048 {
     background-image: url(../img/own2048.jpg);
