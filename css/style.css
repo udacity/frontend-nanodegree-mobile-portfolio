@@ -7,7 +7,22 @@ html {
 }
 body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
 body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
-
+.profilepic{
+    background-image: url("../img/profilepic.jpg");
+    background-size: cover;
+    border-radius: 40px;
+    width: 70px;
+    height: 70px;
+    float: left;
+ }
+.own2048{
+    background-image: url("../img/profilepic.jpg");
+    background-size: cover;
+    border-radius: 40px;
+    width: 70px;
+    height: 70px;
+    float: left;
+}
 a { color: #12C; }
 a:visited { color: #61C; }
 a:focus { outline: thin dotted; }
@@ -46,6 +61,14 @@ footer span { float: right; font-style: italic; }
 @media only screen and (max-width: 480px) {
   body { font-size: 12px;}
   header p { padding-left: 4.5em;}
-  }
+  .profilepic{
+    background-image: url("../img/profilepicsmall.jpg");
+    background-size: cover;
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+    float: left;
+ }
+}
 
 
