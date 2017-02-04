@@ -40,12 +40,16 @@ textarea {
 .own2048 {
     background-image: url("../img/own2048.jpg");
     background-size: cover;
+    width: 100px;
+    height: 63px;
     float: left;
 }
 
 .people {
     background-image: url("../img/people.jpg");
     background-size: cover;
+    width: 100px;
+    height: 63px;
     float: left;
 }
 
@@ -58,6 +62,8 @@ textarea {
 .pizzeriaSmal {
     background-image: url("../img/pizzeriaSmall.jpg");
     background-size: cover;
+    width: 100px;
+    height: 63px;
     float: left;
 }
 
@@ -200,11 +206,15 @@ footer span {
     .own2048 {
         background-image: url("../img/own2048small.jpg");
         background-size: cover;
+        width: 60px;
+        height: 40px;
         float: left;
     }
     .people {
         background-image: url("../img/peoplesmall.jpg");
         background-size: cover;
+        width: 60px;
+        height: 40px;
         float: left;
     }
     .device {
@@ -215,6 +225,8 @@ footer span {
     .pizzeriaSmal {
         background-image: url("../img/pizzeriaSmall.jpg");
         background-size: cover;
+        width: 60px;
+        height: 40px;
         float: left;
     }
     .kate {
