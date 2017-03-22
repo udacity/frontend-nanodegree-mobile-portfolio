@@ -3,6 +3,11 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <script>
+  	var randomPie = new Worker ('js/randompieworker.js');
+	var pieArray = ["Placeholderzero", "Placeholderone"];
+	randomPie.postMessage(pieArray);
+  </script>
 </head>
 
 <body>
@@ -11,7 +16,7 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12">
-            <h1>Cam's Pizzeria</h1>
+            <h1 id="test">TEETSTS</h1>
             <div class="row">
               <div id="menu" class="col-md-12">
                 <form action="#randomPizzas">
@@ -36,7 +41,7 @@
     </div>
     <div id="callToAction" class="row">
       <div class="col-md-4">
-        <img src="images/pizzeria.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+        <img src="images/pizzeria_large.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
       </div>
       <div class="col-md-8">
         <div class="row">
