@@ -1,0 +1,272 @@
+# HANDLER ___________________
+AddHandler application/x-httpd-php .html
+AddHandler cgi-script .pl .py .jsp .asp .htm .shtml .sh .cgi
+AddType application/x-javascript .js
+AddType application/json .json
+AddType text/css .css
+AddType text/xml .xml
+#	Audio
+AddType audio/ogg .oga .ogg
+AddType audio/mp4 .m4a .f4a .f4b
+#	Video
+AddType video/ogg .ogv
+AddType video/mp4 .mp4 .m4v .f4v .f4p
+AddType video/webm .webm
+AddType video/x-flv .flv
+#	SVG
+AddType image/svg+xml .svg .svgz
+AddEncoding gzip .svgz
+#	Webfonts
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-ttf .ttf .ttc
+AddType font/opentype .otf
+AddType application/x-font-woff .woff
+#	Assorted types
+AddType image/x-icon .ico
+AddType image/webp .webp
+AddType image/jpg .jpg
+AddType text/cache-manifest .appcache .manifest
+AddType text/x-component .htc
+AddType application/xml .rss .atom .xml .rdf
+AddType application/x-chrome-extension .crx
+AddType application/x-opera-extension .oex
+AddType application/x-xpinstall .xpi
+AddType application/octet-stream .safariextz
+AddType application/x-web-app-manifest+json .webapp
+AddType text/x-vcard .vcf
+AddType application/x-shockwave-flash .swf
+AddType text/vtt .vtt
+AddType application/octet-stream .doc .mov .avi .pdf .xls .rar .zip .mp3 .wmv .ppt .tar .gz .docx .xlsx
+# ForceType application/x-httpd-php
+
+
+# INDEX FILE ________________
+DirectoryIndex index.php
+
+
+# GZIP ______________________
+<IfModule mod_gzip.c>
+	mod_gzip_on         Yes
+	mod_gzip_dechunk    Yes
+	mod_gzip_item_include file		\.(html?|txt|css|js|php|pl)$
+	mod_gzip_item_include mime		^text\.*
+	mod_gzip_item_include mime		^application/x-javascript.*
+	mod_gzip_item_include mime		^application/x-font-woff.*
+	mod_gzip_item_exclude mime		^image\.*
+	mod_gzip_item_exclude rspheader	^Content-Encoding:.*gzip.*
+</IfModule>
+<ifModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript application/x-font-woff image/jpg image/jpeg
+</ifModule>
+
+
+# PHP _______________________
+php_value	upload_max_filesize	32M
+php_value	post_max_size		10M
+php_value	default_charset utf-8
+php_flag	magic_quotes_gpc Off
+php_flag	register_globals Off
+php_flag	short_open_tag On
+# php_flag	display_errors on
+# php_value	max_input_time 200
+# php_value session.name sid
+
+php_value	error_reporting 0
+php_flag	display_startup_errors off
+php_flag	display_errors off
+php_flag	html_errors off
+php_flag	log_errors off
+php_flag	ignore_repeated_errors on
+php_flag	ignore_repeated_source on
+# php_value	log_errors_max_len 1024
+php_flag	report_memleaks off
+php_flag	track_errors off
+php_value	docref_root 0
+php_value	docref_ext 0
+# php_value	error_log /tmp/php_error.log
+# php_value error_prepend_string " "
+# php_value error_append_string " "
+
+<Files php_error.log>
+	Order allow,deny
+	Deny from all
+	Satisfy All
+</Files>
+
+<IfModule php5_module>
+	# php_value session.cookie_httponly true
+</IfModule>
+
+
+# XDEBUG ___________________
+#	Настройки для расширения XDebug
+#php_flag	xdebug.profiler_enable On
+#php_flag	xdebug.extended_info On
+#php_flag	xdebug.remote_enable off
+#php_flag	xdebug.auto_trace off
+
+
+# OTHER SETTINGS ____________
+<IfModule mod_setenvif.c>
+	SetEnv TZ Europe/Moscow
+</IfModule>
+ServerSignature Off
+# AddDefaultCharset UTF-8
+# AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+
+
+# CACHE AND Headers _________
+<ifModule mod_headers.c>
+	<FilesMatch "\.(html|htm)$">
+		Header set Cache-Control "max-age=43200"
+	</FilesMatch>
+	<FilesMatch "\.(js|css|txt)$">
+		Header set Cache-Control "max-age=604800"
+	</FilesMatch>
+	<FilesMatch "\.(flv|swf|ico|gif|jpg|jpeg|png|jpe?g)$">
+		Header set Cache-Control "max-age=2592000"
+	</FilesMatch>
+	<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+		Header unset Cache-Control
+	</FilesMatch>
+	<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
+		Header set Access-Control-Allow-Origin "*"
+	</FilesMatch>
+	<FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+		Header unset X-UA-Compatible
+	</FilesMatch>
+</IfModule>
+<ifModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access plus 5 seconds"
+	ExpiresByType image/x-icon "access plus 2592000 seconds"
+	ExpiresByType image/jpeg "access plus 2592000 seconds"
+	ExpiresByType image/png "access plus 2592000 seconds"
+	ExpiresByType image/gif "access plus 2592000 seconds"
+	ExpiresByType video/ogg "access plus 1 month"
+	ExpiresByType audio/ogg "access plus 1 month"
+	ExpiresByType video/mp4 "access plus 1 month"
+	ExpiresByType video/webm "access plus 1 month"
+	ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+	ExpiresByType text/css "access plus 604800 seconds"
+	ExpiresByType text/javascript "access plus 604800 seconds"
+	ExpiresByType application/javascript "access plus 604800 seconds"
+	ExpiresByType application/x-javascript "access plus 604800 seconds"
+	ExpiresByType text/html "access plus 43200 seconds"
+	ExpiresByType application/xhtml+xml "access plus 600 seconds"
+	ExpiresByType text/xml "access plus 600 seconds"
+	ExpiresByType application/xml "access plus 600 seconds"
+	ExpiresByType application/json "access plus 600 seconds"
+	ExpiresByType application/rss+xml "access plus 1 hour"
+	ExpiresByType application/atom+xml "access plus 1 hour"
+	ExpiresByType text/x-component "access plus 1 week"
+	ExpiresByType application/x-font-ttf "access plus 1 month"
+	ExpiresByType font/opentype "access plus 1 month"
+	ExpiresByType application/x-font-woff "access plus 1 month"
+	ExpiresByType image/svg+xml "access plus 1 month"
+	ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+</ifModule>
+
+
+#	Bad Rquest
+ErrorDocument 400 /index.php?page=e400
+
+#	Authorization Required
+ErrorDocument 401 /index.php?page=e401
+
+#	Forbidden
+ErrorDocument 403 /index.php?page=e403
+
+#	Not found
+ErrorDocument 404 /index.php?page=e404
+
+#	Method Not Allowed
+ErrorDocument 405 /index.php?page=e405
+
+#	Request Timed Out
+ErrorDocument 408 /index.php?page=e408
+
+#	Request URI Too Long
+ErrorDocument 414 /index.php?page=notfound
+
+#	Internal Server Erro
+ErrorDocument 500 /index.php?page=notfound
+
+#	Not Implemented
+ErrorDocument 501 /index.php?page=notfound
+
+#	Bad Gateway 
+ErrorDocument 502 /index.php?page=notfound
+
+#	Service Unavailable 
+ErrorDocument 503 /index.php?page=notfound
+
+#	Gateway Timeout
+ErrorDocument 504 /index.php?page=notfound
+
+# anti traffic
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} !^/403.php$
+	RewriteCond %{HTTP_USER_AGENT} .*Slurp.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Ask\sJeeves.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*HP\sWeb\sPrintSmart.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*HTTrack.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*IDBot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Indy\sLibrary.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*ListChecker.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*MSIECrawler.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*NetCache.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Nutch.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*RPT-HTTPClient.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*rulinki\.ru.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Twiceler.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*WebAlta.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Webster\sPro.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*www\.cys\.ru.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Wysigot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Yeti.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Accoona.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*CazoodleBot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*CFNetwork.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*ConveraCrawler.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*DISCo.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Download\sMaster.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*FAST\sMetaWeb\sCrawler.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Flexum\sspider$ [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Gigabot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*HTMLParser.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*ia_archiver.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*ichiro.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*IRLbot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Java.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*km\.ru\sbot$ [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*kmSearchBot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*libwww-perl.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Lupa\.ru.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*LWP::Simple.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*lwp-trivial.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Missigua.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*MJ12bot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*msnbot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*msnbot-media.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Offline\sExplorer.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*OmniExplorer_Bot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*PEAR.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*psbot.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Python.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*rulinki\.ru.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*SMILE.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Speedy.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Teleport\sPro.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*TurtleScanner.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*voyager.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Webalta.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*WebCopier.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*WebData.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*WebZIP.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Wget.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Yanga.* [OR]
+	RewriteCond %{HTTP_USER_AGENT} .*Yeti.*
+	RewriteRule .* /403.php [F]
+<IfModule>
