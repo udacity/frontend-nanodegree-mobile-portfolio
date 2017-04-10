@@ -5,23 +5,21 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: none;
 }
-body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
-body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
+
+body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; background: #fff;
+       font-family: 'Open Sans', sans-serif; color: #333;}
 
 a { color: #12C; }
 a:visited { color: #61C; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { color: #c00; outline: 0; }
 
-b, strong { font-weight: bold; }
-pre, code { font-family: monospace, monospace; font-size: 1em; }
-ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
+ul { margin: 1em 0; padding: 0 0 0 20px; }
 img { border: 0; max-width: 100%; }
 
-body { background: #fff; }
-header, footer, .container { max-width: 45em; margin: 0 auto; }
+.container { max-width: 45em; margin: 0 auto; }
 
-header { padding: 0 0.5em; color: #C90B0B; }
+header { padding: 0 0.5em; color: #C90B0B; max-width: 45em; margin: 0 auto;}
 header img { border-radius: 40px; float: left; }
 header p { font-size:1.5em; font-weight: bold; padding-left: 4em;}
 header p span { font-size: 0.8em; font-weight: normal;}
@@ -39,6 +37,8 @@ li p { font-size: 0.9em; font-style: italic; }
 footer {
   padding: 0 0.5em;
   border-top: 1px solid #ccc;
+  max-width: 45em;
+  margin: 0 auto;
 }
 footer span { float: right; font-style: italic; }
 
