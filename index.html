@@ -9,20 +9,15 @@
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet">
-
-    <script>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
-      // Optional TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
-      ga('send', 'pageview');
-    </script>
-    <script src="http://www.google-analytics.com/analytics.js"></script>
-    <script async src="js/perfmatters.js"></script>
+    <style>
+    .content { padding: 1em 1em; }
+    .hero { padding: 2em; background-color: #f8f8f8; font-size:1.2em;
+  		border-bottom: 1px solid #ccc;
+  	border-top: 1px solid #ccc;
+	}
+	.content li { list-style-type: none; font-size: 1.1em;}
+    </style>
+     
   </head>
 
   <body>
@@ -34,6 +29,14 @@
     <div class="container">
       <div class="hero">
         <strong>I love web development!</strong> This is a template for a simple portfolio. I decided to use it to showcase a few Udacity courses I've taken and some teaching work, but you can use it to showcase any kind of project that you want the world to see :) <br> Contact me: me@email.com
+      </div>
+	<header>
+		<a href ="/"><img src="img/photo.jpg"></a>
+      	<p>Sergey Danilovich Igorevich<br><span>Course Developer</span></p>
+    </header>
+      <div class="hero">
+      Contact me : Serdanilovich@mail.ru<br>
+      My number of telephone : <a href="tel:+375-29-163-86-36">+375-29-163-86-36</a>
       </div>
 
       <div class="content">
@@ -68,5 +71,16 @@
         <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
       </footer>
     </div>
+    <script src="http://www.google-analytics.com/analytics.js" async></script>
+    <script async>
+      (function(w,g){w['GoogleAnalyticsObject']=g;
+      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
+
+      // Optional TODO: replace with your Google Analytics profile ID.
+      ga('create', 'UA-XXXX-Y');
+      ga('send', 'pageview');
+    </script>
+    <script src="js/perfmatters.js" async></script>
   </body>
 </html>
+<link href="css/style.css" rel="stylesheet">
