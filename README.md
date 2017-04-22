@@ -41,7 +41,7 @@ To get started, check out the repository and inspect the code.
 
 #### 1.2 How to reach your goal speed (>90 for mobile and desktop) in index.html
 
-To optimize the website to reached desired goal, I have to follow three manily strategies
+To optimize the website and reach desired goal, I have to follow three mainly three strategies:
 
 1. Minimize bytes.
 2. Reduce critical Resources
