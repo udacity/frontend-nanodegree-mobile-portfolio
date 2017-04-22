@@ -489,13 +489,13 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('mover');
-  var cachedLength = items.length;
-  var top = (document.body.scrollTop / 1250);
+  var items = document.getElementsByClassName('mover'); // to render fast used getElementbyClass insted of QuerySelector
+  var cachedLength = items.length; // cached no. of image
+  var top = (document.body.scrollTop / 1250); // Moved heavy calulation outside for loop to remove bottleneck
   var i;
   for (i = 0; i < cachedLength; i++) {
-    var phase = Math.sin(top + (i % 5)) * 500;
-    items[i].style.transform = 'translateX( '+ phase + 'px)';
+    var phase = Math.sin(top + (i % 5)) * 500; // to perform animation and added 500 insted of 100 to give space between images.
+    items[i].style.transform = 'translateX( '+ phase + 'px)'; // change from style.left to transform to create layer and render page fast
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -515,7 +515,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 50; i++) { // Reduce no. of pizza image from 200 to 50
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
