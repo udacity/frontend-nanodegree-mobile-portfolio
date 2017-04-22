@@ -56,10 +56,124 @@ Gruntjs is the one of the best to optmize the website, it help to compress image
 1. To run gruntfile.js you need package.json
 2. Create package.json, by typing command
 
-  ```bash```
+  ```bash
   $> npm init
+  ```
   
 3. The create grunfile.js. To learn more about it installation visit https://gruntjs.com (Getting Started)
+4. npm init will generate package.json.
+5. now to impement imagemin, minify and cssmin, we have to add devdependencies to package.json
+6. We use following command to add devdepenncies, open bash from the local file location
+
+  ```
+  $> npm install grunt --save-dev
+  
+  $> npm install grunt-contrib-uglify --save-dev
+  
+  $> npm install grunt-contrib-cssmin --save-dev
+  ```
+  
+ 7. These command will install grunt, grunt contrib uglify, grunt-contrib-cssmin 
+ 
+ 8. package.json will be seen like :
+    
+    ```
+    {
+      "name": "test",
+      "version": "1.0.0",
+      "description": "Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for            speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the              techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).",
+      "main": "Gruntfile.js",
+      "dependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-contrib-cssmin": "^2.1.0",
+        "grunt-contrib-uglify": "^2.3.0",
+        "grunt-contrib-imagemin": "^1.0.1",
+        "optimist": "^0.6.1"
+      },
+      "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-cssmin": "^2.1.0",
+        "grunt-contrib-htmlmin": "^2.3.0",
+        "grunt-contrib-imagemin": "^1.0.1",
+        "grunt-contrib-uglify": "^2.3.0",
+        "grunt-minify-html": "^2.1.0"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/udacity/frontend-nanodegree-mobile-portfolio.git"
+      },
+      "author": "",
+      "license": "ISC",
+      "bugs": {
+        "url": "https://github.com/udacity/frontend-nanodegree-mobile-portfolio/issues"
+      },
+      "homepage": "https://github.com/udacity/frontend-nanodegree-mobile-portfolio#readme"
+    }
+
+    ```
+  9. grunt task runner in Gruntfile.js
+  
+    ```
+    module.exports = function(grunt) {
+    grunt.initConfig({
+      imagemin: {
+        png: {
+          options: {
+            optimizationLevel: 7
+          },
+          files: [
+            {
+              expand: true,
+              cwd: 'views/images/', //current working directory
+              src: ['**/*.png'],
+              dest: 'views/images/compressed/',  // destination -- will be created
+              ext: '.png'
+            }
+          ]
+        },
+        jpg: {
+          options: {
+            progressive: true
+          },
+          files: [
+            {
+              expand: true,
+              cwd: 'views/images/',
+              src: ['**/*.jpg'],
+              dest: 'views/images/compressed/',
+              ext: '.jpg'
+            }
+          ]
+        }
+      },
+      uglify: {
+                js: {
+                    src: 'js/perfmatters.js',
+                    dest: 'js/perfmatters.min.js'
+                    }
+      },
+      cssmin: {
+                css: {
+                    src: 'css/print.css',
+                    dest: 'css/print.min.css'
+                    }
+      }
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.registerTask('builds', ['imagemin','uglify','cssmin']);
+    };
+    
+    ```
+10. for uglify, run - grunt uglify
+    for imagemin, run - grunt imagemin
+    for cssmin, run - grunt cssmin
 
 #### 1.2.2 Task performed on index.html
 
