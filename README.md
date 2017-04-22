@@ -12,7 +12,7 @@ To get started, check out the repository and inspect the code.
 2. Sublime Text Editor.
 3. Git bash
 4. Ngrok (if not installed please install as per instruction given below).
-5. To test speed, use follwing site: https://developers.google.com/speed/pagespeed/insights/ (check out my website speed : https://shadmanwaris.github.io/optimized-portfolio/ )
+5. To test speed, use following site: https://developers.google.com/speed/pagespeed/insights/ (check out my website speed : https://shadmanwaris.github.io/optimized-portfolio/ )
 
 #### Part 1: Optimize PageSpeed Insights score for index.html
 
@@ -61,7 +61,7 @@ Gruntjs is the one of the best to optmize the website, it help to compress image
   
 3. The create grunfile.js. To learn more about it installation visit https://gruntjs.com (Getting Started)
 
-#### 1.2.2 Task perforemed on index.html
+#### 1.2.2 Task performed on index.html
 
 * Inlined style.css
 * Minify print.css, and perfmatter.js using grunt.
