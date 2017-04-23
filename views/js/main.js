@@ -421,8 +421,11 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
+   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+
     // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
+    function changePizzaSizes(size) {
+      var newWidth;
       switch(size) {
         case "1":
           newWidth = 25;
@@ -437,12 +440,16 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
 
-      var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
-
+    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
+
+  changePizzaSizes(size);
+
+
+
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -494,8 +501,9 @@ function updatePositions() {
   var top = (document.body.scrollTop / 1250); // Moved heavy calulation outside for loop to remove bottleneck
   var i;
   for (i = 0; i < cachedLength; i++) {
-    var phase = Math.sin(top + (i % 5)) * 500; // to perform animation and added 500 insted of 100 to give space between images.
-    items[i].style.transform = 'translateX( '+ phase + 'px)'; // change from style.left to transform to create layer and render page fast
+    var phase = Math.sin(top + (i % 5)) ; // to perform animation and added 500 insted of 100 to give space between images.
+    var left = -840 + items[i].basicLeft + 100 * phase + "px"; // subtract half the size of screen to bring images to cover whole screen
+    items[i].style.transform = "translateX("+ left +")"; // change from style.left to transform to create layer and render page fast
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
