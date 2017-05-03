@@ -1,7 +1,10 @@
-# Initial Google Pagespeed scores before optimization
-
+## Initial Google Pagespeed scores before optimization
 Mobile: 27/100
 Desktop: 29/100
+
+## Pagespeed scores after image optimization
+Mobile: 72/100
+Desktop: 87/100
 
 ## Website Performance Optimization portfolio project
 
