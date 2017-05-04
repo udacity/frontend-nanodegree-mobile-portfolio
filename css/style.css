@@ -1,5 +1,5 @@
- @font-face { font-family: 'Open Sans'; src: url('../fonts/Open_Sans/OpenSans-Regular.ttf'); }
- @font-face { font-family: 'Open Sans'; font-weight: bold; src: url('../fonts/Open_Sans/OpenSans-Bold.ttf');}
+ @font-face { font-family: 'Open Sans'; src: url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype'); }
+ @font-face { font-family: 'Open Sans'; font-weight: bold; src: url('../fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');}
 
 html {
   font-size: 100%;
@@ -9,7 +9,7 @@ html {
   -webkit-text-size-adjust: none;
 }
 body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
-body, button, input, select, textarea { sans-serif; color: #333; }
+body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
 
 a { color: #12C; }
 a:visited { color: #61C; }
