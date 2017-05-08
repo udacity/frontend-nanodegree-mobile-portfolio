@@ -24,6 +24,8 @@
 
     <style type="text/css">
       strong { font-family: 'Open Sans', sans-serif; font-weight: bold; src: url('fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype'); }
+      body { background: #fff; margin: 0; font-size: 14px; line-height: 1.61; }
+      body, button, input, select, textarea { color: #333; }
     </style>
 
     <link href="css/style.css" rel="stylesheet">
@@ -59,7 +61,7 @@
           <li>
             <img src="img/mobilewebdev_home.jpg">
             <a href="project-mobile.html">Mobile Web Development</a>
-            <p>Making mobile apps isn't so hard after all.</p
+            <p>Making mobile apps isn't so hard after all.</p>
           </li>
 
           <li>
@@ -74,6 +76,24 @@
         <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
       </footer>
     </div>
+
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </noscript>
+    <script>
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+    </script>
+
   </body>
 
   <script>

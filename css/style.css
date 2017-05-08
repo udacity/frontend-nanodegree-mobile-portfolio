@@ -14,8 +14,8 @@ html {
 strong { font-family: 'Open Sans', sans-serif; font-weight: bold; src: url('../fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype'); }
 */
 
-body { background: #fff; margin: 0; font-size: 14px; line-height: 1.61; }
-body, button, input, select, textarea { color: #333; }
+/*body { background: #fff; margin: 0; font-size: 14px; line-height: 1.61; }
+body, button, input, select, textarea { color: #333; }*/
 
 a { color: #12C; }
 a:visited { color: #61C; }
