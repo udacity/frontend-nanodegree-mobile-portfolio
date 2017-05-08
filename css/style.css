@@ -1,13 +1,19 @@
-@font-face { font-family: 'Open Sans', sans-serif; src: url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype'); }
-@font-face { font-family: 'Open Sans', sans-serif; font-weight: bold; src: url('../fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype'); }
+/*@font-face { font-family: 'Open Sans', sans-serif; src: url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype'); }*/
+/*@font-face { font-family: 'Open Sans', sans-serif; font-weight: bold; src: url('../fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype'); }*/
 
+/*
 html {
+  font-family: 'Open Sans', sans-serif; src: url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
       moz-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
 }
+
+strong { font-family: 'Open Sans', sans-serif; font-weight: bold; src: url('../fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype'); }
+*/
+
 body { background: #fff; margin: 0; font-size: 14px; line-height: 1.61; }
 body, button, input, select, textarea { color: #333; }
 
@@ -16,7 +22,6 @@ a:visited { color: #61C; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { color: #c00; outline: 0; }
 
-b, strong { font-weight: bold; }
 ul, ol { margin: 1em 0; padding: 0 0 0 20px; }
 img { border: 0; max-width: 100%; }
 
