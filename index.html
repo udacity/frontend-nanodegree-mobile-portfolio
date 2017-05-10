@@ -20,9 +20,7 @@
             -ms-text-size-adjust: 100%;
                 text-size-adjust: 100%;
       }
-    </style>
 
-    <style type="text/css">
       strong { font-family: 'Open Sans', sans-serif; font-weight: bold; src: url('fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype'); }
       body { background: #fff; margin: 0; font-size: 14px; line-height: 1.61; }
       body, button, input, select, textarea { color: #333; }
@@ -48,6 +46,10 @@
       .content li { list-style-type: none; font-size: 1.1em;}
       li img { float:left; padding-right: 1em; }
       li p { font-size: 0.9em; font-style: italic; }
+
+      a:visited { color: #61C; }
+      a:focus { outline: thin dotted; }
+      a:hover, a:active { color: #c00; outline: 0; }
 
       footer { padding: 0 0.5em; border-top: 1px solid #ccc; }
       footer span { float: right; font-style: italic; }
@@ -99,9 +101,6 @@
       </footer>
     </div>
 
-    <noscript id="deferred-styles">
-      <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    </noscript>
     <script>
       var loadDeferredStyles = function() {
         var addStylesNode = document.getElementById("deferred-styles");
