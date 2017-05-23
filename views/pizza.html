@@ -1,44 +1,170 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <!--<link rel="stylesheet" href="css/bootstrap-greg.css">-->
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.42857143;
+      background-color: #000;
+      color: #000;
+
+    }
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .row {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+    .col-xs-12 {
+      width: 100%;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+      position: relative;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    input {
+      background: grey;
+      font-size: 18px;
+    }
+    .img-responsive {
+      width: 100%;
+    }
+    .mover {
+      position: fixed;
+      z-index: -1;
+    }
+    #randomPizzas {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+      }
+      .col-md-12 {
+        width: 100%;
+      }
+      .col-md-8 {
+        width: 66.66666667%;
+      }
+      .col-md-6 {
+        width: 50%;
+      }
+      .col-md-4 {
+        width: 33.33333333%;
+      }
+      .col-md-push-3 {
+        left: 25%;
+      }
+      .col-md-push-2 {
+        left: 16.66666667%;
+      }
+    }
+    .container {
+      background-color: rgba(240, 60, 60, 0.8);
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .text-center {
+      text-align: center;
+    }
+
+    .randomPizzaContainer {
+      display: flex;
+      height: 325px;
+    }
+
+    .randomPizzaContainer:after {
+      content: "";
+      display: table;
+      clear:both;
+    }
+
+    .randomPizzaPic {
+      width: 77px;
+    }
+
+    .randomPizzaEntry {
+      width: 173px;
+    }
+
+  </style>
+
 </head>
+
+<!--
+Changes made by Greg Bopp:
+1)  Moved #movingPizzas1 above the header content and gave it: class="col-md-12" so it is not reconfiguring on window resize
+2)  Compressed pizzeria image from 2315kb down to 25kb
+3)  Simplified / minimized the nav button code
+4)  Removed unnecessary entries from style.css.
+5)  Utilized bootstrap classes for centering text and sizing columns.
+6)  Moved style.css to pizza.html for Google Page Speed boost.
+7)  Set a pixel width for the elements that make up a random pizza entry. This allows for a very simple width change
+    on the pizza image to convey the correct size of the pizza. This allowed the resizePizza function to be dramatically simplified.
+-->
 
 <body>
   <div class="container">
+    <div id="movingPizzas1" class="col-md-12"></div>
     <div id="header" class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="row">
           <div class="col-md-12">
             <h1>Cam's Pizzeria</h1>
             <div class="row">
               <div id="menu" class="col-md-12">
-                <form action="#randomPizzas">
-                  <input type="submit" value="Menu">
+                <form>
+                  <input type="button" onclick="location.href='#randomPizzas'" value="Menu">
+                  <input type="button" onclick="location.href='#ingredients'" value="Our Ingredients">
+                  <input type="button" onclick="location.href='#locations'" value="Locations">
+                  <input type="button" value="Contact Us" onclick="alert('Thanks for clicking! This button doesn\'t do anything because this is a fake pizzeria :\)')">
                 </form>
-                <form action="#ingredients">
-                  <input type="submit" value="Our Ingredients">
-                </form>
-                <form action="#locations">
-                  <input type="submit" value="Locations">
-                </form>
-                <form action="#" onsubmit="alert('Thanks for clicking! This button doesn\'t do anything because this is a fake pizzeria :\)')">
-                  <input type="submit" value="Contact Us">
-                </form>
-              </div>
-            </div>
-          </div>
+              </div><!--/#menu-->
+            </div><!--/.row-->
+          </div><!--/.col-md-12-->
         </div>
-      </div>
-      <div id="movingPizzas1" class="col-md-6">
       </div>
     </div>
     <div id="callToAction" class="row">
-      <div class="col-md-4">
-        <img src="images/pizzeria.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+      <div class="col-sm-4">
+        <img src="images/pizzeria_top.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
       </div>
-      <div class="col-md-8">
+      <div class="col-sm-8">
         <div class="row">
           <div class="col-md-12">
             <h2>We Have Hundreds of Pizza Recipes!</h2>
@@ -56,7 +182,7 @@
         </div>
       </div>
     </div>
-    <div id="ingredients" class="row">
+    <div id="ingredients" class="row text-center">
       <div class="col-md-8 col-md-push-2">
         <div class="row">
           <div class="col-md-12 centered">
@@ -74,9 +200,9 @@
         </div>
       </div>
     </div>
-    <div id="locations" class="row">
+    <div id="locations" class="row text-center">
       <div class="col-md-12">
-        <h2 style="text-align: center">Locations!</h2>
+        <h2>Locations!</h2>
         <div class="row">
           <div class="col-md-6">
             <h3>Pizza Road</h3>
@@ -89,56 +215,86 @@
         </div>
       </div>
     </div>
-    <div id="pizzaGenerator" class="row">
-      <div class="col-md-12">
-        <h2 style="text-align: center">Our Pizzas!</h2>
-        <div class="row">
-          <div class="col-md-12">
-            <em>What size pizza would you like? Use the slider below to change pizza sizes.</em>
-          </div>
-          <div id="pizzaSize" class="col-md-6">Medium</div>
-          <div class="col-md-12">
-            <input id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)"></input>
-          </div>
-        </div>
-        <div id="randomPizzas" class="row">
-          <div id="pizza0" class="randomPizzaContainer" style="width:33.33%; height: 325px;">
-            <div style="width:35%">
-              <img src="images/pizza.png" class="img-responsive">
-            </div>
-            <div style="width:65%">
-              <h4>The Udacity Special</h4>
-              <ul>
-                <li>Turkey</li>
-                <li>Tofu</li>
-                <li>Cauliflower</li>
-                <li>Sun Dried Tomatoes</li>
-                <li>Velveeta Cheese</li>
-                <li>Red Sauce</li>
-                <li>Whole Wheat Crust</li>
-              </ul>
-            </div>
-          </div>
-          <div id="pizza1" class="randomPizzaContainer" style="width:33.33%; height: 325px;">
-            <div style="width:35%">
-              <img src="images/pizza.png" class="img-responsive">
-            </div>
-            <div style="width:65%">
-              <h4>The Cameron Special</h4>
-              <ul>
-                <li>Chicken</li>
-                <li>Hot Sauce</li>
-                <li>White Crust</li>
-              </ul>
-            </div>
-          </div>
+
+    <div id="pizzaGenerator">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Our Pizzas!</h2>
         </div>
       </div>
-    </div>
-    <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
+      <div class="row">
+        <div class="col-md-12">
+          <em>What size pizza would you like? Use the slider below to change pizza sizes.</em>
+        </div>
+      </div>
+      <div class="row">
+        <div id="pizzaSize" class="col-md-12"><h3>Small</h3></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <input id="sizeSlider" type="range" min="1" max="3" value="1" step="1" onchange="resizePizzas(this.value)"></input>
+        </div>
+      </div>
+
+      <div id="randomPizzas" class="row">
+        <div class="randomPizzaContainer" id="pizza0"> <!--style="width:33.33%; height: 325px;"-->
+          <div class="randomPizzaPic">
+            <img src="images/pizza.png" class="img-responsive">
+          </div>
+          <div class="randomPizzaEntry"> <!--style="width:65%"-->
+            <h4>The Udacity Special</h4>
+            <ul>
+              <li>Turkey</li>
+              <li>Tofu</li>
+              <li>Cauliflower</li>
+              <li>Sun Dried Tomatoes</li>
+              <li>Velveeta Cheese</li>
+              <li>Red Sauce</li>
+              <li>Whole Wheat Crust</li>
+            </ul>
+          </div>
+        </div><!--/#pizza0-->
+        <div class="randomPizzaContainer" id="pizza1">
+          <div class="randomPizzaPic">
+            <img src="images/pizza.png" class="img-responsive">
+          </div>
+          <div class="randomPizzaEntry">
+            <h4>The Cameron Special</h4>
+            <ul>
+              <li>Chicken</li>
+              <li>Hot Sauce</li>
+              <li>White Crust</li>
+            </ul>
+          </div><!--/.randomPizzaEntry-->
+        </div><!--/#pizza1-->
+      </div><!--/#randomPizzas-->
+    </div><!--/#pizzaGenerator-->
+
+    <footer>
+      <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
+    </footer>
+
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
+
 </body>
 
-</html>
+<!--Thanks to Dan Riti and: https://www.appneta.com/blog/bootstrap-pagespeed/ for educating me on defered CSS loading-->
+<script>
+  // *Experimental* defer loading of CSS snippet. Use with caution!
+  var deferCSS = document.createElement('link');
+  deferCSS.rel='stylesheet';
+  deferCSS.href='css/bootstrap-greg.min.css';
+  deferCSS.media='defer';
+  deferCSS.addEventListener('load', function() { deferCSS.media=''; }, false);
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(deferCSS, s);
+</script>
+
+<!-- no JS? Put fallback CSS links here.-->
+<noscript>
+  <link href="css/bootstrap-greg.min.css" rel="stylesheet">
+</noscript>
+
+<script type="text/javascript" src="js/main.js"></script>
+
 </html>
