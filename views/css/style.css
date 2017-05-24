@@ -30,6 +30,13 @@ form {
 }
 
 .mover {
+  /* added will change and transform properties*/
+   will-change: transform;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
   position: fixed;
   width: 256px;
   z-index: -1;
