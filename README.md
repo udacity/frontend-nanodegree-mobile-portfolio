@@ -56,6 +56,8 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
 
 ---------------------------------------------------------------------------------------------------------------------------------------
+The repo consists of two folders: 1. src: This contains the source code, 2. dist: This contains the production code (minified files).
+
 Open index.html in any browser to view the portfolio website
 ## OPTIMISATIONS
 ### - To achieve required pagespeed score
