@@ -448,7 +448,6 @@ var resizePizzas = function(size) {
       randomPizzas[i].style.width = newWidth +'%';
     }
   }
-
   changePizzaSizes(size);
 
   // User Timing API is awesome
@@ -499,17 +498,19 @@ function updatePositions() {
     Current y coordinate value on scrolling is also moved outside the for loop
     */
   var items = document.getElementsByClassName('mover');
-  var top = document.body.scrollTop / 1250;
+  var scroll = document.body.scrollTop / 1250;
+  var phases = [];
+    for (var i = 0; i < 5; i++) {
+        var phase = Math.sin(scroll + (i % 5));
+        phases.push(phase);
+    }
+    for (var i = 0; i < items.length; i++) {
+     var phase = phases[i % 5]
 
-  var phaseList = [];
-  for ( var x = 0; x < 5; x++) {
-    phaseList.push(Math.sin((top) + (x % 5)));
-  }
-  for (var i = 0; i < items.length; i++) {
-    var phase = phaseList[i % 5];
-    // Used transform instead of style.left to achieve better FPS as transform only triggers composite
-    items[i].style.transform = "translateX(" + 100 * + " px)";
-  }
+      /* In this case transform and translate trigger only composite layer which makes them very efficient.
+         Visit www.csstriggers.com for more details. */
+      items[i].style.transform = "translateX(" + 100 * phase + "px)";
+    }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -519,7 +520,7 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
-}
+};
 
 /* Added requestAnimationFrame to updatePositions on scroll */
 window.addEventListener('scroll', function() {
@@ -527,7 +528,7 @@ window.addEventListener('scroll', function() {
 });
 
 /* Generates the sliding pizzas when the page loads.Since the DOM manipulation slows performance
-assigning getElementById to a variable outside of the loop is a much better option to improve performance.*/
+   assigning getElementById to a variable outside of the loop is a much better option to improve performance.*/
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
