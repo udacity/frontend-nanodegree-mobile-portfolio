@@ -1,11 +1,12 @@
-#how to execute
-->open the folder double click on index.html
-->click on links
-#changes made
-->image size compressed to maximum(http://optimizilla.com/)
-->image links removed to local path and images compressed
-->inline css used rather then external
-->media = print used
-->async javascript used
-->all the comments removed
-->in main.js javascript rendering removed
+## Website Performance Optimization portfolio project
+##running of project
+=>download index.html
+=>open folder then click on index.html
+=>go topizza.html
+=>main.js
+=>open folder then go to views.
+=>open main.js.
+=>minify the images by online available tools.
+=>use of media="print" in javascript.
+=>Remove whitespaces.
+
