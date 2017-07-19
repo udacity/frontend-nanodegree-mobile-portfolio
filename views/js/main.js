@@ -444,7 +444,6 @@ var resizePizzas = function(size) {
     // Batch apply styles, fixed the FSL 
     for (var i = 0; i < pizzas.length; i++) {
       pizzas[i].style.width = pizzaImageWidth + "%";
-      console.log(pizzaImageWidth);
     }
   }
 
