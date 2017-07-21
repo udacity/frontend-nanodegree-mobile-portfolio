@@ -1,23 +1,48 @@
-// Requiring packages
-var gulp 		= require('gulp');
-var browserSync = require('browser-sync').create();
+var gulp = require('gulp'),
+    plumber = require('gulp-plumber'),
+    rename = require('gulp-rename');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var imagemin = require('gulp-imagemin'),
+    cache = require('gulp-cache');
+var minifycss = require('gulp-minify-css');
+var browserSync = require('browser-sync');
 
-//This task will spin up a server with browser-sync
-gulp.task('browserSync', function() {
-  browserSync.init({
+gulp.task('browser-sync', function() {
+  browserSync({
     server: {
-      baseDir: 'frontend-nanodegree-mobile-portfolio'
-    },
-  })
-})
+       baseDir: "./"
+    }
+  });
+});
 
-// Now we will watch for changes in the directory so we can 
-// update the browser in real time
-gulp.task('watch', ['browserSync'], function (){
-	gulp.watch('frontend-nanodegree-mobile-portfolio/*.html');
-	gulp.watch('frontend-nanodegree-mobile-portfolio/css/*.css');
-	gulp.watch('frontend-nanodegree-mobile-portfolio/js/*.js');
-	gulp.watch('frontend-nanodegree-mobile-portfolio/views/*.html');
-	gulp.watch('frontend-nanodegree-mobile-portfolio/views/css/*.css');
-	gulp.watch('frontend-nanodegree-mobile-portfolio/views/js/*.js');
+gulp.task('bs-reload', function () {
+  browserSync.reload();
+});
+
+gulp.task('images', function(){
+  gulp.src('frontend-nanodegree-mobile-portfolio/img/**/*')
+    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(gulp.dest('frontend-nanodegree-mobile-portfolio/dist/img/'));
+});
+
+
+gulp.task('scripts', function(){
+  return gulp.src('js/**/*.js')
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('dist/js/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js/'))
+    .pipe(browserSync.reload({stream:true}))
+});
+
+gulp.task('default', ['browser-sync'], function(){
+  gulp.watch("js/**/*.js", ['scripts']);
+  gulp.watch("*.html", ['bs-reload']);
 });
