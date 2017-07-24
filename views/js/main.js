@@ -507,23 +507,37 @@ function updatePositions() {
   * whenever the function being called.
   */
   var topDistance = (document.body.scrollTop / 1250);
+  // console.log(topDistance);
 
   // var items = document.querySelectorAll('.mover');
   
   /* Using the more specific function to get the elements by their class names */
   var items = document.getElementsByClassName('mover');
 
+  var phase = [];
+
+  /*
+  * Since the 'sin' function is going to give only 5 unique values on iteration,
+  * it has been taken out from the loop and run in a separate loop for 5 iteration
+  * and values have been collected within the array which can be used later.
+  */
+  for (var i = 0; i < 5; i++) {
+    phase.push(Math.sin(topDistance + i));
+  }
+
+  // console.log(phase);
+
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(topDistance + (i % 5));
-    console.log('The phase value is : ' + phase);
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    // var phase = Math.sin(topDistance + (i % 5));
+    // console.log('The phase value is : ' + phase);
+    items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-  if (frame % 10 === 0) {
+  if (frame % 60 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
