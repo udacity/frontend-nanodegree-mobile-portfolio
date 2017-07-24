@@ -501,9 +501,21 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  /* 
+  * CSS calculation for the scrollTop property is taken out of the loop.
+  * It will reduce the "RecalculateStyle" and "Layout" happening multiple time in a loop
+  * whenever the function being called.
+  */
+  var topDistance = (document.body.scrollTop / 1250);
+
+  // var items = document.querySelectorAll('.mover');
+  
+  /* Using the more specific function to get the elements by their class names */
+  var items = document.getElementsByClassName('mover');
+
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin(topDistance + (i % 5));
+    console.log('The phase value is : ' + phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -524,7 +536,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+
+  /* No of pizza genereated are reduced to a count of 20 (200 pizzas are not needed)*/
+  for (var i = 0; i < 20; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
