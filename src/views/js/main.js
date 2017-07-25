@@ -572,7 +572,7 @@ function updatePositions() {
     phase.push(Math.sin(topDistance + i));
   }
 
-  for (var i = 0; i < items.length; i++) {
+  for (var j = 0; j < items.length; j++) {
     // var phase = Math.sin(topDistance + (i % 5));
     
     /********** My Comments for the changes ************/
@@ -586,7 +586,7 @@ function updatePositions() {
 
     /********** My Comments for the changes ************/
     /* Using the transform property */
-    items[i].style.transform = "translateX(" + (items[i].basicLeft + 100 * phase[i%5]) + "px)";
+    items[j].style.transform = "translateX(" + (items[j].basicLeft + 100 * phase[j % 5]) + "px)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
