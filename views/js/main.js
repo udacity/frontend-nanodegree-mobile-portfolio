@@ -558,6 +558,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 
   /********** My Comments for the changes ************/
+  /* Grabbing the "#movingPizzas1" element outside of the loop by using more specific query selector */  
+  var movingPizza = document.getElementById("movingPizzas1");
+
+  /********** My Comments for the changes ************/
   /* No of pizza genereated are reduced to a count of 30 (200 pizzas are not needed)*/
   for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
@@ -567,7 +571,12 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+
+    /********** My Comments for the changes ************/
+    /* Not using the querySelector method to get the moving pizza */
+    // document.querySelector("#movingPizzas1").appendChild(elem);
+
+    movingPizza.appendChild(elem);
   }
   updatePositions();
 });
