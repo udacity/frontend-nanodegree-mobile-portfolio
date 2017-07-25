@@ -536,7 +536,14 @@ function updatePositions() {
     /* Commenting out the privious code to calculate the phase value */
     // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 
-    items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
+    /********** My Comments for the changes ************/
+    /* Commenting out this code too because we are now going to use the transform property
+    for moving the pizza as the "transform" property will not affact the painting in the pipeline */
+    // items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
+
+    /********** My Comments for the changes ************/
+    /* Using the transform property */
+    items[i].style.transform = "translateX(" + (items[i].basicLeft + 100 * phase[i%5]) + "px)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -563,10 +570,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /********** My Comments for the changes ************/
   /* No of pizza genereated are reduced to a count of 30 (200 pizzas are not needed)*/
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 24; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
+
+    /********** My Comments for the changes ************/
+    /* Defining the initial 'left' property while creating the element so that after applying the 
+    transform property the elements will remain centered to the screen */
+    elem.style.left = "100px";
+
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
