@@ -501,21 +501,25 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+  /********** My Comments for the changes ************/
   /* 
   * CSS calculation for the scrollTop property is taken out of the loop.
   * It will reduce the "RecalculateStyle" and "Layout" happening multiple time in a loop
   * whenever the function being called.
   */
   var topDistance = (document.body.scrollTop / 1250);
-  // console.log(topDistance);
 
-  // var items = document.querySelectorAll('.mover');
-  
+  /********** My Comments for the changes ************/
   /* Using the more specific function to get the elements by their class names */
   var items = document.getElementsByClassName('mover');
+  
+  // var items = document.querySelectorAll('.mover');
 
+  /********** My Comments for the changes ************/
+  /* Creating the phase array to collect the unique values for calulation */
   var phase = [];
 
+  /********** My Comments for the changes ************/
   /*
   * Since the 'sin' function is going to give only 5 unique values on iteration,
   * it has been taken out from the loop and run in a separate loop for 5 iteration
@@ -525,19 +529,21 @@ function updatePositions() {
     phase.push(Math.sin(topDistance + i));
   }
 
-  // console.log(phase);
-
   for (var i = 0; i < items.length; i++) {
     // var phase = Math.sin(topDistance + (i % 5));
-    // console.log('The phase value is : ' + phase);
-    items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
+    
+    /********** My Comments for the changes ************/
+    /* Commenting out the privious code to calculate the phase value */
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+
+    items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-  if (frame % 60 === 0) {
+  if (frame % 10 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
@@ -551,8 +557,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 
-  /* No of pizza genereated are reduced to a count of 20 (200 pizzas are not needed)*/
-  for (var i = 0; i < 20; i++) {
+  /********** My Comments for the changes ************/
+  /* No of pizza genereated are reduced to a count of 30 (200 pizzas are not needed)*/
+  for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
