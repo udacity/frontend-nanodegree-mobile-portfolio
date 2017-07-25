@@ -1,14 +1,14 @@
 ## Website Performance Optimization portfolio project
 
-This project is the part of Udacity Front-edn Web Developer Nanodegree. The requirement for this project is to optimize the online portfolio for speed! 
+This project is the part of Udacity Front-end Web Developer Nanodegree. The requirement for this project is to optimize the online portfolio for speed! 
 
 ### Getting started
 
 #### Installing
 
-* To check the page speed score for the page, go to <a href="https://developers.google.com/speed/pagespeed/insights/">Google PageSpeed Insights Tool</a> and enter the url <a href="https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/">https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/</a>.
+* To check the page speed score for the page, go to <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">Google PageSpeed Insights Tool</a> and enter the url <a href="https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/" target="_blank">https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/</a>.
 
-* Run <a href="https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html">https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html</a> Or clone my github repository <a href="https://github.com/madhuni/frontend-nanodegree-mobile-portfolio.git">https://github.com/madhuni/frontend-nanodegree-mobile-portfolio.git</a> in your local machine and load the ```/views/pizza.html``` page in the browser. Run the chrome Dev Tool and check the performance of the page.
+* Run <a href="https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html" target="_blank">https://madhuni.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html</a> Or clone my github repository <a href="https://github.com/madhuni/frontend-nanodegree-mobile-portfolio.git" target="_blank">https://github.com/madhuni/frontend-nanodegree-mobile-portfolio.git</a> in your local machine and load the ```/views/pizza.html``` page in the browser. Run the chrome Dev Tool and check the performance of the page.
 
 ### Requirements for completing the project
 
