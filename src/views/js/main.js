@@ -403,16 +403,22 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
+  
+  /********** My Comments for the changes ************/
+  /* Commenting the 'querySelector' function and using more specific selector function for each case */      
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        // document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        // document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        // document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -422,9 +428,14 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+
+  /********** My Comments for the changes ************/
+  /* Commenting the 'querySelector' function and using more specific selector function for each case */
+  
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    // var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -447,12 +458,36 @@ var resizePizzas = function(size) {
     return dx;
   }
 
+  /********** My Comments for the changes ************/
+  /* All the pizza elements to be resized have been stored in an array outside the function call */
+  var pizzaContainer = document.getElementsByClassName("randomPizzaContainer");
+
   // Iterates through pizza elements on the page and changes their widths
+
+  /********** My Comments for the changes ************/
+  /* Commenting out the whole function to write a more optimized function to resize the pizza */
+
+  // function changePizzaSizes(size) {
+  //   for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+  //     var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+  //     var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+  //     document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+  //   }
+  // }
+
+  /********** My Comments for the changes ************/
+  /* 
+  * 1) As all the elements of the pizzaContainer array having the same styling. So only the first
+  * item of the array is taken for calculating the 'dx' and 'newwidth properties'.
+  * 2) For loop is used to iterate over all the pizza elements to assign the new defined properties
+  * on size change.
+  */
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    var dx = determineDx(pizzaContainer[0], size);
+    var newwidth = (pizzaContainer[0].offsetWidth + dx) + 'px';
+
+    for (var i = 0; i < pizzaContainer.length; i++) {
+      pizzaContainer[i].style.width = newwidth;
     }
   }
 
@@ -496,15 +531,62 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+
+/********** My Comments for the changes ************/
+/*
+* 1) Using the more specific function to get the elements by their class names.
+* 2) Items array is placed outside of the function since we need this only once.
+*/
+var items = document.getElementsByClassName('mover');
+
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  /********** My Comments for the changes ************/
+  /* 
+  * CSS calculation for the scrollTop property is taken out of the loop.
+  * It will reduce the "RecalculateStyle" and "Layout" happening multiple time in a loop
+  * whenever the function being called.
+  */
+  var topDistance = (document.body.scrollTop / 1250);
+
+  
+  /********** My Comments for the changes ************/
+  /* Commenting the below code for grabbing the elements with class 'mover' */
+  
+  // var items = document.querySelectorAll('.mover');
+
+  /********** My Comments for the changes ************/
+  /* Creating the phase array to collect the unique values for calulation */
+  var phase = [];
+
+  /********** My Comments for the changes ************/
+  /*
+  * Since the 'sin' function is going to give only 5 unique values on iteration,
+  * it has been taken out from the loop and run in a separate loop for 5 iteration
+  * and values have been collected within the array which can be used later.
+  */
+  for (var i = 0; i < 5; i++) {
+    phase.push(Math.sin(topDistance + i));
+  }
+
+  for (var j = 0; j < items.length; j++) {
+    // var phase = Math.sin(topDistance + (i % 5));
+    
+    /********** My Comments for the changes ************/
+    /* Commenting out the privious code to calculate the phase value */
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+
+    /********** My Comments for the changes ************/
+    /* Commenting out this code too because we are now going to use the transform property
+    for moving the pizza as the "transform" property will not affact the painting in the pipeline */
+    // items[i].style.left = items[i].basicLeft + 100 * phase[i%5] + 'px';
+
+    /********** My Comments for the changes ************/
+    /* Using the transform property */
+    items[j].style.transform = "translateX(" + (items[j].basicLeft + 100 * phase[j % 5]) + "px)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -524,15 +606,33 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+
+  /********** My Comments for the changes ************/
+  /* Grabbing the "#movingPizzas1" element outside of the loop by using more specific query selector */  
+  var movingPizza = document.getElementById("movingPizzas1");
+
+  /********** My Comments for the changes ************/
+  /* No of pizza genereated are reduced to a count of 24 (200 pizzas are not needed)*/
+  for (var i = 0; i < 24; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
+
+    /********** My Comments for the changes ************/
+    /* Defining the initial 'left' property while creating the element so that after applying the 
+    transform property the elements will remain centered to the screen */
+    elem.style.left = "100px";
+
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+
+    /********** My Comments for the changes ************/
+    /* Not using the querySelector method to get the moving pizza */
+    // document.querySelector("#movingPizzas1").appendChild(elem);
+
+    movingPizza.appendChild(elem);
   }
   updatePositions();
 });
