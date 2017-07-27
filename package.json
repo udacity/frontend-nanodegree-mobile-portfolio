@@ -4,7 +4,8 @@
   "description": "portfolio",
   "main": "index.js",
   "dependencies": {
-    "grunt": "^1.0.1"
+    "grunt": "^1.0.1",
+    "grunt-responsive-images": "^1.10.1"
   },
   "devDependencies": {},
   "scripts": {
