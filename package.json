@@ -1,0 +1,26 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "1.0.0",
+  "description": "portfolio",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALippincott/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ALippincott/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/ALippincott/frontend-nanodegree-mobile-portfolio#readme"
+}
