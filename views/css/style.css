@@ -29,7 +29,14 @@ form {
   font-weight: 800;
 }
 
+/* Added will-change and transform:translateZ(0) to cut down on paint time */
 .mover {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
   position: fixed;
   width: 256px;
   z-index: -1;
