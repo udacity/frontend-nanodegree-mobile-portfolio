@@ -495,7 +495,7 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover'); 
 
   for (var i = 0; i < items.length; i++) {
-    var phase = (Math.random() * 2) - 1 + (i % 5); 
+    var phase = (Math.random() * 2) - 1; 
     // var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
