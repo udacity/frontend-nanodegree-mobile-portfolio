@@ -6,4 +6,7 @@ gulp.task('images', function(){
   gulp.src('./img/**/*.*')
     .pipe(imagemin())
     .pipe(gulp.dest('dist/img'))
+  gulp.src('./views/images/**/*.*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./dist/views/images'))
 });
