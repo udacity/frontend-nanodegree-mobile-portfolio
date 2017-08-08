@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" media="none" onload="if(media!='all')media='all'">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
 </head>
 
@@ -104,7 +104,7 @@
         <div id="randomPizzas" class="row">
           <div id="pizza0" class="randomPizzaContainer" style="width:33.33%; height: 325px;">
             <div style="width:35%">
-              <img src="images/pizza.png" class="img-responsive">
+              <img src="images/pizza.png" id="originalImg" class="img-responsive">
             </div>
             <div style="width:65%">
               <h4>The Udacity Special</h4>
