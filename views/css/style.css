@@ -29,6 +29,11 @@ form {
   font-weight: 800;
 }
 
+.movingpizzas {
+  position: absolute;
+  left: 0;
+}
+
 .mover {
   position: fixed;
   width: 256px;
@@ -39,6 +44,24 @@ form {
   float: left;
   display: flex;
 }
+
+.pizza-sm,
+.pizza-md,
+.pizza-lg {
+ height: 250px;
+}
+
+.pizza-sm {
+  width : 25%
+}
+
+.pizza-md {
+  width : 33.33%
+}
+
+.pizza-lg {
+  width : 50%
+ }
 
 .randomPizzaContainer:after {
   content: "";
