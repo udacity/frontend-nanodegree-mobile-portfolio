@@ -372,10 +372,10 @@ var pizzaElementGenerator = function(i) {
   pizzaImage = document.createElement("img");
   pizzaDescriptionContainer = document.createElement("div");
 
-  pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.style.width = "33.33%";
-  pizzaContainer.style.height = "325px";
-  pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
+  //initialize all pizzas as to medium size
+  pizzaContainer.classList.add("randomPizzaContainer", "pizza-md");
+  pizzaContainer.id = "pizza" + i;        // gives each pizza element a unique id
+
   pizzaImageContainer.style.width="35%";
 
   pizzaImage.src = "images/pizza.png";
@@ -419,43 +419,36 @@ var resizePizzas = function(size) {
     }
   }
 
-  changeSliderLabel(size);
-
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldSize = oldWidth / windowWidth;
-
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
+  // optimization: function returns a css class based on the size of the pizza selected
+  function pizzaClassSize(size) {
+    switch(size) {
+      case "1":
+        return "pizza-sm"
+      case "2":
+        return "pizza-md"
+      case "3":
+        return "pizza-lg";
     }
-
-    var newSize = sizeSwitcher(size);
-    var dx = (newSize - oldSize) * windowWidth;
-
-    return dx;
   }
 
+  // optimization:
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    var pizzaSize;
+    var pizzaSizeList = 'pizza-sm pizza-md pizza-lg'
+
+    //optimization: removed the pizza container selectore from the for loop and set it to a variable.
+    // Width is now set via css and not calculated within the loop preventing Forced synchronous layout
+    var listOfRandomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+    for (var i = 0; i < listOfRandomPizzaContainer.length; ++i) {
+      var currentPizzaElement = listOfRandomPizzaContainer[i];
+      currentPizzaElement.classList.remove('pizza-sm');
+      currentPizzaElement.classList.remove('pizza-md');
+      currentPizzaElement.classList.remove('pizza-lg');
+      currentPizzaElement.classList.add(pizzaClassSize(size));
     }
   }
-
+  changeSliderLabel(size);
   changePizzaSizes(size);
 
   // User Timing API is awesome
@@ -496,15 +489,37 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+//optimization: the scroll event now calls the updateScrollPosition()
+// and it uses requestAnimationFrame to force the browser to
+// update the scrolling pizza Positions.
+function updateScrollPosition() {
+  requestAnimationFrame(updatePizzaPositions);
+}
+
 // Moves the sliding background pizzas based on scroll position
-function updatePositions() {
+function updatePizzaPositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  //optimization: Created reusable Varables
+  var scrollPos = (document.body.scrollTop/ 1250);
+  var phaseNum = 5;
+  //optimization: replaced queryselect all with more specific selector
+  var slidingPizzaList = document.getElementById('movingPizzas1').children;
+
+  //optimization: Removed the phase calculation from the main loop to speed up performance
+  var phaseArray = [];
+  for (var p = 0; p <phaseNum; p++) {
+    phaseArray.push(Math.sin( scrollPos + (p % phaseNum )) * 100);
+  }
+
+  //optimization: Used TranslateX() to force rendering to the GPU
+  // some interesting reading on translate https://css-tricks.com/tale-of-animation-performance/
+  for (var s = 0; s < slidingPizzaList.length; s++) {
+    var currentItem = slidingPizzaList[s];
+    var phaseValue = phaseArray[(s % phaseNum )];
+    var translateLeft = 'translateX(' + ( currentItem.basicLeft + phaseValue) + 'px)';
+    currentItem.style.transform = currentItem.style.webkitTransform = translateLeft;
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -518,13 +533,14 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll', updateScrollPosition)
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  //optimization: Reduced the number of pizza to draw. 200 pizza were well below the fold and not worth animating.
+  for (var i = 0; i < 32; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -532,7 +548,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    var pizzaContainer = document.getElementById('movingPizzas1')
+    pizzaContainer.appendChild(elem);
   }
-  updatePositions();
+  requestAnimationFrame(updatePizzaPositions);
 });
