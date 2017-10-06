@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <title>Akim's Pizzeria'</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
 </head>
@@ -36,7 +37,8 @@
     </div>
     <div id="callToAction" class="row">
       <div class="col-md-4">
-        <img src="images/pizzeria.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+        <!-- compressed image file to save total bytes-->
+		<img src="images/pizzeria.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
       </div>
       <div class="col-md-8">
         <div class="row">
@@ -98,13 +100,14 @@
           </div>
           <div id="pizzaSize" class="col-md-6">Medium</div>
           <div class="col-md-12">
-            <input id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)"></input>
+            <input id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)">
           </div>
         </div>
         <div id="randomPizzas" class="row">
           <div id="pizza0" class="randomPizzaContainer" style="width:33.33%; height: 325px;">
             <div style="width:35%">
-              <img src="images/pizza.png" class="img-responsive">
+                <!-- compressed image file to save total bytes-->
+				<img src="images/pizza.png" class="img-responsive">
             </div>
             <div style="width:65%">
               <h4>The Udacity Special</h4>
@@ -140,5 +143,4 @@
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 
-</html>
 </html>
