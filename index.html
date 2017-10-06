@@ -5,30 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=" FILL ME IN ">
     <meta name="author" content=" FILL ME IN ">
-    <title>Cameron Pittman: Portfolio</title>
+	<meta http-equiv="cache-control" content="Public" max-age="2592000"> <!-- cache -->
+
+    <title>Akim George: Portfolio</title>
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet">
-
-    <script>
-      (function(w,g){w['GoogleAnalyticsObject']=g;
-      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
-      // Optional TODO: replace with your Google Analytics profile ID.
-      ga('create', 'UA-XXXX-Y');
-      ga('send', 'pageview');
-    </script>
-    <script src="http://www.google-analytics.com/analytics.js"></script>
-    <script async src="js/perfmatters.js"></script>
+    <link href="css/print.css" rel="stylesheet" media="print"> <!-- reducing # of critical resources by adding media print-->
+	<!-- Minified and Inline CSS to prevent render blocking -->
+	<style>
+		.hero,footer{border-top:1px solid #ccc}footer span,li p{font-style:italic}html{font-size:100%;overflow-y:scroll;-webkit-tap-highlight-color:transparent;-ms-text-size-adjust:100%;-webkit-text-size-adjust:none}body{margin:0;font-size:14px;line-height:1.61;font-weight:400;background:#fff}b,header p,strong{font-weight:700}body,button,input,select,textarea{font-family:'Open Sans',sans-serif;color:#333}a{color:#12C}a:visited{color:#61C}a:focus{outline:dotted thin}a:active,a:hover{color:#c00;outline:0}code,pre{font-family:monospace,monospace;font-size:1em}ol,ul{margin:1em 0;padding:0 0 0 20px}img{border:0;max-width:100%}.container,footer,header{max-width:45em;margin:0 auto}header{padding:0 .5em;color:#C90B0B}header img{border-radius:40px;float:left}header p{font-size:1.5em;padding-left:4em}header p span{font-size:.8em;font-weight:400}.hero{padding:2em;background-color:#f8f8f8;font-size:1.2em;border-bottom:1px solid #ccc}.content{padding:1em}.content li{list-style-type:none;font-size:1.1em}li img{float:left;padding-right:1em}li p{font-size:.9em}footer{padding:0 .5em}footer span{float:right}@media only screen and (max-width:480px){body{font-size:12px}header p{padding-left:4.5em}}
+	</style>
   </head>
 
   <body>
     <header>
-      <a href="/"><img src="img/profilepic.jpg"></a>
-      <p>Cameron Pittman<br><span>Course Developer</span></p>
+      <a href="/"><img src="img/profilepic.jpg"></a> <!-- compressed image file to save total bytes-->
+      <p>Akim George<br><span>FrontEnd Web Developer</span></p>
     </header>
 
     <div class="container">
@@ -57,8 +49,8 @@
           </li>
 
           <li>
-            <img style="width: 100px;" src="views/images/pizzeria.jpg">
-            <a href="views/pizza.html">Cam's Pizzeria</a>
+            <img style="width: 100px;" src="views/images/pizzeria.jpg"> <!-- compressed image file to save total bytes-->
+            <a href="views/pizza.html">Akim's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
         </ul>
@@ -69,4 +61,24 @@
       </footer>
     </div>
   </body>
+  <!-- moved script tags from head tag; placed them after body tag therefore would not block DOM construction -->
+  <!-- added async attribute to non manipulating js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Open Sans']
+      }
+    });
+  </script>
+  <script async>
+    (function(w,g){w['GoogleAnalyticsObject']=g;
+    w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
+
+    // Optional TODO: replace with your Google Analytics profile ID.
+    ga('create', 'UA-XXXX-Y');
+    ga('send', 'pageview');
+  </script>
+  <script async src="http://www.google-analytics.com/analytics.js"></script>
+  <script async src="js/perfmatters.js"></script>
 </html>
