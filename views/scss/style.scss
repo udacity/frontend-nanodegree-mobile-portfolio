@@ -1,0 +1,138 @@
+/** {
+  outline: 1px solid red !important;
+}*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background: black;
+}
+
+input {
+  background: grey;
+  font-size: 18px;
+}
+
+form {
+  display: inline-block;
+}
+
+h4 { 
+	text-transform: capitalize; 
+}
+
+.centered {
+  text-align: center;
+}
+
+#pizzaSize {
+  font-weight: 800;
+}
+
+.mover {
+  position: fixed;
+  width: 73.333px;
+	height: 100px;
+  z-index: -1;
+}
+
+.randomPizzaContainer {
+  float: left;
+  display: flex;
+	height: 325px;
+  &::after {
+    content: " ";
+    display: table;
+    clear:both;
+  }
+}
+
+.container {
+  background-color: rgba(240, 60, 60, 0.8);
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-md-4, 
+.col-md-6, 
+.col-md-8, 
+.col-md-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container::before,
+.container::after,
+.row::before,
+.row::after{
+  content: " ";
+  display: table;
+}
+
+.container::after,
+.row::after {
+  clear:both;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+  .col-md-4, 
+	.col-md-6, 
+	.col-md-8, 
+	.col-md-12 {
+    float: left;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-8 {
+    width: 66.66666667%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  .col-md-push-3 {
+    left: 25%;
+  }
+  .col-md-push-2 {
+    left: 16.66666667%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

@@ -13,11 +13,26 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./dist/css'));
 });
 
+gulp.task('views-sass', function() {
+  return gulp.src('./views/scss/**/*.scss')
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(rename({extname: '.min.css'}))
+    .pipe(gulp.dest('./views/dist/css'));
+});
+
 gulp.task('compress', function() {
   return gulp.src("./js/**/*.js")
     .pipe(uglify())
     .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('views-compress', function() {
+  return gulp.src("./views/js/**/*.js")
+    .pipe(uglify())
+    .pipe(rename({extname: '.min.js'}))
+    .pipe(gulp.dest('./views/dist/js'));
 });
 
 gulp.task('default', function() {
