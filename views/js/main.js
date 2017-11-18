@@ -448,13 +448,25 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+  // function changePizzaSizes(size) {
+  //   for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+  //     var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+  //     var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+  //     document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+  //   }
+  // }
+//-------------  Refactored function to inrcrease pizza re-sizing speed  --------------
+//-------------------  Original function is commented out, above  ---------------------
+function changePizzaSizes(size) {
+  // var pizzaBoxes = document.querySelectorAll(".randomPizzaContainer");
+  var pizzaBox = document.querySelector(".randomPizzaContainer");
+  var pizzaBoxes = document.querySelectorAll(".randomPizzaContainer");
+  var dx = determineDx(pizzaBox, size);
+  var newwidth = pizzaBox.offsetWidth + dx + 'px';
+    for(var i =0; i < pizzaBoxes.length; i++) {
+        pizzaBoxes[i].style.width = newwidth;
     }
-  }
+}
 
   changePizzaSizes(size);
 
@@ -500,11 +512,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
+   var scrollTop = document.documentElement.scrollTop
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    // var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
