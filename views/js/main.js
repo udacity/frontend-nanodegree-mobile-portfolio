@@ -531,7 +531,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 //   }
 // }
 
-//-------------  Refactored function to inrcrease pizza re-sizing speed  --------------
+//-------------  Refactored function to inrcrease de-jack moving pizzas  --------------
 //-------------------  Original function is commented out, above  ---------------------
 function updatePositions() {
   frame++;
