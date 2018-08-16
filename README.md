@@ -1,4 +1,4 @@
-## Website Performance Optimization portfolio project
+# Website Performance Optimization portfolio project
 
 The challenge, is to optimize the online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques CRP (Critical Rendering Path) and frames per second (FPS).
 
@@ -18,7 +18,7 @@ Clone the repository and launch an HTTP server. This can be acheived by:
 Install the package using npm intall -i http-server
 Invoke http-server from the root of the project
 
-#### Optimization
+## Optimization
 
 ### General
 * Minified css - all
