@@ -1,29 +1,30 @@
 # Website Performance Optimization portfolio project
 
-The challenge, is to optimize the online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques CRP (Critical Rendering Path) and frames per second (FPS).
+The challenge, is to optimize the online portfolio for speed!
+In particular, make this page render as quickly as possible by applying the techniques CRP (Critical Rendering Path) and frames per second (FPS).
 
 The project has two branches:
-master: the standard code provided for the project.
-Desireemelusine-optmization: the optimized code
+* master: the standard code provided for the project.
+* Desireemelusine-optmization: the optimized code
 
 ### Getting started
 
 Clone the repository and launch an HTTP server. This can be acheived by:
 
 ##### Python's Simple HTTP Server.
-2.x: Invoke python -m SimpleHTTPServer from the root of the project
-3.x: Invoke python -m http.server from the root of the project
+* 2.x: Invoke python -m SimpleHTTPServer from the root of the project
+* 3.x: Invoke python -m http.server from the root of the project
 
 ##### NPM package http-server
-Install the package using npm intall -i http-server
-Invoke http-server from the root of the project
+* Install the package using npm intall -i http-server
+* Invoke http-server from the root of the project
 
 ## Optimization
 
 ### General
 * Minified css - all
 * Image compress - all
-* Moved to the bottom and added async to:  Script Google Analtics  and JS script tags
+* Moved to the bottom and added async to:  Script Google Analitics  and JS script tags
 * Minified html - the 4 projects
 * Correct the link for fonts.googleapis.com
 
