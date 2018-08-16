@@ -1,55 +1,46 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+The challenge, is to optimize the online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques CRP (Critical Rendering Path) and frames per second (FPS).
 
-To get started, check out the repository and inspect the code.
+The project has two branches:
+master: the standard code provided for the project.
+Desireemelusine-optmization: the optimized code
 
 ### Getting started
 
-#### Part 1: Optimize PageSpeed Insights score for index.html
+Clone the repository and launch an HTTP server. This can be acheived by:
 
-Some useful tips to help you get started:
+##### Python's Simple HTTP Server.
+2.x: Invoke python -m SimpleHTTPServer from the root of the project
+3.x: Invoke python -m http.server from the root of the project
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+##### NPM package http-server
+Install the package using npm intall -i http-server
+Invoke http-server from the root of the project
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+#### Optimization
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+### General
+* Minified css - all
+* Image compress - all
+* Moved to the bottom and added async to:  Script Google Analtics  and JS script tags
+* Minified html - the 4 projects
+* Correct the link for fonts.googleapis.com
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
+### Pizzeria Project
+* Changed [document.querySelector] to [document.getElementBy(Id or ClassName] for faster performance
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+#### function changePizzaSizes(size)
+* Refactored the function
+* A var pizzaChange outside for-loop to placed inside  document.getElementsByClassName("randomPizzaContainer");
+* switch(size) with var newwidth instead of return
+* Reduced for-loop calculation
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+#### function updatePositions()
+* Refactored the function
+* var items: outside the function
+* var scrollPosition outside for-loop to placed inside  document.body.scrollTop / 1250
 
-#### Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+#### document.addEventListener('DOMContentLoaded', function()
+* var movingPizzas outside for-loop to placed inside  document.getElementById('movingPizzas1') - outside the for-loop
+* var viewportWidth = window.innerWidth - outside the for loop and to calculate the viewer's viewport
