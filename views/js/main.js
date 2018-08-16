@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -483,20 +483,14 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 var items = document.getElementsByClassName('mover');
 
 function updatePositions() {
-  var itemsLength = items.length;
   frame++;
-  // taking the phase out from the for loop
-  var phases = []; // adding each phases to the array
-  for (var j = 0; j < 5; j++){
-    var phase = Math.sin((document.body.scrollTop / 1250) + (j));
-    phases.push(phase);
-  }
-
   window.performance.mark("mark_start_frame");
-    for (var i = 0; i < itemsLength; i++) {
-      var left = items[i].basicLeft + 100 * phases[i % 5] + 'px'; // getting the phases from the array
-      items[i].style.transform = 'translateX(' + left + ')';
-    }
+  var scrollPosition = document.body.scrollTop / 1250;
+  for (var i = 0, len = items.length, phase; i < len; i++) {
+    //Replaced with phase line
+    var phase = Math.sin((scrollPosition) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -506,27 +500,29 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
-}
+};
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-// Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  //var screenHeight = window.innerHeight;
   var cols = 8;
   var s = 256;
-  var row = 25000 / s;
-  for (var i = 0; i < row ; i++) {
+  //Created this var before the loop
+  var movingPizzas = document.getElementById('movingPizzas1');
+  //calculate # of pizza's per viewer's viewport:
+  var viewportWidth = window.innerWidth;
+  // Also placed the var 'elem' in the loop initialization for efficiency
+  for (var i = 0, elem; i < 1000; i++) {
     var elem = document.createElement('img');
-  //  var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    // The append is updated without a query:
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
