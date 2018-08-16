@@ -421,34 +421,7 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-/*  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
-    var oldSize = oldWidth / windowWidth;
-
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-    }
-
-    var newSize = sizeSwitcher(size);
-    var dx = (newSize - oldSize) * windowWidth;
-
-    return dx;
-  }*/
-
   // Iterates through pizza elements on the page and changes their widths
-  //var newwidth;
   function changePizzaSizes(size) {
     var pizzaChange = document.getElementsByClassName("randomPizzaContainer");
     switch(size) {
@@ -460,13 +433,8 @@ var resizePizzas = function(size) {
         break;
       case "3":
         newwidth = 50;
-      //default:
-        //console.log("bug in sizeSwitcher");
     }
-////////////////////////////////////////////
     for (var i = 0; i < pizzaChange.length; i++) {
-      //var dx = determineDx(pizzaChange[i], size);
-      //var newwidth = (pizzaChange[i].offsetWidth + dx) + 'px';
       pizzaChange[i].style.width = newwidth + "%";
     }
   }
@@ -529,19 +497,6 @@ function updatePositions() {
       var left = items[i].basicLeft + 100 * phases[i % 5] + 'px'; // getting the phases from the array
       items[i].style.transform = 'translateX(' + left + ')';
     }
-
-
-/*function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");
-  //var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    // document.body.scrollTop is no longer supported in Chrome.
-    //scrollTop;
-    var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }*/
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
