@@ -1,4 +1,4 @@
-**The final project is available on:** [Link] (https://valentinaarkh.github.io/frontend-nanodegree-mobile-portfolio/);
+**The final project is available on:** [Link](https://valentinaarkh.github.io/frontend-nanodegree-mobile-portfolio/);
 
 # Optimizations of Portfolio
 
@@ -8,19 +8,19 @@
 2. Add media query to devices which screen width is less than 480px to a separate file and add *media="only screen and (max-width:480px)"* attribute  to load it as needed.
 3. Add *media="print"* attribute to print.css file link to load it as needed.
 4. Add *asyn* attribute to perfmatters.js and analytics scrypts as they are not critical for page rendering so they do not block parcing process.
-5. Minify styles.css file with online [CSS minifiation tool] (https://cssminifier.com/).
-6. Make all css styles asynchronous with the help of [LoadCSS] (https://github.com/filamentgroup/loadCSS) function.
+5. Minify styles.css file with online [CSS minifiation tool](https://cssminifier.com/).
+6. Make all css styles asynchronous with the help of [LoadCSS](https://github.com/filamentgroup/loadCSS) function.
 7. Add all images that were loaded by link to project img folder to reduce the number of requests.
-8. Optimize images by using [Image jpeg compress tool] (https://compressjpeg.com/) and [Image png compress tool] (https://compresspng.com).
+8. Optimize images by using [Image jpeg compress tool](https://compressjpeg.com/) and [Image png compress tool](https://compresspng.com).
 9. Delete unnecessary empty lines and spaces in html files.
 10. Make the same changes with project-2048.html, project-mobile.html and project-webperf.html.
 
 ## Optimization of Pizzaria page
 
-1. Compress all project images using [Image compress tool] (https://compressjpeg.com/).
+1. Compress all project images using [Image compress tool](https://compressjpeg.com/).
 2. Minify bootstrap-grid.css file.
-3. Minify styles.css file with online [CSS minifiation tool] (https://cssminifier.com/).
-4. Make styles.css asynchronous with the help of [LoadCSS] (https://github.com/filamentgroup/loadCSS) function.
+3. Minify styles.css file with online [CSS minifiation tool](https://cssminifier.com/).
+4. Make styles.css asynchronous with the help of [LoadCSS](https://github.com/filamentgroup/loadCSS) function.
 4. Remove empty lines and unnecessary whitespaces from pizza.html.
 5. Optimize main.js
     1. Remove unnecessary empty lines.
