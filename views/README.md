@@ -1,4 +1,4 @@
-**The final project is available on: ** [Link] (https://valentinaarkh.github.io/frontend-nanodegree-mobile-portfolio/);
+**The final project is available on:** [Link] (https://valentinaarkh.github.io/frontend-nanodegree-mobile-portfolio/);
 
 # Optimizations of Portfolio
 
