@@ -358,7 +358,7 @@ const generateIngredientItems = (numberOfIngredients, cathegory) => {
     fragment.appendChild(ingredientItemizer(selectRandomIngredient(cathegory)));
   }
   return fragment;
-}
+};
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function (i) {
   const pizzaContainer = document.createElement("div");
@@ -393,7 +393,7 @@ const addPizzaFragment = () => {
     pizzaFragment.appendChild(pizzaElementGenerator(i));
   }
   pizzasDiv.appendChild(pizzaFragment);
-}
+};
 // resizePizzas(size) is called when the slider in "Our Pizzas" section of the website moves.
 var resizePizzas = function (size) {
   // User Timing API function
@@ -483,7 +483,7 @@ const createMovingPizza = (element, columns, columnWidth) => {
     elem.basicLeft = (element % columns) * columnWidth;
     elem.basicTop = (Math.floor(element / columns) * columnWidth);
     return elem;
-}
+};
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
