@@ -10,6 +10,8 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
   #### 4. External Request count low
   #### 5. minified css,js
   #### 6. Cache Policy, mix content error console
+  
+  live demo - [frontend-nanodegree-mobile-portfolio](https://rajesh-royal.github.io/frontend-nanodegree-mobile-portfolio/)
 
 ## pizza.html optimization
   #### 1. frames per second rate is 60 fps now :) 
