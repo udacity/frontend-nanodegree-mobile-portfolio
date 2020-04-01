@@ -8,7 +8,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
   #### 2. Compressed Images
   #### 3. Levrage Font display feature :swap
   #### 4. External Request count low
-  #### 5. 
+  #### 5. minified css
 
 ### other optimization
   #### mix content error console
