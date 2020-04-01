@@ -9,6 +9,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
   #### 3. Levrage Font display feature :swap
   #### 4. External Request count low
   #### 5. minified css
+  #### 6. Cache Policy
 
 ### other optimization
   #### mix content error console
