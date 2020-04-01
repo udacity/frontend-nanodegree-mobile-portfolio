@@ -2,6 +2,21 @@
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
+
+## Optimization Work
+  #### 1. Properly Size images
+  #### 2. Compressed Images
+  #### 3. Levrage Font display feature :swap
+  #### 4. External Request count low
+  #### 5. 
+
+### other optimization
+  #### mix content error console
+
+
+
+
+
 To get started, check out the repository and inspect the code.
 
 ### Getting started
