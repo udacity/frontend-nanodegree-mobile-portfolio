@@ -2,6 +2,24 @@
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
+
+## Optimization Work
+  #### 1. Properly Size images
+  #### 2. Compressed Images
+  #### 3. Levrage Font display feature :swap
+  #### 4. External Request count low
+  #### 5. minified css,js
+  #### 6. Cache Policy, mix content error console
+  
+  live demo - [frontend-nanodegree-mobile-portfolio](https://rajesh-royal.github.io/frontend-nanodegree-mobile-portfolio/)
+
+## pizza.html optimization
+  #### 1. frames per second rate is 60 fps now :) 
+
+
+
+
+
 To get started, check out the repository and inspect the code.
 
 ### Getting started
