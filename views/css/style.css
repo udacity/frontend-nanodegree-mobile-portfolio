@@ -7,6 +7,16 @@
   -box-sizing: border-box;
 }
 
+
+
+#movingPizzas {
+    -ms-transform: translate(50px,100px); /* IE 9 */
+    -webkit-transform: translate(50px,100px); /* Chrome, Safari, Opera */
+    transform: translate(50px,100px);
+}
+
+
+
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   background: black;
