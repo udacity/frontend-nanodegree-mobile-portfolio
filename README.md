@@ -4,11 +4,11 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 
 To get started, check out the repository and inspect the code.
 
-### Getting started
+
 
 #### Part 1: Optimize PageSpeed Insights score for index.html
 
-Some useful tips to help you get started:
+
 
 1. Check out the repository
 1. To inspect the site on your phone, you can run a local server
